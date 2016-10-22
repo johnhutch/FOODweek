@@ -2,3 +2,27 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+html {
+	box-sizing: border-box;
+}
+
+.devise-container {
+	width: 100%;
+	max-width: 500px;
+}
+
+.page-footer {
+	@include clearfix;
+	margin: 0.5em;
+	margin-top: 2em;
+	text-align: center;
+
+	.footer-junk {
+		padding: 0.25em;
+		text-align: center;
+		
+		p {
+			margin: 0em;
+		}
+	}
+} // .page-footer
