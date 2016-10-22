@@ -1,5 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :meal_plans
+
   validates :name, presence: true
   validates :ingredients, presence: true
   validates :steps, presence: true
