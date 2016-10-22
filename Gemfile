@@ -56,6 +56,9 @@ group :development, :test do
   # Use capybara for plain language testing
   gem 'capybara', '~> 2.10.1'
 
+  # Use factory_girl_rails to generate data for tests
+  gem 'factory_girl_rails', '~> 4.7.0'
+
   # Use database_cleaner for maintaining a clean test database on each run
   gem 'database_cleaner', '~> 1.5.3'
 end

@@ -4,7 +4,7 @@
     <li><%= @meal_plan.recipes.inspect %></li>
   </ul>
 <% else %>
-  <p class"no_recipes">You haven't added any recipe's to this week's meal plans yet.</p>
+  <p class="no_recipes">You haven't added any recipe's to this week's meal plans yet.</p>
 <% end %>
 
 <%= link_to 'Edit', edit_meal_plan_path(@meal_plan) %>
