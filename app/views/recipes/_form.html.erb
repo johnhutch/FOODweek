@@ -1,0 +1,18 @@
+<%= form_for @recipe do |f| %>
+  <% if @recipe.errors.any? %>
+    <h2><%= pluralize @recipe.errors.count, "error" %></h2>
+    <ul>
+      <% @recipe.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.label :name, "Name" %>
+  <%= f.text_field :name %>
+  <%= f.label :ingredients, "Ingredients" %>
+  <%= f.text_area :ingredients %>
+  <%= f.label :steps, "Steps" %>
+  <%= f.text_area :steps %>
+  <%= f.submit submit_text %>
+<% end %>
