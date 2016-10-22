@@ -1,7 +1,7 @@
 # FOODweek
 
 
-Purpose:
+__Purpose:__
 
 1. Store your favorite recipes
 2. Use your stored recipes to create a weekly meal plan
@@ -10,9 +10,9 @@ Purpose:
 
 We like food. We like lists. We don't like expending unecessary energy. Hopefully the convenience will one day offset the time, effort, and single malt we put into this bad boy.
 
+---
 
-
-Things we will eventually cover:
+__Things we will eventually cover:__
 
 * Ruby version: 2.3.1
 
@@ -24,10 +24,10 @@ Things we will eventually cover:
 
 * Database initialization
 
-* How to run the test suite
+* How to run the test suite... super suite.
 
 * Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+* Deployment instructions 
 
-* ...
+* What we want on our pizza
