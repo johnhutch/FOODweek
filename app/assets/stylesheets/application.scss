@@ -1,10 +1,41 @@
 @import "compass";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Kreon|Pontano+Sans|Source+Sans+Pro:300i');
 
-html {
+
+$pop-color: #7bbf66;
+
+html, body {
 	box-sizing: border-box;
+	font-family: 'Pontano Sans', sans-serif;
+	font-size: 20px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1.5em;
 }
+
+
+h1, h2, h3, h4, h5, h6	{
+	font-family: 'Kreon', serif;
+}
+
+h3	{
+	color: #666666;
+}
+
+
+em	{
+	font-family: 'Source Sans Pro', sans-serif;
+	padding-right: 0.1em;
+}
+
+
+.btn-default	{
+	background-color: $pop-color;
+	color: #fff;
+}
+
 
 .devise-container {
 	width: 100%;
@@ -15,6 +46,7 @@ html {
 	@include clearfix;
 	margin: 0.5em;
 	margin-top: 2em;
+	font-size: 0.875em;
 	text-align: center;
 
 	.footer-junk {
