@@ -20,5 +20,5 @@ test:
 
 production:
   <<: *default
-  username: fnwfrefteocxkq
-  password: jv1WcciM3-rzZKatOwdl3Vc3Fk
+  username: <%= ENV['FOODWEEK_POSTGRES_USERNAME']
+  password: <%= ENV['FOODWEEK_POSTGRES_PASSWORD']
