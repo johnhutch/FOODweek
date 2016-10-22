@@ -1,34 +1,40 @@
 <%= form_for @recipe do |f| %>
-  <% if @recipe.errors.any? %>
-    <div class="alert alert-danger">
-      <h3><%= pluralize @recipe.errors.count, "error" %></h3>
-      <ul>
-        <% @recipe.errors.full_messages.each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="form-group">
-    <%= f.label :name, "Name" %>
-    <%= f.text_field :name, class: "form-control" %>
+<% if @recipe.errors.any? %>
+
+<section class="form-errors">
+  <h3 class="form-errors__heading"><%= pluralize @recipe.errors.count, "error" %></h3>
+  <ul class="form-errors__list">
+    <% @recipe.errors.full_messages.each do |error| %>
+      <li class="form-errors__list-item"><%= error %></li>
+    <% end %>
+  </ul>
+</section>
+
+<% end %>
+
+<section class="recipe-form">
+  <div class="form-group recipe-form__item">
+    <%= f.label :name, "Name", class: "recipe-form__label" %>
+    <%= f.text_field :name, class: "form-control recipe-form__input" %>
+  </div>
+
+  <div class="form-group recipe-form__item">
+    <%= f.label :time, "Time", class: "recipe-form__label" %>
+    <%= f.number_field :time, class: "form-control recipe-form__input", min: 0 %>
   </div>
  
-  <div class="form-group">
-    <%= f.label :ingredients, "Ingredients" %>
-    <%= f.text_area :ingredients, class: "form-control" %>
+  <div class="form-group recipe-form__item">
+    <%= f.label :ingredients, "Ingredients", class: "recipe-form__label" %>
+    <%= f.text_area :ingredients, class: "form-control recipe-form__text-area" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :steps, "Steps" %>
-    <%= f.text_area :steps, class: "form-control" %>
+  <div class="form-group recipe-form__item">
+    <%= f.label :steps, "Steps", class: "recipe-form__label" %>
+    <%= f.text_area :steps, class: "form-control recipe-form__text-area" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :time, "Time" %>
-    <%= f.number_field :time, class: "form-control", min: 0 %>
-  </div>
+  <%= f.submit submit_text, class: "btn btn-default recipe-form__submit" %>
+</section>
 
-  <%= f.submit submit_text, class: "btn btn-default" %>
 <% end %>
