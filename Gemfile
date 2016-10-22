@@ -40,6 +40,9 @@ gem 'jbuilder', '~> 2.5'
 # Use for managing environment variables. Works nicely with Heroku too.
 gem 'figaro', '~> 1.1.1'
 
+# Use devise for user authentication and omniauth
+gem 'devise', '~> 4.2.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 9.0.6', platform: :mri
