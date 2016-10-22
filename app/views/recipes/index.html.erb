@@ -1,9 +1,16 @@
 <h1>Recipes</h1>
 
 <% @recipes.each do |recipe| %>
-  <h2><%= recipe.name %></h2>
-  <h3>Ingredients</h3>
-  <p><%= recipe.ingredients %></p>
-  <h3>Steps</h3>
-  <p><%= recipe.steps %></p>
+  <section>
+    <h2><%= recipe.name %></h2>
+    <ul>
+      <li><%= link_to "Read", recipe %></li>
+      <li><%= link_to "Edit", edit_recipe_path(recipe) %></li>
+      <li><%= link_to "Delete", recipe, method: :delete %></li>
+    </ul>
+  </section>
 <% end %>
+
+<footer>
+  <%= link_to "Create a New Recipe", new_recipe_path %>
+</footer>
