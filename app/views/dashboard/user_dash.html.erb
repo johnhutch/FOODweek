@@ -1,0 +1,16 @@
+<% content_for :page_header do %>
+    <h1 class="dashboard_header">Hey. Welcome back.</h1>
+<% end %>
+
+<section class="recipes">
+  <h2>Your Recipes</h2>
+  <%= link_to "Create a new recipe", new_meal_plan_path %>
+  <%= debug(@recipes) %>
+</section>
+
+<section class="meal_plan">
+  <h2>Your Current Meal Plan</h2>
+  <% unless @meal_plan.nil? %><%= link_to "Modify this meal plan", edit_meal_plan_path(@meal_plan) %><% end %>
+  <%= link_to "Create a new meal plan", new_meal_plan_path %>
+  <%= debug(@meal_plan) %>
+</section>

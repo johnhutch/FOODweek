@@ -10,11 +10,11 @@ User.create(
 test_user_paris = User.find_by email: "test.user.paris@gmail.com"
 
 User.create(
-  email: "test.user.hutch@gmail.com",
+  email: "johnhutch@gmail.com",
   password: "whatever",
   password_confirmation: "whatever"
 )
-test_user_hutch = User.find_by email: "test.user.hutch@gmail.com"
+test_user_hutch = User.find_by email: "johnhutch@gmail.com"
 
 User.create(
   email: "test.user.sammy@gmail.com",
