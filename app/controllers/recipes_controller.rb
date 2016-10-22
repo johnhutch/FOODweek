@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find(params[:id])
 
+    # Settings for the markdown.render method to use.
     renderer = Redcarpet::Render::HTML.new(
       filter_html: true,
       no_images: true,
@@ -30,7 +31,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = current_user.recipes.build(recipe_params)
 
     if @recipe.save
       redirect_to @recipe
@@ -44,7 +45,7 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
+    @recipe = current_user.recipes.find(params[:id])
     
     if @recipe.update(recipe_params)
       redirect_to @recipe

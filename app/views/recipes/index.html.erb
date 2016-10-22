@@ -3,6 +3,7 @@
 <% @recipes.each do |recipe| %>
   <section>
     <h2><%= recipe.name %></h2>
+    <h3>Submitted by <%= recipe.user.email %></h3>
     <ul>
       <li><%= link_to "Read", recipe %></li>
       <li><%= link_to "Edit", edit_recipe_path(recipe) %></li>
