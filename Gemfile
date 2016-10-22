@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Use for managing environment variables. Works nicely with Heroku too.
+gem 'figaro', '~> 1.1.1'
 
 group :development do 
   # access an IRB console on exception pages or by using <%= console %> in these views
@@ -61,3 +63,4 @@ group :development do
   gem 'spring', '~> 2.0 0'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
