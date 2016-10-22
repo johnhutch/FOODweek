@@ -1,9 +1,12 @@
+<article class="dashboard">
+
 <% content_for :page_header do %>
-    <h1 class="dashboard_header">Hey. Welcome back.</h1>
+  <h1 class="dashboard__heading">Hey. Welcome back.</h1>
 <% end %>
 
-<section class="recipes">
-  <h2>Your Recipes</h2>
+<%= render partial: "recipes/list", locals: { recipes: @recipes } %>
+
+<section>
   <%= link_to "Create a new recipe", new_meal_plan_path %>
   <%= debug(@recipes) %>
 </section>
@@ -14,3 +17,5 @@
   <%= link_to "Create a new meal plan", new_meal_plan_path %>
   <%= debug(@meal_plan) %>
 </section>
+
+</article>

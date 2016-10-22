@@ -1,0 +1,68 @@
+.recipes {
+  &__heading {
+    color: purple;
+  }
+
+  &--show {
+  }
+  &--index {
+  }
+  &--mine {
+  }
+  &--new {
+  }
+  &--edit {
+  }
+} // .recipes
+
+.recipe {
+  &__name {
+  }
+  &__byline {
+  }
+  &__time {
+  }
+  &__ingredients {
+  }
+  &__steps {
+  }
+
+  &--full {
+  }
+  &--brief {
+  }
+} // .recipe
+
+.recipe-actions {
+  &__list {
+  }
+  &__list-item {
+  }
+  &__link {
+    text-decoration: none;
+    border-bottom: 2px solid green;
+  }
+} // .recipe-actions
+
+.recipe-form {
+  &__item {
+  }
+  &__label {
+    color: pink;
+  }
+  &__input {
+  }
+  &__textarea {
+  }
+  &__submit {
+  }
+} // .recipe-form
+
+.form-errors {
+  &__heading {
+  }
+  &__list {
+  }
+  &__list-item {
+  }
+} // .form-errors
