@@ -1,5 +1,6 @@
 class MealPlansController < ApplicationController
   before_action :set_meal_plan, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /meal_plans
   # GET /meal_plans.json
@@ -24,7 +25,7 @@ class MealPlansController < ApplicationController
   # POST /meal_plans
   # POST /meal_plans.json
   def create
-    @meal_plan = MealPlan.new(meal_plan_params)
+    @meal_plan = current_user.meal_plans.build(meal_plan_params)
 
     respond_to do |format|
       if @meal_plan.save
