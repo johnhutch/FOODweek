@@ -2,15 +2,41 @@
     <h1 class="dashboard_header">Hey. Welcome back.</h1>
 <% end %>
 
-<section class="recipes">
-  <h2>Your Recipes</h2>
-  <%= link_to "Create a new recipe", new_meal_plan_path %>
-  <%= debug(@recipes) %>
-</section>
+<div class="container-fluid">
+  <div class="row">
+    <section class="recipes col-sm-4">
+      <h2>Your Recipes</h2>
+      <%= link_to "Create a new recipe", new_meal_plan_path, class: "btn btn-primary" %>
+      <%= render partial: "recipes/list", locals: { recipes: current_user.recipes } %>
+    </section>
 
-<section class="meal_plan">
-  <h2>Your Current Meal Plan</h2>
-  <% unless @meal_plan.nil? %><%= link_to "Modify this meal plan", edit_meal_plan_path(@meal_plan) %><% end %>
-  <%= link_to "Create a new meal plan", new_meal_plan_path %>
-  <%= debug(@meal_plan) %>
-</section>
+    <section class="meal_plan col-sm-8">
+      <h2>Your Meal Plan</h2>
+      <%= link_to "Create a new meal plan", new_meal_plan_path, class: "btn btn-primary"  %>
+      <div class="row">
+        <section class="meal_plan_recipes col-md-4">
+          <% unless @meal_plan.recipes.empty? %>
+            <h3>This week's recipes</h3>
+            <%= render partial: "recipes/list", locals: { recipes: @meal_plan.recipes } %>
+            <% modify_btn_text = "Modify this meal plan" %>
+          <% else %>
+            <p>It looks like you haven't added any recipes to this week's meal plan</p>
+            <% modify_btn_text = "Add some recipes" %>
+          <% end %>
+        <% unless @meal_plan.nil? %><%= link_to modify_btn_text, edit_meal_plan_path(@meal_plan), class: "btn btn-primary"  %><% end %>
+        </section>
+
+        <section class="shopping_list col-md-4">
+          <% unless @meal_plan.recipes.nil? %>
+            <h3>Your Shopping List</h3>
+            <div class="ingredients">
+              <% @meal_plan.recipes.each do |r| %>
+                <%= r.ingredients %>
+              <% end %>
+            </div>
+          <% end %>
+        </section>
+      </div>
+    </section>
+  </div>
+</div>
