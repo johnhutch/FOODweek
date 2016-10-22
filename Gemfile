@@ -40,6 +40,9 @@ gem 'jbuilder', '~> 2.5'
 # Use for managing environment variables. Works nicely with Heroku too.
 gem 'figaro', '~> 1.1.1'
 
+ # Allows for markup formatting in text.
+gem 'redcarpet', '~> 3.1.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 9.0.6', platform: :mri
@@ -61,4 +64,3 @@ group :development do
   # needed for advanced better_errors features
   gem 'binding_of_caller', '~> 0.7.2'
 end
-
