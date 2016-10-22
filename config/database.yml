@@ -20,6 +20,5 @@ test:
 
 production:
   <<: *default
-  database: d9fhim58n1g5jq
   username: fnwfrefteocxkq
   password: jv1WcciM3-rzZKatOwdl3Vc3Fk
