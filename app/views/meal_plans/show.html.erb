@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @meal_plan.name %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @meal_plan.active %>
+</p>
+
+<%= link_to 'Edit', edit_meal_plan_path(@meal_plan) %> |
+<%= link_to 'Back', meal_plans_path %>

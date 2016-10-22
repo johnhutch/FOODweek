@@ -40,12 +40,24 @@ gem 'jbuilder', '~> 2.5'
 # Use for managing environment variables. Works nicely with Heroku too.
 gem 'figaro', '~> 1.1.1'
 
+ # Allows for markup formatting in text.
+gem 'redcarpet', '~> 3.1.2'
+
 # Use devise for user authentication and omniauth
 gem 'devise', '~> 4.2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 9.0.6', platform: :mri
+
+  # Use rspec for testing
+  gem 'rspec-rails', '~> 3.5.2'
+
+  # Use capybara for plain language testing
+  gem 'capybara', '~> 2.10.1'
+
+  # Use database_cleaner for maintaining a clean test database on each run
+  gem 'database_cleaner', '~> 1.5.3'
 end
 
 group :development do
@@ -64,4 +76,3 @@ group :development do
   # needed for advanced better_errors features
   gem 'binding_of_caller', '~> 0.7.2'
 end
-
