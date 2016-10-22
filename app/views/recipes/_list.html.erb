@@ -1,7 +1,7 @@
 <% @recipes.each do |recipe| %>
-  <section>
+  <section class="recipe">
     <h2><%= recipe.name %></h2>
-    <ul>
+    <ul class="controls">
       <li><%= link_to "Read", recipe %></li>
       <% if recipe.user = current_user %>
         <li><%= link_to "Edit", edit_recipe_path(recipe) %></li>
