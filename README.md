@@ -1,6 +1,7 @@
 # FOODweek
 
 Purpose:
+
 1. Store your favorite recipes
 2. Use your stored recipes to create a weekly meal plan
 3. Have your weekly meal plan generate a shopping list for you
