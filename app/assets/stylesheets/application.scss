@@ -5,6 +5,13 @@
 
 
 $pop-color: #7bbf66;
+$pop-color-dark: darken( $pop-color, 10%);
+$pop-color-darker: darken( $pop-color, 25%);
+
+$alt-pop-color: #d06868;
+$dark-color: #696666;
+$warm-dark-color: #796969;
+$bright-color: #bbb8b8;
 
 html, body {
 	box-sizing: border-box;
@@ -16,12 +23,17 @@ html, body {
 }
 
 
+
 h1, h2, h3, h4, h5, h6	{
 	font-family: 'Kreon', serif;
 }
 
-h3	{
-	color: #666666;
+h1	{
+	color: $pop-color-darker;
+}
+
+h2, h3, h4, h5,h6	{
+	color: $pop-color;
 }
 
 
@@ -30,17 +42,78 @@ em	{
 	padding-right: 0.1em;
 }
 
+a	{
+	color: $alt-pop-color;
+}
 
-.btn-default	{
+.btn-default {
 	background-color: $pop-color;
+	width: 100%;
 	color: #fff;
+}
+
+.form-group {
+	margin-bottom: 2.5em;
+}
+
+
+.form-control	{
+	margin-bottom: 2em;
+	background-color: #FFFFE9;
+  padding: 10px;
+  border: solid 1px #ccc;
+}
+
+
+.form-control:focus	{
+	margin-bottom: 2em;
+  padding: 10px;
+  border: solid 1px $pop-color-dark;
+  border-bottom: solid 2px $pop-color-darker;
+  box-shadow: 0 0 5px 1px $pop-color;
 }
 
 
 .devise-container {
 	width: 100%;
-	max-width: 500px;
+	max-width: 370px;
+
+	em {
+		font-size: 0.75em;
+		bottom-margin: 0em;
+		padding: 0em; 
+	
+		&.block {
+			display: block;
+			line-height: 1em;
+			margin-bottom: 0.5em;
+		}
+	}
 }
+
+.clear-all-margins {
+	margin: 0em;
+	padding: 0em;
+	line-height: 1em;
+}
+
+.container-cancelmyaccount	{
+	width: 75%;
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 4em;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0.25em;
+	transform: scale(.875);
+	border: solid 1px $bright-color;
+
+	.btn-default	{
+		width: auto;
+	}
+}
+
+
 
 .page-footer {
 	@include clearfix;
