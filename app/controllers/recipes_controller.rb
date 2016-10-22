@@ -17,7 +17,7 @@ class RecipesController < ApplicationController
       prettify: true,
     )
 
-    markdown = Redcarpet::Markdown.new(
+    @markdown = Redcarpet::Markdown.new(
       renderer,
       no_intra_emphasis: true,
       strikethrough: true,
