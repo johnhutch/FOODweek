@@ -1,62 +1,66 @@
 <!doctype html>
 <html class="no-js" lang="">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><%= content_for?(:page_title).presence || 'FOODweek' %></title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title><%= content_for?(:page_title).presence || 'FOODweek' %></title>
+  <%= csrf_meta_tags %>
 
-		<meta name="description" content="FOODweek. Your recipes. Your meal plan.">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-		<link rel="apple-touch-icon" href="apple-touch-icon.png">
-	</head>
-	<body>
-		<!--[if lt IE 8]>
-				<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
+  <meta name="description" content="FOODweek. Your recipes. Your meal plan.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <%= render "layouts/nav" %>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
 
-    <header class="container-fluid page-header page-header__hero" role="banner">
-      <% if content_for?(:page_header) %>
-        <%= yield :page_header %>
-      <% else %>
-        <div class="text-center">
-          <h1 class="page-header__logo">FOODweek</h1>
-          <h2>Your recipes. Your meal plan. Your FOODweek.</h2>
-            <small>See what's good to eat.</small></h2>
-        </div>
-      <% end %>
-    </header>
+<body>
+  <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
 
-    <main class="container" role="main">
-      <% if notice %>
-        <div class="notice"><%= notice %></div>
-      <% end %>
+  <%= render "layouts/nav" %>
 
-      <% if alert %>
-        <div class="alert"><%= alert %></div>
-      <% end %>
-
-      <!-- Add your site or application content here -->
-      <%= yield %>
-    </main>
-
-    <footer class="container-fluid page-footer" role="contentinfo">
-      <div class="footer-junk">
-        <p><a href="http://www.rubyrampage.com"><img src="https://d4nnn7wspfa3h.cloudfront.net/rails-rumble-badge-2015-sm.png" alt="Ruby Rampage 2016 Participant" /></a></p>
+  <header class="container-fluid page-header page-header--hero" role="banner">
+    <% if content_for?(:page_header) %>
+      <%= yield :page_header %>
+    <% else %>
+      <div class="text-center">
+        <h1 class="page-header__title">FOODweek</h1>
+        <h2 class="page-header__subtitle">Your recipes. Your meal plan. Your FOODweek.</h2>
+        <h3 class="page-header__motto">See what's good to eat.</h3>
       </div>
-      <div class="footer-junk">
-        <p>Designed and built with love by</p>
-        <p><a href="http://www.twitter.com/johnhutch">@johnhutch</a></p>
-        <p><a href="http://www.twitter.com/jon_athan_hall">@jon_athan_hall</a></p>
-        <p><a href="http://www.twitter.com/arbitrarynoun">@arbitrarynoun</a></p>
-        </p>
-      </div>
-    </footer>
-	</body>
+    <% end %>
+  </header>
+
+  <main class="container" role="main">
+    <% if notice %>
+      <div class="notice"><%= notice %></div>
+    <% end %>
+
+    <% if alert %>
+      <div class="alert"><%= alert %></div>
+    <% end %>
+
+    <!-- Add your site or application content here -->
+    <%= yield %>
+  </main>
+
+  <footer class="container-fluid page-footer" role="contentinfo">
+    <div class="footer-junk">
+      <p><a href="http://www.rubyrampage.com"><img src="https://d4nnn7wspfa3h.cloudfront.net/rails-rumble-badge-2015-sm.png" alt="Ruby Rampage 2016 Participant" /></a></p>
+    </div>
+
+    <div class="footer-junk">
+      <p>Designed and built with love by</p>
+      <p><a href="http://www.twitter.com/johnhutch">@johnhutch</a></p>
+      <p><a href="http://www.twitter.com/jon_athan_hall">@jon_athan_hall</a></p>
+      <p><a href="http://www.twitter.com/arbitrarynoun">@arbitrarynoun</a></p>
+      </p>
+    </div>
+  </footer>
+</body>
+
 </html>

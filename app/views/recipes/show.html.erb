@@ -1,7 +1,22 @@
-<h1>Recipe</h1>
+<article class="recipes recipes-page--single">
+  <h1 class="recipes__heading">Single Recipe</h1>
 
-<h2><%= @recipe.name %></h2>
-<h3>Submitted by <%= @recipe.user.email %></h3>
-<p><%= @markdown.render(@recipe.ingredients).html_safe %></p>
-<p><%= @markdown.render(@recipe.steps).html_safe %></p>
-<p><%= @recipe.time %></p>
+  <section class="recipe recipe--full">
+    <h2 class="recipe__heading"><%= @recipe.name %></h2>
+    <h3 class="recipe__subheading"><%= @recipe.user.email %></h3>
+
+    <p class="recipe__time"><%= @recipe.time %> minutes</p>
+    <p class="recipe__ingredients"><%= markdown(@recipe.ingredients) %></p>
+    <p class="recipe__steps"><%= markdown(@recipe.steps) %></p>
+
+    <ul class="recipe__actions-list">
+      <li class="recipe__action-list-item"><%= link_to "Add to Meal Plan", @recipe, data: { confirm: "Add to current meal plan." } %></li>
+      <% if current_user.equal? @recipe.user %>
+        <li class="recipe__action-list-item"><%= link_to "Edit", edit_recipe_path(@recipe), class: "recipe__action-link" %></li>
+        <li class="recipe__action-list-item"><%= link_to "Delete", @recipe, method: :delete, class: "recipe__action-link" %></li>
+      <% else %>
+        <li class="recipe__action-list-item"><%= link_to "Save", @recipe, data: { confirm: "Save this recipe even though you didn't write it yourself." } %></li>
+      <% end %>
+    </ul>
+  </section>
+</article>

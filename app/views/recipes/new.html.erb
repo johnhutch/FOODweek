@@ -1,3 +1,4 @@
-<h2>New Recipe</h2>
-
-<%= render partial: "form", locals: { recipe: @recipe, submit_text: "Create a Recipe" } %>
+<article class="recipes recipes--new">
+  <h1 class="recipes__heading">New Recipe</h1>
+  <%= render partial: "form", locals: { recipe: @recipe, submit_text: "Create a Recipe" } %>
+</article>

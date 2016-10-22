@@ -1,12 +1,15 @@
 <% @recipes.each do |recipe| %>
-  <section class="recipe">
-    <h2><%= recipe.name %></h2>
-    <ul class="controls">
-      <li><%= link_to "Read", recipe %></li>
-      <% if recipe.user = current_user %>
-        <li><%= link_to "Edit", edit_recipe_path(recipe) %></li>
-        <li><%= link_to "Delete", recipe, method: :delete %></li>
-      <% end %>
-    </ul>
-  </section>
+
+<section class="recipe recipe--brief">
+  <h2 class="recipe__heading"><%= recipe.name %></h2>
+
+  <ul class="recipe__actions-list">
+    <li class="recipe__action-list-item"><%= link_to "Read", recipe, class: "recipe__action-link" %></li>
+    <% if current_user.equal? recipe.user %>
+      <li class="recipe__action-list-item"><%= link_to "Edit", edit_recipe_path(recipe), class: "recipe__action-link" %></li>
+      <li class="recipe__action-list-item"><%= link_to "Delete", recipe, method: :delete, class: "recipe__action-link" %></li>
+    <% end %>
+  </ul>
+</section>
+
 <% end %>

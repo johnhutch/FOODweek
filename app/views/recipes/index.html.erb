@@ -1,7 +1,4 @@
-<h1>Recipes</h1>
-
-<%= render partial: "list", locals: { recipes: @recipes } %>
-
-<footer>
-  <%= link_to "Create a New Recipe", new_recipe_path %>
-</footer>
+<article class="recipes recipes--all">
+  <h1 class="recipes__heading">All Recipes</h1>
+  <%= render partial: "list", locals: { recipes: @recipes } %>
+</article>
