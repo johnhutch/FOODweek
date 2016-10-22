@@ -2,7 +2,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Kreon|Pontano+Sans|Source+Sans+Pro:300i');
-
+@import "recipes";
 
 $pop-color: #7bbf66;
 $pop-color-dark: darken( $pop-color, 10%);
@@ -131,3 +131,8 @@ a	{
 		}
 	}
 } // .page-footer
+
+ul.recipes {
+  list-style-type: none;
+  padding-left: 0;
+}

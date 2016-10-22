@@ -11,17 +11,26 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :active %>
-    <%= f.check_box :active %>
+  <div class="form-group">
+    <%= f.label :recipes %>
+    <input type="hidden" name="meal_plan[recipe_ids][]" value>
+    <% current_user.recipes.each do |r| %>
+      <% checked = meal_plan.recipes.include?(r) ? "checked=\"checked\"" : "" %>
+      <div class="checkbox">
+        <label data-value="<%= r.id %>" for="meal_plan_recipe_ids_<%= r.id %>">
+          <input type="checkbox" value="<%= r.id %>" <%= checked %> name="meal_plan[recipe_ids][]" id="meal_plan_recipe_ids_<%= r.id %>" /> 
+          <%= link_to r.name, r %>
+        </label>
+      </div>
+    <% end %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Save my meal plan", class: "btn btn-default" %>
   </div>
 <% end %>

@@ -1,5 +1,6 @@
 class MealPlansController < ApplicationController
   before_action :set_meal_plan, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /meal_plans
   # GET /meal_plans.json
@@ -24,11 +25,11 @@ class MealPlansController < ApplicationController
   # POST /meal_plans
   # POST /meal_plans.json
   def create
-    @meal_plan = MealPlan.new(meal_plan_params)
+    @meal_plan = current_user.meal_plans.build(meal_plan_params)
 
     respond_to do |format|
       if @meal_plan.save
-        format.html { redirect_to @meal_plan, notice: 'Meal plan was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'Meal plan was successfully created.' }
         format.json { render :show, status: :created, location: @meal_plan }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class MealPlansController < ApplicationController
   def update
     respond_to do |format|
       if @meal_plan.update(meal_plan_params)
-        format.html { redirect_to @meal_plan, notice: 'Meal plan was successfully updated.' }
+        format.html { redirect_to dashboard_path, notice: 'Meal plan was successfully updated.' }
         format.json { render :show, status: :ok, location: @meal_plan }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class MealPlansController < ApplicationController
   def destroy
     @meal_plan.destroy
     respond_to do |format|
-      format.html { redirect_to meal_plans_url, notice: 'Meal plan was successfully destroyed.' }
+      format.html { redirect_to dashboard_path, notice: 'Meal plan was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,6 @@ class MealPlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meal_plan_params
-      params.require(:meal_plan).permit(:name, :active)
+      params.require(:meal_plan).permit(:name, :active, {:recipe_ids => []} )
     end
 end

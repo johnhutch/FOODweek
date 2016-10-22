@@ -1,6 +1,5 @@
-<h1>Editing Meal Plan</h1>
+<% content_for :page_header do %>
+  <h1>Editing Meal Plan</h1>
+<% end %>
 
 <%= render 'form', meal_plan: @meal_plan %>
-
-<%= link_to 'Show', @meal_plan %> |
-<%= link_to 'Back', meal_plans_path %>

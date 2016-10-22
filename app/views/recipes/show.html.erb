@@ -1,7 +1,24 @@
-<h1>Recipe</h1>
+<article class="recipes recipes--show">
+  <h1 class="recipes__heading">Single Recipe</h1>
 
-<h2><%= @recipe.name %></h2>
-<h3>Submitted by <%= @recipe.user.email %></h3>
-<p><%= @markdown.render(@recipe.ingredients).html_safe %></p>
-<p><%= @markdown.render(@recipe.steps).html_safe %></p>
-<p><%= @recipe.time %></p>
+  <section class="recipe recipe--full">
+    <h2 class="recipe__name"><%= @recipe.name %></h2>
+    <h3 class="recipe__byline"><%= @recipe.user.email %></h3>
+
+    <p class="recipe__time"><%= @recipe.time %> minutes</p>
+    <p class="recipe__ingredients"><%= markdown(@recipe.ingredients) %></p>
+    <p class="recipe__steps"><%= markdown(@recipe.steps) %></p>
+
+    <div class="recipe-actions">
+      <ul class="recipe-actions__list">
+        <li class="recipe-actions__list-item"><%= link_to "Add to Meal Plan", @recipe, class: "recipe-actions__link", data: { confirm: "Add to current meal plan." } %></li>
+        <% if current_user == @recipe.user %>
+          <li class="recipe-actions__list-item"><%= link_to "Edit", edit_recipe_path(@recipe), class: "recipe-actions__link" %></li>
+          <li class="recipe-actions__list-item"><%= link_to "Delete", @recipe, method: :delete, class: "recipe-actions__link" %></li>
+        <% else %>
+          <li class="recipe-actions__list-item"><%= link_to "Save", @recipe, class: "recipe-actions__link", data: { confirm: "Save this recipe even though you didn't write it yourself." } %></li>
+        <% end %>
+      </ul>
+    </div>
+  </section>
+</article>

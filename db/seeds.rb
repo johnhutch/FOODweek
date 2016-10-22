@@ -2,26 +2,23 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 # Three users created, and then saved into variables for later use with creating recipes.
-User.create(
+@test_user_paris = User.create(
   email: "test.user.paris@gmail.com",
   password: "whatever",
   password_confirmation: "whatever"
 )
-test_user_paris = User.find_by email: "test.user.paris@gmail.com"
 
-User.create(
-  email: "test.user.hutch@gmail.com",
+@test_user_hutch = User.create(
+  email: "johnhutch@gmail.com",
   password: "whatever",
   password_confirmation: "whatever"
 )
-test_user_hutch = User.find_by email: "test.user.hutch@gmail.com"
 
-User.create(
+@test_user_sammy = User.create(
   email: "test.user.sammy@gmail.com",
   password: "whatever",
   password_confirmation: "whatever"
 )
-test_user_sammy = User.find_by email: "test.user.sammy@gmail.com"
 
 # Multiple recipes created, assigned ownership to different users.
 # The ~HEREDOC keyword allows for multi-line strings and does NOT include the indents! Isn't that great?
@@ -33,7 +30,7 @@ test_recipe_a_steps = <<~HEREDOC
   Add ingredients
   Heat up mixture
 HEREDOC
-test_recipe_a = test_user_paris.recipes.create(
+test_recipe_a = @test_user_paris.recipes.create(
   name: "Chili",
   time: 30,
   ingredients: test_recipe_a_ingredients,
@@ -48,7 +45,7 @@ test_recipe_b_steps = <<~HEREDOC
   mash it all together in a ball
   cook ball
 HEREDOC
-test_recipe_b = test_user_hutch.recipes.create(
+test_recipe_b = @test_user_hutch.recipes.create(
   name: "Meatball",
   time: 20,
   ingredients: test_recipe_b_ingredients,
@@ -63,7 +60,7 @@ test_recipe_c_steps = <<~HEREDOC
   mix sauces together
   let sit
 HEREDOC
-test_recipe_c = test_user_sammy.recipes.create(
+test_recipe_c = @test_user_sammy.recipes.create(
   name: "Medium Sauce",
   time: 15,
   ingredients: test_recipe_c_ingredients,
@@ -78,7 +75,7 @@ test_recipe_d_steps = <<~HEREDOC
   mix ingredients in a small bowl
   dust under your nose
 HEREDOC
-test_recipe_d = test_user_paris.recipes.create(
+test_recipe_d = @test_user_paris.recipes.create(
   name: "Sweet & Salty Dust",
   time: 30,
   ingredients: test_recipe_d_ingredients,
@@ -97,7 +94,7 @@ test_recipe_e_steps = <<~HEREDOC
   add vegetables
   stir
 HEREDOC
-test_recipe_e = test_user_paris.recipes.create(
+test_recipe_e = @test_user_paris.recipes.create(
   name: "Mirepoix",
   time: 45,
   ingredients: test_recipe_e_ingredients,
@@ -113,7 +110,7 @@ test_recipe_f_steps = <<~HEREDOC
   chop all ingredients
   toss in bowl
 HEREDOC
-test_recipe_f = test_user_hutch.recipes.create(
+test_recipe_f = @test_user_hutch.recipes.create(
   name: "Generic Salad",
   time: 30,
   ingredients: test_recipe_f_ingredients,
@@ -130,7 +127,7 @@ test_recipe_g_steps = <<~HEREDOC
   heat up milk
   slowly stir in dry ingredients
 HEREDOC
-test_recipe_g = test_user_sammy.recipes.create(
+test_recipe_g = @test_user_sammy.recipes.create(
   name: "Hot Chocolate",
   time: 15,
   ingredients: test_recipe_g_ingredients,

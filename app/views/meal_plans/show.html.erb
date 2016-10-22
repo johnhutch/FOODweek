@@ -1,14 +1,10 @@
-<p id="notice"><%= notice %></p>
+<% unless @meal_plan.recipes.empty? %>
+  <h3>Here is what you've picked out for this week's meal plan.</h3>
+  <ul class="recipe_list">
+    <li><%= @meal_plan.recipes.inspect %></li>
+  </ul>
+<% else %>
+  <p class="no_recipes">You haven't added any recipe's to this week's meal plans yet.</p>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @meal_plan.name %>
-</p>
-
-<p>
-  <strong>Active:</strong>
-  <%= @meal_plan.active %>
-</p>
-
-<%= link_to 'Edit', edit_meal_plan_path(@meal_plan) %> |
-<%= link_to 'Back', meal_plans_path %>
+<%= link_to 'Edit', edit_meal_plan_path(@meal_plan) %>

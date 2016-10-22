@@ -1,33 +1,16 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :mine]
 
+  def show
+    @recipe = Recipe.find(params[:id])
+  end
+
   def index
     @recipes = Recipe.all
   end
 
   def mine
     @recipes = current_user.recipes.all
-  end
-
-  def show
-    @recipe = Recipe.find(params[:id])
-
-    # Settings for the markdown.render method to use.
-    renderer = Redcarpet::Render::HTML.new(
-      filter_html: true,
-      no_images: true,
-      no_links: true,
-      no_styles: true,
-      hard_wrap: true,
-      prettify: true,
-    )
-
-    @markdown = Redcarpet::Markdown.new(
-      renderer,
-      no_intra_emphasis: true,
-      strikethrough: true,
-      lax_spacing: true
-    )
   end
 
   def new
@@ -37,10 +20,14 @@ class RecipesController < ApplicationController
   def create
     @recipe = current_user.recipes.build(recipe_params)
 
-    if @recipe.save
-      redirect_to @recipe
-    else
-      render :new
+    respond_to do |format|
+      if @recipe.save
+        format.html { redirect_to @recipe, notice: "Your new recipe has been saved." }
+        format.json { render :show, status: :created, location: @recipe }
+      else
+        format.html { render :new }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -50,11 +37,15 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = current_user.recipes.find(params[:id])
-    
-    if @recipe.update(recipe_params)
-      redirect_to @recipe
-    else
-      render :edit
+
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html { redirect_to @recipe, notice: "Your recipe has been updated." }
+        format.json { render :show, status: :ok, location: @recipe }
+      else
+        format.html { render :edit }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -62,7 +53,10 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
 
-    redirect_to recipes_path
+    respond_to do |format|
+      format.html { redirect_to recipes_path, notice: "That recipe has now been destroyed." }
+      format.json { header :no_content }
+    end
   end
 
   private
