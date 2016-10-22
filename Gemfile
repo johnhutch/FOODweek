@@ -49,6 +49,9 @@ gem 'devise', '~> 4.2.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', '~> 9.0.6', platform: :mri
+
+  # Use rspec for testing
+  gem 'rspec-rails', '~> 3.5.2'
 end
 
 group :development do
