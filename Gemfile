@@ -37,20 +37,9 @@ gem 'jbuilder', '~> 2.5'
 # Use for managing environment variables. Works nicely with Heroku too.
 gem 'figaro', '~> 1.1.1'
 
-group :development do 
-  # access an IRB console on exception pages or by using <%= console %> in these views
-  gem 'web-console', '~> 2.0'
-
-  # better error pages for rack apps
-  gem 'better_errors', '~> 2.1.1'
-
-  # needed for advanced better_errors features
-  gem 'binding_of_caller', '~> 0.7.2'
-end
-
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri, '~> 9.0.6'
+  gem 'byebug', '~> 9.0.6', platform: :mri
 end
 
 group :development do
@@ -60,7 +49,13 @@ group :development do
   gem 'listen', '~> 3.0.5'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 2.0 0'
+  gem 'spring', '~> 2.0.0'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # better error pages for rack apps
+  gem 'better_errors', '~> 2.1.1'
+
+  # needed for advanced better_errors features
+  gem 'binding_of_caller', '~> 0.7.2'
 end
 
