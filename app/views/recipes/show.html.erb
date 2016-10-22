@@ -1,6 +1,6 @@
 <h1>Recipe</h1>
 
 <h2><%= @recipe.name %></h2>
-<p><%= @recipe.ingredients %></p>
-<p><%= @recipe.steps %></p>
+<p><%= markdown.render(@recipe.ingredients) %></p>
+<p><%= markdown.render(@recipe.steps) %></p>
 <p><%= @recipe.time %></p>
