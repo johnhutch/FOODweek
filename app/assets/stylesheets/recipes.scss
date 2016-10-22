@@ -1,6 +1,5 @@
 .recipes {
   &__heading {
-    color: purple;
   }
 
   &--show {
@@ -39,8 +38,6 @@
   &__list-item {
   }
   &__link {
-    text-decoration: none;
-    border-bottom: 2px solid green;
   }
 } // .recipe-actions
 
@@ -48,7 +45,6 @@
   &__item {
   }
   &__label {
-    color: pink;
   }
   &__input {
   }
