@@ -52,6 +52,12 @@ group :development, :test do
 
   # Use rspec for testing
   gem 'rspec-rails', '~> 3.5.2'
+
+  # Use capybara for plain language testing
+  gem 'capybara', '~> 2.10.1'
+
+  # Use database_cleaner for maintaining a clean test database on each run
+  gem 'database_cleaner', '~> 1.5.3'
 end
 
 group :development do
