@@ -5,12 +5,6 @@
   } // .dashboard__article
 
   &__section {  // Start editing here, formatting.
-    padding: 1em 0;
-    border-bottom: 1px solid $bgfill-color-dark;
-
-    p {
-      text-align: left;
-    }
 
     a {
       margin: 1em auto;
@@ -37,15 +31,45 @@
   } // .dashboard__ingredients-set
 } // .dashboard
 
+$line-height-computed-em: em($line-height-computed);
 .dashboard__section {
+  @media (max-width: $screen-sm-max) {
+    padding: 1em 0;
+    border-bottom: 1px solid $bgfill-color-dark;
+  }
+  .dashboard__container & {
+    @media (max-width: $screen-md-max) {
+      padding: 1em 0;
+      border-bottom: 1px solid $bgfill-color-dark;
+    }
+  }
   p {
     margin-bottom: 1em;
   }
   &--meal-plan {
+    @media (min-width: $screen-lg-min) {
+      padding: 0 1em;
+      background-color: $bgfill-color-light;
+      // $line-height-computed is used as the margin-bottom value for .page-header
+      margin-top: -$line-height-computed;
+      padding-top: $line-height-computed;
+    }
   }
   &--grocery-list {
+    .dashboard__container & {
+      @media (max-width: $screen-md-max) {
+        border-width: 0;
+        padding-bottom: 0;
+      }
+    }
   }
   &--recipes {
-  text-align: left;
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max) {
+      padding: 0 1em;
+      background-color: $bgfill-color-light;
+      // $line-height-computed is used as the margin-bottom value for .page-header
+      margin-top: -$line-height-computed;
+      padding-top: calc(1em + #{em($font-size-base)});
+    }
   }
 } // .dashboard__section
