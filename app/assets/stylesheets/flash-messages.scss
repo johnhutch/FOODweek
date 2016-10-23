@@ -1,4 +1,7 @@
 .flash-messages {
+  p {
+    padding: $btn-padding-x $btn-padding-y;
+  }
   &__notice {
   }
   &__alert {
