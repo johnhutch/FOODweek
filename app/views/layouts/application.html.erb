@@ -33,7 +33,7 @@
         <% else %>
           <h1 class="page-header__title">FOODweek</h1>
           <h2 class="page-header__subtitle">Your recipes. Your meal plan. Your FOODweek.</h2>
-          <h3 class="page-header__motto">See what's good to eat.</h3>
+          <h3 class="page-header__motto"><%= link_to "Start saving your recipes", new_user_session_path, class: "btn btn-info btn-lg" %> or just <%= link_to "see what's good to eat", recipes_path, class: "btn btn-info btn-lg" %>.</h3>
         <% end %>
       </div>
     </header>
