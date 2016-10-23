@@ -32,8 +32,10 @@
         <!-- Otherwise, show the hero banner -->
         <% else %>
           <h1 class="page-header__title">FOODweek</h1>
-          <h2 class="page-header__subtitle">Plan your meals with your favorite recipes from your self-curated cookbook. We'll even build you a shopping list to take to the grocery store.</h2>
-          <h3 class="page-header__motto"><%= link_to "Start adding your own recipes now", new_user_session_path, class: "btn btn-info btn-lg" %> <!-- or just <%= link_to "see what's good to eat", recipes_path, class: "btn btn-info btn-lg" %> --></h3>
+          <div class="logo"><%= image_tag "logo-150.png", alt: "FOODweek logo" %></div>
+          <h2 class="page-header__subtitle">Plan your meals with your favorite recipes from your self-curated cookbook.</h2>
+          <h3 class="page-header__motto">We'll even build you a shopping list to take to the grocery store.</h3>
+          <div class="page-header__call-to-action"><%= link_to "Start buildling your cookbook <i class=\"glyphicon glyphicon-chevron-right \"></i>".html_safe, new_user_session_path, class: "btn btn-primary btn-lg" %> <!-- or just <%= link_to "see what's good to eat", recipes_path, class: "btn btn-info btn-lg" %> --></div>
         <% end %>
       </div>
     </header>
