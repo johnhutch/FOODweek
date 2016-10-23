@@ -2,6 +2,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Kreon|Pontano+Sans|Source+Sans+Pro:300i');
+@import "page-header";
+@import "flash-messages";
 @import "recipes";
 
 $pop-color: #7bbf66;
