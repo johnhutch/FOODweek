@@ -72,12 +72,22 @@ a	{
 
 
 .form-control:focus	{
-	margin-bottom: 2em;
   padding: 10px;
-  border: solid 0px transparent;
-  border-bottom: solid 1px #FFFEB5;
-  border-right: solid 1px #FFFEB5;
+  border-color: transparent;
+  border-bottom-color: #FFFEB5;
+  border-right-color: #FFFEB5;
   box-shadow: 0 0 2px 2px #ccc;
+}
+.field_with_errors {
+  input {
+    border-color: $brand-danger;
+    &:focus {
+      border-color: $brand-danger;
+    }
+  }
+  label {
+    color: $brand-danger;
+  }
 }
 
 

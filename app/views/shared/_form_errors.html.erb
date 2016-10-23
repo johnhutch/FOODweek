@@ -1,4 +1,8 @@
 <section class="form-errors">
+  <!-- shared views error section -->		
+  <p><%= I18n.t("errors.messages.not_saved",
+                      :count => object.errors.count,
+                      :resource => object.class.model_name.human.downcase) %></p>
   <ul class="form-errors__list">
     <% object.errors.full_messages.each do |error| %>
       <li class="form-errors__list-item"><%= error %></li>
