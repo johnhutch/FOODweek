@@ -19,14 +19,13 @@
           <%= render partial: "recipes/list", locals: { recipes: @meal_plan.recipes } %>
           <% modify_btn_text = "Modify This Meal Plan" %>
         <% else %>
-          <p>It looks like you haven't added any recipes to this week's meal plan.</p>
+          <p>You haven't made a meal plan yet, so you can't have a grocery list. Makes sense, right?</p>
           <% modify_btn_text = "Add Some Recipes" %>
         <% end %>
 
         <% unless @meal_plan.nil? %>
           <%= link_to modify_btn_text, edit_meal_plan_path(@meal_plan), class: "btn btn-default", id: "edit_meal_plan" %>
         <% end %>
-
         <%= link_to "Create A New Meal Plan", new_meal_plan_path, id: "new_meal_plan", class: "btn btn-success btn-lg btn-block" %>
       </section>
 

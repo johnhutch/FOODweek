@@ -1,0 +1,10 @@
+<article class="grocery-list">
+  <header class="grocery-list__header">
+    <h1 class="grocery-list__header"><%= @meal_plan.name %></h1>
+  </header>
+  <ul class="grocery-list__list">
+    <% @grocery_list.each do |g| %>
+      <li class="grocery-list__list js-grocery-list-item"><i class="glyphicon glyphicon--unchecked"></i><%= g %></li>
+    <% end %>
+  </ul>
+</article>
