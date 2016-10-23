@@ -11,8 +11,12 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :recipes, class: "form-control" %>
+      <%= f.label :recipes %> 
       <input type="hidden" name="meal_plan[recipe_ids][]" value>
+
+      <% if current_user.recipes.empty? %>
+          <p>You don't have any recipes created! Go <%= link_to "create some", new_recipe_path %>.</p>
+      <% end %>
 
       <% current_user.recipes.each do |r| %>
         <% checked = meal_plan.recipes.include?(r) ? "checked=\"checked\"" : "" %>
@@ -26,7 +30,7 @@
     </div>
 
     <div class="form-actions">
-      <%= f.submit submit_text, class: "btn btn-default" %>
+      <%= f.submit submit_text, class: "btn btn-default", id: "submit_meal_plan" %>
     </div>
 
   <% end %>

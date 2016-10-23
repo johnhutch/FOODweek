@@ -15,12 +15,12 @@ html, body, .em, .rem {
 	box-sizing: border-box;
 	font-family: 'Pontano Sans', sans-serif;
 	font-size: 20px;
-	font-style: normal;
-	font-weight: normal;
 	line-height: 1.5em; 
 }
 
-
+.navbar-brand {
+	font-size: 1.1em;
+}
 
 h1, h2, h3, h4, h5, h6	{
 	font-family: 'Kreon', serif;
@@ -30,8 +30,16 @@ h1	{
 	color: $brand-primary-darker;
 }
 
-h2, h3, h4, h5,h6	{
-	color: $brand-primary-dark;
+h2	{
+	color: $brand-primary;
+}
+
+h3	{
+	color: $bgfill-color-darker;
+}
+
+h4, h5, h6 {
+	color: $brand-success-light;
 }
 
 /*
@@ -46,25 +54,40 @@ a	{
 */
 
 .form-group {
-	margin-bottom: 2.5em;
+	margin-bottom: 1em;
+	padding: 0em;
 }
 
 
 .form-control	{
-	margin-bottom: 2em;
+	margin-bottom: 2.25em;
 	background-color: #FFFFE9;
   padding: 10px;
   border: solid 1px #ccc;
+
+  &-with-checkbox {
+  	margin-bottom: .25em;
+  }
 }
 
 
 .form-control:focus	{
-	margin-bottom: 2em;
   padding: 10px;
-  border: solid 0px transparent;
-  border-bottom: solid 1px #FFFEB5;
-  border-right: solid 1px #FFFEB5;
+  border-color: transparent;
+  border-bottom-color: #FFFEB5;
+  border-right-color: #FFFEB5;
   box-shadow: 0 0 2px 2px #ccc;
+}
+.field_with_errors {
+  input {
+    border-color: $brand-danger;
+    &:focus {
+      border-color: $brand-danger;
+    }
+  }
+  label {
+    color: $brand-danger;
+  }
 }
 
 
@@ -83,12 +106,25 @@ a	{
 			margin-bottom: 0.5em;
 		}
 	}
+
+	h3 {
+		line-height: 1em;
+	}
+
+	.login-links {
+		margin: auto;
+		width: 75%;
+		text-align: center;
+		padding: 0.5em;
+
+			.btn {
+				margin-bottom: 0.5em;
+			}
+	}
 }
 
 .clear-all-margins {
-	margin: 0em;
-	padding: 0em;
-	line-height: 1em;
+	margin-bottom: 0em;
 }
 
 .container-cancelmyaccount	{
@@ -110,14 +146,13 @@ a	{
 
 
 
+
 .page-footer {
 	@include clearfix;
 	margin: 0em;
 	margin-top: 2em;
 	font-size: 0.75em;
 	text-align: center;
-
-
 
 	.footer-junk {
 		padding: 0.25em;
