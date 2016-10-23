@@ -39,15 +39,17 @@
     </header>
 
     <main class="container" role="main">
-      <aside class="flash-messages">
-        <% if notice %>
-          <p class="bg-info flash-messages__notice"><%= notice %></p>
-        <% end %>
+      <% if notice || alert %>
+        <aside class="flash-messages">
+          <% if notice %>
+            <p class="bg-info flash-messages__notice"><%= notice %></p>
+          <% end %>
 
-        <% if alert %>
-          <p class="bg-warning flash-messages__alert"><%= alert %></p>
-        <% end %>
-      </aside>
+          <% if alert %>
+            <p class="bg-warning flash-messages__alert"><%= alert %></p>
+          <% end %>
+        </aside>
+      <% end %>
 
       <article class="<%= controller_name %>__article <%= controller_name %>__article--<%= action_name %>">
         <%= yield %>
