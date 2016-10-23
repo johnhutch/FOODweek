@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css?family=Kreon|Pontano+Sans|Source+Sans+Pro:300i');
+
+
+// Color Schema Setup
+
+// green
+$brand-primary: #7bbf66;
+$brand-primary-lighter: lighten( $brand-primary, 10%);
+$brand-primary-light: lighten( $brand-primary, 3%);
+$brand-primary-dark: darken( $brand-primary, 10%);
+$brand-primary-darker: darken( $brand-primary, 25%);
+
+// orange
+$pop-color: #e4881c; 
+$pop-color-lighter: lighten( $pop-color, 10%);
+$pop-color-light: lighten( $pop-color, 3%);
+$pop-color-dark: darken( $pop-color, 10%);
+$pop-color-darker: darken( $pop-color, 25%);
+
+// reddish
+$pop-color2: #d14b4b;
+$pop-color2-lighter: lighten( $pop-color2, 10%);
+$pop-color2-light: lighten( $pop-color2, 3%);
+$pop-color2-dark: darken( $pop-color2, 10%);
+$pop-color2-darker: darken( $pop-color2, 25%);
+
+// offwhite blue
+$bgfill-color: #d9e0e2; 
+$bgfill-color-lighter: lighten( $bgfill-color, 10%);
+$bgfill-color-light: lighten( $bgfill-color, 3%);
+$bgfill-color-dark: darken( $bgfill-color, 10%);
+$bgfill-color-darker: darken( $bgfill-color, 25%);
+
+// confederate betrayal gray
+$brand-success: #686c78;
+$brand-success-lighter: lighten( $brand-success, 10%);
+$brand-success-light: lighten( $brand-success, 3%);
+$brand-success-dark: darken( $brand-success, 10%);
+$brand-success-darker: darken( $brand-success, 25%);
+
+// light gray cool
+$gray: #b8b8bb;
+$gray-lighter: lighten( $gray, 10%);
+$gray-light: lighten( $gray, 3%);
+$gray-dark: darken( $gray, 40%);
+
+$brand-info:                $bgfill-color-darker;  // offwhite blue
+$brand-warning:             $pop-color-light;     // orange
+$brand-danger:              $pop-color2-dark;    // reddish
+$brand-inverse:             $gray-dark;         // confederate betrayal gray
+
+
+
+// Options
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-flex:               false !default;
+$enable-rounded:            true !default;
+$enable-shadows:            false !default;
+$enable-gradients:          false !default;
+$enable-transitions:        true !default;
+$enable-hover-media-query:  false !default;
+$enable-grid-classes:       true !default;
+$enable-print-styles:       true !default;
+
+
+
+// Spacing
+// You can add more entries to the $spacers map, should you need more variation.
+
+$spacer:   1rem !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+$spacers: (
+  0: (
+    x: 0,
+    y: 0
+  ),
+  1: (
+    x: $spacer-x,
+    y: $spacer-y
+  ),
+  2: (
+    x: ($spacer-x * 1.5),
+    y: ($spacer-y * 1.5)
+  ),
+  3: (
+    x: ($spacer-x * 3),
+    y: ($spacer-y * 3)
+  )
+) !default;
+$border-width: 1px !default;
+
+
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg:    #fff !default;
+$body-color: $gray-dark !default;
+
+
+
+
+// Links
+
+$link-color:            $brand-warning !default;
+$link-decoration:       none !default;
+$link-hover-color:      darken($link-color, 15%) !default;
+$link-hover-decoration: underline !default;
+
+
+
+// Typography
+
+$font-family-sans-serif: 'Pontano Sans';
+$font-family-serif:      'Kreon';
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-family-base:       $font-family-sans-serif;
+
+
+/*
+// Pixel value used to responsively scale all typography. Applied to the `<html>` element.
+
+$font-size-root: 20px;
+
+$font-size-base: 1rem !default;
+$font-size-lg:   1.25rem !default;
+$font-size-sm:   .875rem !default;
+$font-size-xs:   .75rem !default;
+
+$line-height-base: 1.5 !default;
+
+$font-size-h1: 2.5rem !default;
+$font-size-h2: 2rem !default;
+$font-size-h3: 1.75rem !default;
+$font-size-h4: 1.5rem !default;
+$font-size-h5: 1.25rem !default;
+$font-size-h6: 1rem !default;
+
+$display1-size: 6rem !default;
+$display2-size: 5.5rem !default;
+$display3-size: 4.5rem !default;
+$display4-size: 3.5rem !default;
+
+$display1-weight: 300 !default;
+$display2-weight: 300 !default;
+$display3-weight: 300 !default;
+$display4-weight: 300 !default;
+
+$headings-margin-bottom: ($spacer / 2) !default;
+$headings-font-family:   'Kreon' !default;
+$headings-font-weight:   500 !default;
+$headings-line-height:   1.1 !default;
+$headings-color:         inherit !default;
+
+$lead-font-size:   1.25rem !default;
+$lead-font-weight: 300 !default;
+
+$small-font-size: 80% !default;
+
+$text-muted: $gray-light !default;
+
+$abbr-border-color: $gray-light !default;
+
+$blockquote-small-color:  $gray-light !default;
+$blockquote-font-size:    ($font-size-base * 1.25) !default;
+$blockquote-border-color: $gray-lighter !default;
+$blockquote-border-width: .25rem !default;
+
+$hr-border-color: rgba(0,0,0,.1) !default;
+$hr-border-width: $border-width !default;
+
+$mark-padding: .2em !default;
+
+$dt-font-weight: bold !default;
+
+$kbd-box-shadow:         inset 0 -.1rem 0 rgba(0,0,0,.25) !default;
+$nested-kbd-font-weight: bold !default;
+
+$list-inline-padding: 5px !default;
+*/
+
+
+// Components
+//
+// Define common padding and border radius sizes and more.
+
+$line-height-lg:         (4 / 3) !default;
+$line-height-sm:         1.5 !default;
+
+$border-radius:          .25rem !default;
+$border-radius-lg:       .3rem !default;
+$border-radius-sm:       .2rem !default;
+
+$component-active-color: #fff !default;
+$component-active-bg:    $brand-primary !default;
+
+$caret-width:            .3em !default;
+$caret-width-lg:         $caret-width !default;
+
+
+// Tables
+//
+// Customizes the `.table` component with basic values, each used across all table variations.
+
+$table-cell-padding:            .75rem !default;
+$table-sm-cell-padding:         .3rem !default;
+
+$table-bg:                      transparent !default;
+$table-bg-accent:               rgba(0,0,0,.05) !default;
+$table-bg-hover:                rgba(0,0,0,.075) !default;
+$table-bg-active:               $table-bg-hover !default;
+
+$table-border-width:            $border-width !default;
+$table-border-color:            $gray-lighter !default;
+
+
+
+// Buttons
+
+$btn-padding-x:                  1rem !default;
+$btn-padding-y:                  .5rem !default;
+$btn-line-height:                1.25 !default;
+$btn-font-weight:                normal !default;
+$btn-box-shadow:                 inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px rgba(0,0,0,.075) !default;
+$btn-active-box-shadow:          inset 0 3px 5px rgba(0,0,0,.125) !default;
+
+$btn-primary-color:              #fff !default;
+$btn-primary-bg:                 $brand-primary !default;
+$btn-primary-border:             $btn-primary-bg !default;
+
+$btn-secondary-color:            $gray-dark !default;
+$btn-secondary-bg:               #fff !default;
+$btn-secondary-border:           #ccc !default;
+
+$btn-info-color:                 #fff !default;
+$btn-info-bg:                    $brand-info !default;
+$btn-info-border:                $btn-info-bg !default;
+
+$btn-success-color:              #fff !default;
+$btn-success-bg:                 $brand-success !default;
+$btn-success-border:             $btn-success-bg !default;
+
+$btn-warning-color:              #fff !default;
+$btn-warning-bg:                 $brand-warning !default;
+$btn-warning-border:             $btn-warning-bg !default;
+
+$btn-danger-color:               #fff !default;
+$btn-danger-bg:                  $brand-danger !default;
+$btn-danger-border:              $btn-danger-bg !default;
+
+$btn-link-disabled-color:        $gray-light !default;
+
+$btn-padding-x-sm:               .5rem !default;
+$btn-padding-y-sm:               .25rem !default;
+
+$btn-padding-x-lg:               1.5rem !default;
+$btn-padding-y-lg:               .75rem !default;
+
+$btn-block-spacing-y:            .5rem !default;
+$btn-toolbar-margin:             .5rem !default;
+
+// Allows for customizing button radius independently from global border radius
+$btn-border-radius:              $border-radius !default;
+$btn-border-radius-lg:           $border-radius-lg !default;
+$btn-border-radius-sm:           $border-radius-sm !default;
+

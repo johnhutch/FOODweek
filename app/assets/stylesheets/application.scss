@@ -1,4 +1,5 @@
 @import "compass";
+@import "bootstrap-customizations";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import url('https://fonts.googleapis.com/css?family=Kreon|Pontano+Sans|Source+Sans+Pro:300i');
@@ -6,24 +7,14 @@
 @import "flash-messages";
 @import "recipes";
 
-$pop-color: #7bbf66;
-$pop-color-lighter: lighten( $pop-color, 10%);
-$pop-color-light: lighten( $pop-color, 3%);
-$pop-color-dark: darken( $pop-color, 10%);
-$pop-color-darker: darken( $pop-color, 25%);
 
-$alt-pop-color: #d06868;
-$dark-color: #696666;
-$warm-dark-color: #796969;
-$bright-color: #bbb8b8;
-
-html, body {
+html, body, .em, .rem {
 	box-sizing: border-box;
 	font-family: 'Pontano Sans', sans-serif;
 	font-size: 20px;
 	font-style: normal;
 	font-weight: normal;
-	line-height: 1.5em;
+	line-height: 1.5em; 
 }
 
 
@@ -33,74 +24,23 @@ h1, h2, h3, h4, h5, h6	{
 }
 
 h1	{
-	color: $pop-color-darker;
+	color: $brand-primary-darker;
 }
 
 h2, h3, h4, h5,h6	{
-	color: $pop-color;
+	color: $brand-primary-dark;
 }
 
-
+/*
 em	{
 	font-family: 'Source Sans Pro', sans-serif;
 	padding-right: 0.1em;
 }
 
 a	{
-	color: $alt-pop-color;
+	color: $pop-color-dark;
 }
-
-.btn {
-  font-weight: 700;
-  color: #fff;
-  background-color: $pop-color;
-  border: 1px solid $pop-color-dark;
-  white-space: nowrap;
-  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
-  @include user-select(none);
-
-  &,
-  &:active,
-  &.active {
-    &:focus,
-    &.focus {
-      @include tab-focus;
-    }
-  }
-
-  &:hover,
-  &:focus,
-  &.focus {
-    color: #fff;
-    background-color: $pop-color-light;
-    // @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
-    text-decoration: none;
-  }
-
-  &:active,
-  &.active {
-    outline: 0;
-    background-image: none;
-    // @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
-  }
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: $cursor-disabled;
-    @include opacity(.65);
-    @include box-shadow(none);
-  }
-
-  // [converter] extracted a& to a.btn
-}
-
-a.btn {
-  &.disabled,
-  fieldset[disabled] & {
-    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
-  }
-}  // .btn The above is directly from the Bootstrap CSS File (bootstrap-sass/assets/stylesheets/bootstrap/)
+*/
 
 .form-group {
 	margin-bottom: 2.5em;
@@ -158,7 +98,7 @@ a.btn {
 	margin-right: auto;
 	border-radius: 0.25em;
 	transform: scale(.875);
-	border: solid 1px $bright-color;
+	border: solid 1px $gray-lighter;
 
 	.btn-default	{
 		width: auto;
@@ -169,22 +109,22 @@ a.btn {
 
 .page-footer {
 	@include clearfix;
-	margin: 0.5em;
+	margin: 0em;
 	margin-top: 2em;
-	font-size: 0.875em;
+	font-size: 0.75em;
 	text-align: center;
+
+
 
 	.footer-junk {
 		padding: 0.25em;
+		line-height: 1.25em;
 		text-align: center;
 		
 		p {
 			margin: 0em;
+			padding: 0em;
 		}
 	}
-} // .page-footer
+} // .page-footer 
 
-ul.recipes {
-  list-style-type: none;
-  padding-left: 0;
-}
