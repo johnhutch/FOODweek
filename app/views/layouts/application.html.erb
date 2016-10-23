@@ -21,7 +21,7 @@
 		  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
-    <%= render "layouts/nav" %>
+    <%= render "layouts/nav" unless current_page?('/') %>
 
     <header class="container-fluid page-header page-header__hero" role="banner">
       <div class="text-center page-header__content">
