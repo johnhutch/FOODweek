@@ -23,8 +23,11 @@
         <div class="checkbox">
           <label data-value="<%= r.id %>" for="meal_plan_recipe_ids_<%= r.id %>">
             <input type="checkbox" value="<%= r.id %>" <%= checked %> name="meal_plan[recipe_ids][]" id="meal_plan_recipe_ids_<%= r.id %>">
-           <%= link_to r.name, r %>
+            <%= r.name %>
           </label>
+          <%= link_to r, target: "_blank" do %>
+            <i class="glyphicon glyphicon-list-alt"></i>
+          <% end %>
         </div>
       <% end %>
     </div>
