@@ -28,6 +28,8 @@
 
 .recipe-actions {
   &__list {
+    list-style-type: none;
+    padding-left: 0;
   }
   &__list-item {
     a {
@@ -36,7 +38,9 @@
 } // .recipe-actions
 
 .recipe-briefs {
-  &__list {
+  &__list { 
+    list-style-type: none;
+    padding-left: 0;
   }
 
   &__list-item {
