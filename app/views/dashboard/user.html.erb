@@ -2,23 +2,23 @@
   <h1>Hey. Welcome back.</h1>
 <% end %>
 
-<section class="dashboard-recipes">
-  <h2 class="dashboard-recipes__heading">Your Recipes</h2>
+<section class="dashboard__section dashboard__section--recipes">
+  <h2 class="dashboard__heading">Recipes</h2>
   <%= link_to "Whip Up A New Recipe", new_meal_plan_path, class: "btn btn-default" %>
 
   <%= render partial: "recipes/list", locals: { recipes: current_user.recipes } %>
 </section>
 
-<section class="dashboard-meal-plans">
-  <h2 class="dashboard-meal-plans__heading">Your Meal Plan</h2>
+<section class="dashboard__section dashboard__section--meal-plan">
+  <h2 class="dashboard__heading">Meal Plan</h2>
   <%= link_to "Create A Meal Plan", new_meal_plan_path, class: "btn btn-default" %>
 
   <% if @meal_plan.present? and @meal_plan.recipes.present? %>
-    <h3 class="dashboard-meal-plans__subheading">This Week's Recipes</h3>
+    <p>Take a look at your recipe list for this week's meals.</p>
     <%= render partial: "recipes/list", locals: { recipes: @meal_plan.recipes } %>
     <% modify_btn_text = "Modify This Meal Plan" %>
   <% else %>
-    <h3 class="dashboard-meal-plans__subheading">It looks like you haven't added any recipes to this week's meal plan</h3>
+    <p>It looks like you haven't added any recipes to this week's meal plan.</p>
     <% modify_btn_text = "Add Some Recipes" %>
   <% end %>
 
@@ -27,13 +27,16 @@
   <% end %>
 </section>
 
-<% if @meal_plan.present? and @meal_plan.recipes.present? %>
-  <section class="dashboard-shopping-list">
-    <h3 class="dashboard-shopping-list__heading">Your Shopping List</h3>
-    <ul class="dashboard-shopping-list__ingredients">
+<section class="dashboard__section dashboard__section--grocery-list">
+  <h2 class="dashboard__heading">Grocery List</h3>
+  <% if @meal_plan.present? and @meal_plan.recipes.present? %>
+    <p>This doesn't look so organized just yet, but at least you have them all in one place.</p>
+    <ul class="dashboard__ingredients">
       <% @meal_plan.recipes.each do |r| %>
-        <li class="dashboard-shopping-list__ingredients-set"><%= r.ingredients %></li>
+        <li class="dashboard__ingredients-set"><%= r.ingredients %></li>
       <% end %>
     </ul>
-  </section>
-<% end %>
+  <% else %>
+    <p>You haven't made a meal plan yet, so you can't have a grocery list. Makes sense, right?</p>
+  <% end %>
+</section>

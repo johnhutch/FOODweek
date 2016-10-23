@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get "dashboard", to: "dashboard#user"
 
-  post "add_recipe_to_meal_plan/:id", to: "meal_plan#add_recipe"
-  post "remove_recipe_from_meal_plan/:id", to: "meal_plan#remove_recipe"
+  post "meal_plan/:id/add_recipe", to: "meal_plan#add_recipe", as: "meal_plan_add_recipe"
+  post "meal_plan/:id/remove_recipe", to: "meal_plan#remove_recipe", as: "meal_plan_remove_recipe"
   resources :meal_plans
 end

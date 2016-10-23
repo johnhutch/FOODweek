@@ -15,6 +15,7 @@
 
 <section class="recipe-actions">
   <ul class="recipe-actions__list">
+    <%
     <li class="recipe-actions__list-item"><%= link_to "Add To Meal Plan", @recipe, data: { confirm: "Add to current meal plan." } %></li>
     <% if @recipe.user.present? and @recipe.user == current_user %>
       <li class="recipe-actions__list-item"><%= link_to "Make Some Changes", edit_recipe_path(@recipe) %></li>
