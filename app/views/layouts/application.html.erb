@@ -16,7 +16,7 @@
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	</head>
 
-  <body class="<%= controller_name %> <%= action_name %>">
+  <body class="<%= dash_it(controller_name) %> <%= dash_it(action_name) %>">
 		<!--[if lt IE 8]>
 		  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
@@ -49,7 +49,7 @@
         <% end %>
       </aside>
 
-      <article class="<%= controller_name %>__article <%= controller_name %>__article--<%= action_name %>">
+      <article class="<%= dash_it(controller_name) %>__article <%= dash_it(controller_name) %>__article--<%= dash_it(action_name) %>">
         <%= yield %>
       </article>
     </main>

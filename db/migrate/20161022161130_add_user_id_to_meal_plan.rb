@@ -1,5 +1,9 @@
 class AddUserIdToMealPlan < ActiveRecord::Migration[5.0]
-  def change
-    add_column :meal_plans, :user_id, :integer
+  def up
+    add_reference :meal_plans, :user
+  end
+
+  def down
+    remove_reference :meal_plans, :user
   end
 end

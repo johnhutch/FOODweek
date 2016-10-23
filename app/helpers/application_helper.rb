@@ -19,4 +19,8 @@ module ApplicationHelper
 
     markdown.render(text).html_safe
   end
+
+  def dash_it(text)
+    text.gsub!(/_/, '-')
+  end
 end
