@@ -12,7 +12,7 @@
 
   <section class="dashboard__section dashboard__section--meal-plan">
     <h2 class="dashboard__heading">Meal Plan</h2>
-    <%= link_to "Create A New Meal Plan", new_meal_plan_path, class: "btn btn-default", id: "new_meal_plan", class: "btn btn-success btn-lg btn-block" %>
+    <%= link_to "Create A New Meal Plan", new_meal_plan_path, id: "new_meal_plan", class: "btn btn-success btn-lg btn-block" %>
 
     <% if @meal_plan.present? and @meal_plan.recipes.present? %>
       <p>Take a look at your recipe list for this week's meals.</p>
