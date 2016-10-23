@@ -14,6 +14,7 @@
 html, body, .em, .rem {
 	box-sizing: border-box;
 	font-family: 'Pontano Sans', sans-serif;
+	color: #525255;
 	font-size: 20px;
 	line-height: 1.5em; 
 }
@@ -53,6 +54,26 @@ a	{
 }
 */
 
+
+.mealplan-container	{
+	width: 75%;
+	padding: 1.5em;
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 4em;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 0.25em;
+	transform: scale(.875);
+	border: solid 1px $gray-lighter;
+
+	.btn-default	{
+		width: auto;
+	}
+}
+
+
+
 .form-group {
 	margin-bottom: 1em;
 	padding: 0em;
@@ -62,6 +83,7 @@ a	{
 .form-control	{
 	margin-bottom: 2.25em;
 	background-color: #FFFFE9;
+	color: #525255;
   padding: 10px;
   border: solid 1px #ccc;
 
@@ -78,6 +100,8 @@ a	{
   border-right-color: #FFFEB5;
   box-shadow: 0 0 2px 2px #ccc;
 }
+
+
 .field_with_errors {
   input {
     border-color: $brand-danger;
