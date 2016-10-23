@@ -1,5 +1,5 @@
 class MealPlansController < ApplicationController
-  before_action :set_meal_plan, only: [:show, :edit, :update, :destroy, :add_recipe, :remove_recipe]
+  before_action :set_meal_plan, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :add_recipe]
 
   # GET /meal_plans
@@ -43,7 +43,7 @@ class MealPlansController < ApplicationController
   def update
     respond_to do |format|
       if @meal_plan.update(meal_plan_params)
-        format.html { redirect_to dashboard_path, notice: 'Meal plan was successfully updated.' }
+        format.html { redirect_to dashboard_path, notice: "Meal plan was successfully updated." }
         format.json { render :show, status: :ok, location: @meal_plan }
       else
         format.html { render :edit }
@@ -57,15 +57,19 @@ class MealPlansController < ApplicationController
   def destroy
     @meal_plan.destroy
     respond_to do |format|
-      format.html { redirect_to dashboard_path, notice: 'Meal plan was successfully destroyed.' }
+      format.html { redirect_to dashboard_path, notice: "Meal plan was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   def add_recipe
+    @recipe = Recipe.find(params[:id])
+    redirect_to recipe_path(@recipe), notice: "Coolio"
   end
 
   def remove_recipe
+    @recipe = Recipe.find(params[:id])
+    redirect_to recipe_path(@recipe), notice: "Smoolio"
   end
 
   private

@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :mine]
 
   def show
-    @last_meal_plan = current_user.meal_plans.last
+    @meal_plan = current_user.meal_plans.last
   end
 
   def index
