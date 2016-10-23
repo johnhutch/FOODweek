@@ -14,13 +14,9 @@
 .meal-plan {
   &__heading {
   }
+  &__name {
+  }
   &__empty {
-  }
-  &__time {
-  }
-  &__ingredients {
-  }
-  &__steps {
   }
 } // .meal-plan
 
@@ -35,12 +31,14 @@
 
 .meal-plan-collection {
   &__table {
-  }
-  &__list-item {
-    a {
+    thead {
+    }
+    tbody {
+    }
+    tfoot {
     }
   }
-} // .meal-plan-briefs
+} // .meal-plan-collection
 
 .meal-plan-form {
   .form-group {
