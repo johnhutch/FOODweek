@@ -1,0 +1,31 @@
+.dashboard {
+  &__article {
+    &--user {
+    } // .dashboard__article--user
+  } // .dashboard__article
+
+  &__section {
+    p {
+    }
+    a {
+    }
+  } // .dashboard__section
+
+  &__heading {
+  } // .dashboard__heading
+
+  &__ingredients {
+  } // .dashboard__ingredients
+
+  &__ingredients-set {
+  } // .dashboard__ingredients-set
+} // .dashboard
+
+.dashboard__section {
+  &--recipes {
+  }
+  &--meal-plan {
+  }
+  &--grocery-list {
+  }
+} // .dashboard__section

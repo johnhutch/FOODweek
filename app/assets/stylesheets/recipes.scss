@@ -1,18 +1,15 @@
 .recipes {
-  &__header {
-    h1 {
+  &__article {
+    &--show {
     }
-  }
-
-  &--show {
-  }
-  &--index {
-  }
-  &--mine {
-  }
-  &--new {
-  }
-  &--edit {
+    &--index {
+    }
+    &--mine {
+    }
+    &--new {
+    }
+    &--edit {
+    }
   }
 } // .recipes
 
@@ -45,6 +42,7 @@
     list-style-type: none;
     padding-left: 0;
   }
+
   &__list-item {
     a {
     }
@@ -58,15 +56,9 @@
     .form-control {
     }
   }
-  input.btn {
-  }
-} // .recipe-form
 
-.form-errors {
-  &__list {
-  }
-  &__list-item {
-    a {
+  .form-actions {
+    input {
     }
   }
-} // .form-errors
+} // .recipe-form

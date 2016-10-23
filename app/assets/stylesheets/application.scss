@@ -5,7 +5,10 @@
 @import url('https://fonts.googleapis.com/css?family=Kreon|Pontano+Sans|Source+Sans+Pro:300i');
 @import "page-header";
 @import "flash-messages";
+@import "form-errors";
 @import "recipes";
+@import "meal-plans";
+@import "dashboard";
 
 
 html, body, .em, .rem {

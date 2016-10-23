@@ -1,0 +1,56 @@
+.meal-plans {
+  &__article {
+    &--show {
+    }
+    &--index {
+    }
+    &--new {
+    }
+    &--edit {
+    }
+  }
+} // .meal-plans
+
+.meal-plan {
+  &__heading {
+  }
+  &__name {
+  }
+  &__empty {
+  }
+} // .meal-plan
+
+.meal-plan-actions {
+  &__list {
+  }
+
+  &__list-item {
+    a {
+    }
+  }
+} // .meal-plan-actions
+
+.meal-plan-collection {
+  &__table {
+    thead {
+    }
+    tbody {
+    }
+    tfoot {
+    }
+  }
+} // .meal-plan-collection
+
+.meal-plan-form {
+  .form-group {
+    label {
+    }
+    .form-control {
+    }
+  }
+
+  .form-actions {
+    input {
+    }
+  }
+} // .meal-plan-form

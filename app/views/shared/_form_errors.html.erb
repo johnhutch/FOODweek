@@ -1,0 +1,7 @@
+<section class="form-errors">
+  <ul class="form-errors__list">
+    <% object.errors.full_messages.each do |error| %>
+      <li class="form-errors__list-item"><%= error %></li>
+    <% end %>
+  </ul>
+</section>
