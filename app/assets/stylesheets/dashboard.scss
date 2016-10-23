@@ -6,12 +6,24 @@
 
   &__section {  // Start editing here, formatting.
     p {
+      text-align: left;
     }
+
     a {
+      width: 70%;
+      margin: auto;
+      margin-bottom: .2em;
     }
   } // .dashboard__section
 
   &__heading {
+    box-sizing: border-box;
+    margin: auto;
+    height: 1.75em;
+    padding-top: .80em;
+    display: inline-block;
+    margin-bottom: .75em;
+    border-bottom: 1px solid #ccc;
   } // .dashboard__heading
 
   &__ingredients {
