@@ -4,45 +4,65 @@
 
 <div class="container-fluid">
   <div class="row">
+
+  <% unless current_user.recipes.present? %>
+    <%# User scenario #1: No recipes, no meal plan %>
+
+    <p>Here is where you can build out a weekly meal plan. Peruse your recipes, pick a few for the week for reference, and you even get a handy shopping list for when you go grocery shopping.</p>
+    <p>But first... you need to <%= link_to "Add some recipes", new_recipe_path %> to you cookbook first.</p>
+
+  <% else %>
     <section class="dashboard__section dashboard__section--recipes col-xs-12 col-md-4">
       <h2 class="dashboard__heading">Your Cookbook</h2>
       <%= render partial: "recipes/list", locals: { recipes: current_user.recipes } %>
-      <%= link_to "Whip Up A New Recipe", new_recipe_path, id: "new_recipe", class: "btn btn-success btn-lg btn-block" %>
+      <%= link_to "Add A New Recipe", new_recipe_path, id: "new_recipe", class: "btn btn-default" %>
     </section>
 
     <div class="dashboard__container dashboard__container--meal-plan col-xs-12 col-md-8">
-      <section class="dashboard__section dashboard__section--meal-plan col-md-12 col-lg-6">
-        <h2 class="dashboard__heading">Meal Plan</h2>
 
-        <% if @meal_plan.present? and @meal_plan.recipes.present? %>
-          <p>Take a look at your recipe list for this week's meals.</p>
-          <%= render partial: "recipes/list", locals: { recipes: @meal_plan.recipes } %>
-          <% modify_btn_text = "Modify This Meal Plan" %>
+      <% unless @meal_plan.present? %>
+        <%# User Scenario #2: Has recipes, no meal plan %>
+
+        <section class="dashboard__section dashboard__section--meal-plan col-md-12 col-lg-6">
+          <p>Ok, so, you've got some recipes. Now it's time to decide what you're gonna make this week. Let's <%= link_to "create a meal plan", new_meal_plan_path %> and pick out a few recipes. When you're done, you'll have a quick reference of your chosen recipes all week, as well as a handy shopping list for the grocery store.</p>
+
+          <%= link_to "Create a meal plan", new_meal_plan_path, id: "new_meal_plan", class: "btn btn-default" %>
+        </section>
+
+      <% else %>
+
+        <% unless @meal_plan.recipes.present? %>
+          <%# User Scenario #3: Has recipes, has meal plan, no recipes added %>
+          <p>Looks like you haven't finished setting up your new meal plan. Let's pick out some recipes and get you that sweet, sweet shopping list.</p>
+          <%= link_to "Add some recipes to your meal plan", edit_meal_plan_path(@meal_plan), class: "btn btn-default", id: "edit_meal_plan" %>
+
         <% else %>
-          <p>It looks like you haven't added any recipes to this week's meal plan.</p>
-          <% modify_btn_text = "Add Some Recipes" %>
+          <%# User Scenario #4: Has recipes, has meal plan, meal plan has recipes %>
+
+          <section class="dashboard__section dashboard__section--meal-plan col-md-12 col-lg-6">
+            <h2 class="dashboard__heading">This Week's Recipes</h2>
+            <%= render partial: "recipes/list", locals: { recipes: @meal_plan.recipes } %>
+            <%= link_to "Change this week's recipes", edit_meal_plan_path(@meal_plan), class: "btn btn-default", id: "edit_meal_plan" %>
+            <%= link_to "Start over with a new meal plan", new_meal_plan_path, id: "new_meal_plan", class: "btn btn-default" %>
+          </section>
+
+          <section class="dashboard__section dashboard__section--grocery-list col-md-12 col-lg-6">
+            <h2 class="dashboard__heading">Grocery List</h3>
+            <p>This doesn't look so organized just yet, but at least you have them all in one place.</p>
+            <ul class="dashboard__ingredients">
+              <% @meal_plan.recipes.each do |r| %>
+                <li class="dashboard__ingredients-set"><%= r.ingredients %></li>
+              <% end %>
+            </ul>
+          </section>
+
         <% end %>
 
-        <% unless @meal_plan.nil? %>
-          <%= link_to modify_btn_text, edit_meal_plan_path(@meal_plan), class: "btn btn-default", id: "edit_meal_plan" %>
-        <% end %>
+      <% end %>
 
-        <%= link_to "Create A New Meal Plan", new_meal_plan_path, id: "new_meal_plan", class: "btn btn-success btn-lg btn-block" %>
-      </section>
+    </div> <!-- div.dashboard__container -->
 
-      <section class="dashboard__section dashboard__section--grocery-list col-md-12 col-lg-6">
-        <h2 class="dashboard__heading">Grocery List</h3>
-        <% if @meal_plan.present? and @meal_plan.recipes.present? %>
-          <p>This doesn't look so organized just yet, but at least you have them all in one place.</p>
-          <ul class="dashboard__ingredients">
-            <% @meal_plan.recipes.each do |r| %>
-              <li class="dashboard__ingredients-set"><%= r.ingredients %></li>
-            <% end %>
-          </ul>
-        <% else %>
-          <p>You haven't made a meal plan yet, so you can't have a grocery list. Makes sense, right?</p>
-        <% end %>
-      </section>
-    </div>
+  <% end %>
+
   </div>
 </div>

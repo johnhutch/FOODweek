@@ -1,6 +1,8 @@
-<div class="devise-container container">
-  <h2>Forgot your password?</h2>
+<% content_for :page_header do %>
+  <h1>Forgot your password?</h1>
+<% end %>
 
+<div class="devise-container container">
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= devise_error_messages! %>
 

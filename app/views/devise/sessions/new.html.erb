@@ -1,6 +1,8 @@
-<div class="devise-container container">
-  <h2>Log in</h2>
+<% content_for :page_header do %>
+  <h1>Log In</h1>
+<% end %>
 
+<div class="devise-container container">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="form-group">
       <%= f.label :email %>
