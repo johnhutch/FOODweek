@@ -3,13 +3,7 @@
     <%= render partial: "shared/form_errors", locals: { object: meal_plan } %>  
   <% end %>
 
-  <%= f.hidden_field :name %>
+  <input type="hidden" value="<%= recipe.id %>" name="recipe_id" id="recipe_id_<%= recipe.id %>">
 
-  <% meal_plan.recipes.each do |r| %>
-    <input type="hidden" value="<%= r.id %>" name="meal_plan[recipe_ids][]" id="meal_plan_recipe_ids_<%= r.id %>">
-  <% end %>
-
-  <input type="hidden" value="<%= recipe.id %>" name="meal_plan[recipe_ids][]" id="meal_plan_recipe_ids_<%= recipe.id %>">
-
-  <%= f.submit "Remove From Meal Plan" %>
+  <%= f.submit "Remove From Meal Plan", class: 'btn btn-warning btn-lg btn-recipe-form' %>
 <% end %>
