@@ -7,14 +7,12 @@
   &__section {  // Start editing here, formatting.
     padding: 1em 0;
     border-bottom: 1px solid $bgfill-color-dark;
-    //text-align: center;
 
     p {
       text-align: left;
     }
 
     a {
-      width: 70%;
       margin: 1em auto;
       margin-top: 0em;
     }
@@ -30,8 +28,6 @@
     display: inline-block;
     margin-top: 0em;
     margin-bottom: 1em;
-    // border-bottom: 1px solid #ccc;
-    text-align: center;
   } // .dashboard__heading
 
   &__ingredients {
@@ -42,6 +38,9 @@
 } // .dashboard
 
 .dashboard__section {
+  p {
+    margin-bottom: 1em;
+  }
   &--meal-plan {
   }
   &--grocery-list {
