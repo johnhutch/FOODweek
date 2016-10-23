@@ -30,8 +30,16 @@ h1	{
 	color: $brand-primary-darker;
 }
 
-h2, h3, h4, h5,h6	{
-	color: $brand-primary-dark;
+h2	{
+	color: $brand-primary;
+}
+
+h3	{
+	color: $bgfill-color-darker;
+}
+
+h4, h5,h6 {
+	color: $brand-success-light;
 }
 
 /*
@@ -46,15 +54,20 @@ a	{
 */
 
 .form-group {
-	margin-bottom: 2.5em;
+	margin-bottom: 1em;
+	padding: 0em;
 }
 
 
 .form-control	{
-	margin-bottom: 2em;
+	margin-bottom: 2.25em;
 	background-color: #FFFFE9;
   padding: 10px;
   border: solid 1px #ccc;
+
+  &-with-checkbox {
+  	margin-bottom: .25em;
+  }
 }
 
 
@@ -83,12 +96,25 @@ a	{
 			margin-bottom: 0.5em;
 		}
 	}
+
+	h3 {
+		line-height: 1em;
+	}
+
+	.login-links {
+		margin: auto;
+		width: 75%;
+		text-align: center;
+		padding: 0.5em;
+
+			.btn {
+				margin-bottom: 0.5em;
+			}
+	}
 }
 
 .clear-all-margins {
-	margin: 0em;
-	padding: 0em;
-	line-height: 1em;
+	margin-bottom: 0em;
 }
 
 .container-cancelmyaccount	{
@@ -110,14 +136,13 @@ a	{
 
 
 
+
 .page-footer {
 	@include clearfix;
 	margin: 0em;
 	margin-top: 2em;
 	font-size: 0.75em;
 	text-align: center;
-
-
 
 	.footer-junk {
 		padding: 0.25em;
