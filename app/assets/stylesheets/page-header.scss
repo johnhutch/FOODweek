@@ -11,6 +11,10 @@
     margin-top: 0
   }
   &__call-to-action {
-    margin: 2em 0;
+    margin: 2em 0 1em 0;
+  }
+  &__login {
+    margin-bottom: 2em;
+    p { font-size: .75em; margin:0 }
   }
 } // .page-header
