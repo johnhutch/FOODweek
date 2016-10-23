@@ -4,7 +4,7 @@
   </header>
   <ul class="grocery-list__list">
     <% @grocery_list.each do |g| %>
-      <li class="grocery-list__list-item js-grocery-list-item"><span class="glyphicon glyphicon-unchecked"></span><%= g %></li>
+      <li class="grocery-list__list-item js-grocery-list-item"><span class="glyphicon glyphicon-unchecked"></span><span class="text"><%= g %></span></li>
     <% end %>
   </ul>
 </article>
