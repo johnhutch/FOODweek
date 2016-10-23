@@ -5,25 +5,33 @@
   } // .dashboard__article
 
   &__section {  // Start editing here, formatting.
+    padding: 1em 0;
+    border-bottom: 1px solid $bgfill-color-dark;
+    //text-align: center;
+
     p {
       text-align: left;
     }
 
     a {
       width: 70%;
-      margin: auto;
-      margin-bottom: .2em;
+      margin: 1em auto;
+      margin-top: 0em;
     }
+
   } // .dashboard__section
 
   &__heading {
-    box-sizing: border-box;
-    margin: auto;
-    height: 1.75em;
-    padding-top: .80em;
+    width: 100%;
+    // box-sizing: border-box;
+    margin-left: auto;
+    height: 1em;
+    padding-top: .02em;
     display: inline-block;
-    margin-bottom: .75em;
-    border-bottom: 1px solid #ccc;
+    margin-top: 0em;
+    margin-bottom: 1em;
+    // border-bottom: 1px solid #ccc;
+    text-align: center;
   } // .dashboard__heading
 
   &__ingredients {
@@ -34,10 +42,11 @@
 } // .dashboard
 
 .dashboard__section {
-  &--recipes {
-  }
   &--meal-plan {
   }
   &--grocery-list {
+  }
+  &--recipes {
+  text-align: left;
   }
 } // .dashboard__section

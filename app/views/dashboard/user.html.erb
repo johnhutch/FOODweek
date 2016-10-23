@@ -3,12 +3,6 @@
     <h1>Hey. Welcome back.</h1>
   <% end %>
 
-  <section class="dashboard__section dashboard__section--recipes">
-    <h2 class="dashboard__heading">Recipes</h2>
-    <%= link_to "Whip Up A New Recipe", new_recipe_path, id: "new_recipe", class: "btn btn-success btn-lg btn-block" %>
-
-    <%= render partial: "recipes/list", locals: { recipes: current_user.recipes } %>
-  </section>
 
   <section class="dashboard__section dashboard__section--meal-plan">
     <h2 class="dashboard__heading">Meal Plan</h2>
@@ -40,5 +34,12 @@
     <% else %>
       <p>You haven't made a meal plan yet, so you can't have a grocery list. Makes sense, right?</p>
     <% end %>
+  </section>
+
+
+  <section class="dashboard__section dashboard__section--recipes">
+    <h2 class="dashboard__heading">Recipes</h2>
+    <%= render partial: "recipes/list", locals: { recipes: current_user.recipes } %>
+    <%= link_to "Whip Up A New Recipe", new_recipe_path, id: "new_recipe", class: "btn btn-success btn-lg btn-block" %>
   </section>
 </div>
