@@ -50,8 +50,8 @@
             <h2 class="dashboard__heading">Grocery List</h3>
             <p>This doesn't look so organized just yet, but at least you have them all in one place.</p>
             <ul class="dashboard__ingredients">
-              <% @meal_plan.recipes.each do |r| %>
-                <li class="dashboard__ingredients-set"><%= r.ingredients %></li>
+              <% @meal_plan.grocery_list.each do |r| %>
+                <li class="dashboard__ingredients-set"><%= r %></li>
               <% end %>
             </ul>
           </section>
