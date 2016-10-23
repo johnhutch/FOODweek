@@ -63,21 +63,23 @@ class MealPlansController < ApplicationController
   end
 
   def add_recipe
+    @recipe = Recipe.find(params[:recipe_id])
     respond_to do |format|
-      if @meal_plan.update(meal_plan_params)
-        format.html { redirect_to dashboard_path, notice: "Meal plan was successfully updated." }
+      if @meal_plan.recipes << @recipe
+        format.html { redirect_to @recipe, notice: "Ok! We added the recipe to this week's meal plan." }
         format.json { render :show, status: :ok, location: @meal_plan }
       else
-        format.html { redirect_to :edit }
+        format.html { redirect_to :show }
         format.json { render json: @meal_plan.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def remove_recipe
+    @recipe = Recipe.find(params[:recipe_id])
     respond_to do |format|
       if @meal_plan.recipes.delete(@recipe)
-        format.html { redirect_to dashboard_path, notice: "Meal plan was successfully updated." }
+        format.html { redirect_to @recipe, notice: "Ok! We've removed the recipe from this week's meal plan." }
         format.json { render :show, status: :ok, location: @meal_plan }
       else
         format.html { redirect_to @recipe }
@@ -94,6 +96,6 @@ class MealPlansController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def meal_plan_params
-    params.require(:meal_plan).permit(:name, :active, { :recipe_ids => [] } )
+    params.require(:meal_plan).permit(:name, :active, :recipe_id, { :recipe_ids => [] } )
   end
 end

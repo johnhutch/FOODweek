@@ -1,15 +1,9 @@
-<%= form_for meal_plan, action: action do |f| %>
+<%= form_for meal_plan, url: add_recipe_to_meal_plan_path(meal_plan) do |f| %>
   <% if meal_plan.errors.any? %>
     <%= render partial: "shared/form_errors", locals: { object: meal_plan } %>  
   <% end %>
 
-  <%= f.hidden_field :name %>
+  <input type="hidden" value="<%= recipe.id %>" name="recipe_id" id="recipe_id_<%= recipe.id %>">
 
-  <% meal_plan.recipes.each do |r| %>
-    <input type="hidden" value="<%= r.id %>" name="meal_plan[recipe_ids][]" id="meal_plan_recipe_ids_<%= r.id %>">
-  <% end %>
-
-  <input type="hidden" value="<%= recipe.id %>" name="meal_plan[recipe_ids][]" id="meal_plan_recipe_ids_<%= recipe.id %>">
-
-  <%= f.submit "Add To Meal Plan" %>
+  <%= f.submit "Add To Meal Plan", class: 'btn btn-primary btn-lg btn-recipe-form' %>
 <% end %>
