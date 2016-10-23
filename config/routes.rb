@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get "/style_guide" => "content#style_guide"
   get "/terms" => "content#terms"
   get "/contact" => "content#contact"
+  get "/grocery_list" => "content#grocery_list"
 end

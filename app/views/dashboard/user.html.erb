@@ -26,11 +26,13 @@
     <h2 class="dashboard__heading">Grocery List</h3>
     <% if @meal_plan.present? and @meal_plan.recipes.present? %>
       <p>This doesn't look so organized just yet, but at least you have them all in one place.</p>
-      <ul class="dashboard__ingredients">
-        <% @meal_plan.recipes.each do |r| %>
-          <li class="dashboard__ingredients-set"><%= r.ingredients %></li>
+
+      <ul class="dashboard__grocery-list">
+        <% @meal_plan.grocery_list.each do |g| %>
+          <li class="dashboard__grocery-item"><%= g %></li>
         <% end %>
       </ul>
+
     <% else %>
       <p>You haven't made a meal plan yet, so you can't have a grocery list. Makes sense, right?</p>
     <% end %>
