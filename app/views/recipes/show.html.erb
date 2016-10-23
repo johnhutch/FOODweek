@@ -1,24 +1,26 @@
 <article class="recipes recipes--show">
-  <h1 class="recipes__heading">Single Recipe</h1>
+  <%= render partial: "header", locals: { header_text: "How's This One Sound?" } %>
 
-  <section class="recipe recipe--full">
+  <section class="recipe">
     <h2 class="recipe__name"><%= @recipe.name %></h2>
-    <h3 class="recipe__byline"><%= @recipe.user.email %></h3>
+    <% if @recipe.user.present? %>
+      <h3 class="recipe__byline"><%= @recipe.user.email %></h3>
+    <% end %>
 
     <p class="recipe__time"><%= @recipe.time %> minutes</p>
     <p class="recipe__ingredients"><%= markdown(@recipe.ingredients) %></p>
     <p class="recipe__steps"><%= markdown(@recipe.steps) %></p>
-
-    <div class="recipe-actions">
-      <ul class="recipe-actions__list">
-        <li class="recipe-actions__list-item"><%= link_to "Add to Meal Plan", @recipe, class: "recipe-actions__link", data: { confirm: "Add to current meal plan." } %></li>
-        <% if current_user == @recipe.user %>
-          <li class="recipe-actions__list-item"><%= link_to "Edit", edit_recipe_path(@recipe), class: "recipe-actions__link" %></li>
-          <li class="recipe-actions__list-item"><%= link_to "Delete", @recipe, method: :delete, class: "recipe-actions__link" %></li>
-        <% else %>
-          <li class="recipe-actions__list-item"><%= link_to "Save", @recipe, class: "recipe-actions__link", data: { confirm: "Save this recipe even though you didn't write it yourself." } %></li>
-        <% end %>
-      </ul>
-    </div>
   </section>
+
+  <aside class="recipe-actions">
+    <ul class="recipe-actions__list">
+      <li class="recipe-actions__list-item"><%= link_to "Add To Meal Plan", @recipe, data: { confirm: "Add to current meal plan." } %></li>
+      <% if @recipe.user.present? and @recipe.user == current_user %>
+        <li class="recipe-actions__list-item"><%= link_to "Make Some Changes", edit_recipe_path(@recipe) %></li>
+        <li class="recipe-actions__list-item"><%= link_to "Erase From Database", @recipe, method: :delete %></li>
+      <% else %>
+        <li class="recipe-actions__list-item"><%= link_to "Save This One", @recipe, data: { confirm: "Save this recipe even though you didn't write it yourself." } %></li>
+      <% end %>
+    </ul>
+  </aside>
 </article>

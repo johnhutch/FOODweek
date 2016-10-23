@@ -1,4 +1,4 @@
 <article class="recipes recipes--edit">
-  <h1 class="recipes__heading">Edit Recipe</h1>
-  <%= render partial: "form", locals: { recipe: @recipe, submit_text: "Edit This Recipe" } %>
+  <%= render partial: "header", locals: { header_text: "Make Some Changes" } %>
+  <%= render partial: "form", locals: { recipe: @recipe, submit_text: "Confirm Changes" } %>
 </article>
