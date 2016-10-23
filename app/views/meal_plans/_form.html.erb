@@ -20,13 +20,12 @@
 
       <% current_user.recipes.each do |r| %>
         <% checked = meal_plan.recipes.include?(r) ? "checked=\"checked\"" : "" %>
-
         <div class="checkbox">
-          <%= r.label :id do %>
-            <%= r.check_box :id, { checked: meal_plan.recipes.include?(recipe) }, recipe.id, 0 %><%= recipe.name %>
-          <% end %>
+          <label data-value="<%= r.id %>" for="meal_plan_recipe_ids_<%= r.id %>">
+            <input type="checkbox" value="<%= r.id %>" <%= checked %> name="meal_plan[recipe_ids][]" id="meal_plan_recipe_ids_<%= r.id %>">
+           <%= link_to r.name, r %>
+          </label>
         </div>
-
       <% end %>
     </div>
 
