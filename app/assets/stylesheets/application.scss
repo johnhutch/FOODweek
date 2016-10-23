@@ -5,6 +5,8 @@
 @import "recipes";
 
 $pop-color: #7bbf66;
+$pop-color-lighter: lighten( $pop-color, 10%);
+$pop-color-light: lighten( $pop-color, 3%);
 $pop-color-dark: darken( $pop-color, 10%);
 $pop-color-darker: darken( $pop-color, 25%);
 
@@ -46,11 +48,57 @@ a	{
 	color: $alt-pop-color;
 }
 
-.btn-default {
-	background-color: $pop-color;
-	width: 100%;
-	color: #fff;
+.btn {
+  font-weight: 700;
+  color: #fff;
+  background-color: $pop-color;
+  border: 1px solid $pop-color-dark;
+  white-space: nowrap;
+  @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $btn-border-radius-base);
+  @include user-select(none);
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+      @include tab-focus;
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+    color: #fff;
+    background-color: $pop-color-light;
+    // @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    outline: 0;
+    background-image: none;
+    // @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+    @include opacity(.65);
+    @include box-shadow(none);
+  }
+
+  // [converter] extracted a& to a.btn
 }
+
+a.btn {
+  &.disabled,
+  fieldset[disabled] & {
+    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+  }
+}  // .btn The above is directly from the Bootstrap CSS File (bootstrap-sass/assets/stylesheets/bootstrap/)
 
 .form-group {
 	margin-bottom: 2.5em;
@@ -68,9 +116,10 @@ a	{
 .form-control:focus	{
 	margin-bottom: 2em;
   padding: 10px;
-  border: solid 1px $pop-color-dark;
-  border-bottom: solid 2px $pop-color-darker;
-  box-shadow: 0 0 5px 1px $pop-color;
+  border: solid 0px transparent;
+  border-bottom: solid 1px #FFFEB5;
+  border-right: solid 1px #FFFEB5;
+  box-shadow: 0 0 2px 2px #ccc;
 }
 
 
@@ -99,6 +148,7 @@ a	{
 
 .container-cancelmyaccount	{
 	width: 75%;
+	padding: 1.5em;
 	text-align: center;
 	margin-top: 2em;
 	margin-bottom: 4em;
