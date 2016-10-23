@@ -45,13 +45,13 @@
       <!-- If the current user is the creator of this recipe,
            allow them to edit or destroy the recipe. -->
       <% if @recipe.user.present? and @recipe.user == current_user %>
-        <li class="recipe-actions__list-item"><%= link_to "Make Some Changes", edit_recipe_path(@recipe) %></li>
-        <li class="recipe-actions__list-item"><%= link_to "Erase From Database", @recipe, method: :delete %></li>
+        <li class="recipe-actions__list-item"><%= link_to "Make Some Changes", edit_recipe_path(@recipe), class: "btn btn-success btn-lg btn-recipe-form", role: "button" %></li>
+        <li class="recipe-actions__list-item"><%= link_to "Erase From Database", @recipe, method: :delete, class: "btn btn-danger btn-lg btn-recipe-form", role: "button" %></li>
 
       <!-- Otherwise, allow the current user to save the recipe
            as a favorite of sorts. -->
       <% else %>
-        <li class="recipe-actions__list-item"><%= link_to "Save This One", @recipe, data: { confirm: "Future feature: add a recipe, that you didn't create, to your cookbook." } %></li>
+        <li class="recipe-actions__list-item"><%= link_to "Save This One", @recipe, data: { confirm: "Future feature: add a recipe, that you didn't create, to your cookbook.", class: "btn btn-success btn-lg btn-recipe-form", role: "button" } %></li>
       <% end %>
     </ul>
   </section>

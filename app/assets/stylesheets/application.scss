@@ -57,7 +57,7 @@ a	{
 
 
 .mealplan-container	{
-	width: 75%;
+	width: 85%;
 	padding: 1.5em;
 	text-align: center;
 	margin-top: 2em;
@@ -66,13 +66,37 @@ a	{
 	margin-right: auto;
 	border-radius: 0.25em;
 	transform: scale(.875);
-	border: solid 1px $gray-lighter;
+	// border: solid 1px $gray-lighter;
 
-	.btn-default	{
-		width: auto;
+	.btn {
+    width: 340px;
 	}
 }
 
+
+
+.recipe-form {
+  width: 85%;
+  padding: 1.5em;
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 4em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.25em;
+  transform: scale(.875);
+  // border: solid 1px $gray-lighter;
+  
+  .btn {
+    width: 340px;
+  }
+}
+
+
+.btn-recipe-form {
+  width: 340px;
+  margin-bottom: 0.5em;
+}
 
 
 .form-group {

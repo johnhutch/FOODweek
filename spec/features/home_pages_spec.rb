@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.feature "home page", type: :feature do
-  describe "navigation" do 
-    it "shows me the menu" do 
+  describe "homepage" do 
+    it " shows up because we haven't completely destroyed the site" do 
       visit "/"
-      expect(page.find('.navbar')).to have_content("FOODweek") # page find search for css path
+      expect(page.find('header')).to have_content("FOODweek") # page find search for css path
     end
   end
 end
