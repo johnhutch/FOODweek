@@ -1,9 +1,8 @@
 <% content_for :page_header do %>
-  <h1>How's This One Look?</h1>
+  <h1><%= @recipe.name %></h1>
 <% end %>
 
 <section class="recipe">
-  <h2 class="recipe__name"><%= @recipe.name %></h2>
   <% if @recipe.user.present? %>
     <h3 class="recipe__byline"><%= @recipe.user.email %></h3>
   <% end %>
@@ -46,7 +45,7 @@
            allow them to edit or destroy the recipe. -->
       <% if @recipe.user.present? and @recipe.user == current_user %>
         <li class="recipe-actions__list-item"><%= link_to "Make Some Changes", edit_recipe_path(@recipe), class: "btn btn-success btn-lg btn-recipe-form", role: "button" %></li>
-        <li class="recipe-actions__list-item"><%= link_to "Erase From Database", @recipe, method: :delete, class: "btn btn-danger btn-lg btn-recipe-form", role: "button" %></li>
+        <li class="recipe-actions__list-item"><%= link_to "Delete This Recipe", @recipe, method: :delete, class: "btn btn-danger btn-lg btn-recipe-form", role: "button" %></li>
 
       <!-- Otherwise, allow the current user to save the recipe
            as a favorite of sorts. -->
