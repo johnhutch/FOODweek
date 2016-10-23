@@ -1,0 +1,39 @@
+<% content_for :page_header do %>
+  <h1>Hey. Welcome back.</h1>
+<% end %>
+
+<section class="dashboard-recipes">
+  <h2 class="dashboard-recipes__heading">Your Recipes</h2>
+  <%= link_to "Whip Up A New Recipe", new_meal_plan_path, class: "btn btn-default" %>
+
+  <%= render partial: "recipes/list", locals: { recipes: current_user.recipes } %>
+</section>
+
+<section class="dashboard-meal-plans">
+  <h2 class="dashboard-meal-plans__heading">Your Meal Plan</h2>
+  <%= link_to "Create A Meal Plan", new_meal_plan_path, class: "btn btn-default" %>
+
+  <% if @meal_plan.present? and @meal_plan.recipes.present? %>
+    <h3 class="dashboard-meal-plans__subheading">This Week's Recipes</h3>
+    <%= render partial: "recipes/list", locals: { recipes: @meal_plan.recipes } %>
+    <% modify_btn_text = "Modify This Meal Plan" %>
+  <% else %>
+    <h3 class="dashboard-meal-plans__subheading">It looks like you haven't added any recipes to this week's meal plan</h3>
+    <% modify_btn_text = "Add Some Recipes" %>
+  <% end %>
+
+  <% unless @meal_plan.nil? %>
+    <%= link_to modify_btn_text, edit_meal_plan_path(@meal_plan), class: "btn btn-default" %>
+  <% end %>
+</section>
+
+<% if @meal_plan.present? and @meal_plan.recipes.present? %>
+  <section class="dashboard-shopping-list">
+    <h3 class="dashboard-shopping-list__heading">Your Shopping List</h3>
+    <ul class="dashboard-shopping-list__ingredients">
+      <% @meal_plan.recipes.each do |r| %>
+        <li class="dashboard-shopping-list__ingredients-set"><%= r.ingredients %></li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>
