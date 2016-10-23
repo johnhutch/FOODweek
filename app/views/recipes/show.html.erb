@@ -2,6 +2,10 @@
   <h1>How's This One Look?</h1>
 <% end %>
 
+<section>
+  <%= params.inspect %>
+</section>
+
 <section class="recipe">
   <h2 class="recipe__name"><%= @recipe.name %></h2>
   <% if @recipe.user.present? %>
@@ -15,8 +19,12 @@
 
 <section class="recipe-actions">
   <ul class="recipe-actions__list">
-    <%
-    <li class="recipe-actions__list-item"><%= link_to "Add To Meal Plan", @recipe, data: { confirm: "Add to current meal plan." } %></li>
+    <% if @meal_plan.present? and @meal_plan.recipes.include?(@recipe) %>
+      <li class="recipe-actions__list-item"><%= link_to "Remove From Meal Plan", remove_recipe_from_meal_plan_path(@meal_plan, @recipe), method: :post %></li>
+    <% else %>
+      <li class="recipe-actions__list-item"><%= link_to "Add To Meal Plan", add_recipe_to_meal_plan_path(@meal_plan, @recipe), method: :post %></li>
+    <% end %>
+
     <% if @recipe.user.present? and @recipe.user == current_user %>
       <li class="recipe-actions__list-item"><%= link_to "Make Some Changes", edit_recipe_path(@recipe) %></li>
       <li class="recipe-actions__list-item"><%= link_to "Erase From Database", @recipe, method: :delete %></li>
