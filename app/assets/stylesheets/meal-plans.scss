@@ -1,22 +1,20 @@
-.recipes {
+.meal-plans {
   &__article {
     &--show {
     }
     &--index {
-    }
-    &--mine {
     }
     &--new {
     }
     &--edit {
     }
   }
-} // .recipes
+} // .meal-plans
 
-.recipe {
-  &__name {
+.meal-plan {
+  &__heading {
   }
-  &__byline {
+  &__empty {
   }
   &__time {
   }
@@ -24,27 +22,27 @@
   }
   &__steps {
   }
-} // .recipe
+} // .meal-plan
 
-.recipe-actions {
+.meal-plan-actions {
   &__list {
   }
   &__list-item {
     a {
     }
   }
-} // .recipe-actions
+} // .meal-plan-actions
 
-.recipe-briefs {
-  &__list {
+.meal-plan-collection {
+  &__table {
   }
   &__list-item {
     a {
     }
   }
-} // .recipe-briefs
+} // .meal-plan-briefs
 
-.recipe-form {
+.meal-plan-form {
   .form-group {
     label {
     }
@@ -55,4 +53,4 @@
     input {
     }
   }
-} // .recipe-form
+} // .meal-plan-form

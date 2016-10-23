@@ -1,6 +1,6 @@
 class MealPlansController < ApplicationController
   before_action :set_meal_plan, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :add_recipe]
 
   # GET /meal_plans
   # GET /meal_plans.json
@@ -62,6 +62,15 @@ class MealPlansController < ApplicationController
     end
   end
 
+  def add_recipe
+    @last_meal_plan = current_user.meal_plans.last
+    @recipe = Recipe.find(params[:id])
+
+    if @last_meal_plan.nil?
+      @last_meal_plan = current_user.meal_plans.recipes.build(meal_plan_params)
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_meal_plan
@@ -70,6 +79,6 @@ class MealPlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def meal_plan_params
-      params.require(:meal_plan).permit(:name, :active, {:recipe_ids => []} )
+      params.require(:meal_plan).permit(:name, :active, { :recipe_ids => [] } )
     end
 end

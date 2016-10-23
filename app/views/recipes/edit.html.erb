@@ -1,4 +1,5 @@
-<article class="recipes recipes--edit">
-  <%= render partial: "header", locals: { header_text: "Make Some Changes" } %>
-  <%= render partial: "form", locals: { recipe: @recipe, submit_text: "Confirm Changes" } %>
-</article>
+<% content_for :page_header do %>                                                                                                                                                                         
+  <h1>Make Some Changes</h1>
+<% end %>
+
+<%= render partial: "form", locals: { recipe: @recipe, submit_text: "Confirm Changes" } %>

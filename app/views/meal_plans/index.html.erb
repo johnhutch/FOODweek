@@ -1,29 +1,33 @@
-<p id="notice"><%= notice %></p>
+<% content_for :page_header do %>                                                                                                                                                                         
+  <h1>Meal Plans</h1>
+<% end %>
 
-<h1>Meal Plans</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Active</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @meal_plans.each do |meal_plan| %>
+<section class="meal-plans-collection">
+  <table class="meal-plans-collection__table">
+    <thead>
       <tr>
-        <td><%= meal_plan.name %></td>
-        <td><%= meal_plan.active %></td>
-        <td><%= link_to 'Show', meal_plan %></td>
-        <td><%= link_to 'Edit', edit_meal_plan_path(meal_plan) %></td>
-        <td><%= link_to 'Destroy', meal_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>Active</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @meal_plans.each do |meal_plan| %>
+        <tr>
+          <td><%= meal_plan.name %></td>
+          <td><%= meal_plan.active %></td>
+          <td><%= link_to 'Show', meal_plan %></td>
+          <td><%= link_to 'Edit', edit_meal_plan_path(meal_plan) %></td>
+          <td><%= link_to 'Destroy', meal_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>
 
-<%= link_to 'New Meal Plan', new_meal_plan_path %>
+<section class="meal-plan-actions">
+  <ul class="meal-plan-actions__list">
+    <li class="meal-plan-actions__list-item"><%= link_to 'New Meal Plan', new_meal_plan_path %></li>
+  </ul>
+</section>

@@ -1,36 +1,32 @@
-<%= form_for(meal_plan) do |f| %>
-  <% if meal_plan.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(meal_plan.errors.count, "error") %> prohibited this meal_plan from being saved:</h2>
+<section class="meal-plan-form">
+  <%= form_for(meal_plan) do |f| %>
 
-      <ul>
-      <% meal_plan.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <% if meal_plan.errors.any? %>
+      <%= render partial: "shared/form_errors", locals: { object: meal_plan } %>  
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :recipes, class: "form-control" %>
+      <input type="hidden" name="meal_plan[recipe_ids][]" value>
+
+      <% current_user.recipes.each do |r| %>
+        <% checked = meal_plan.recipes.include?(r) ? "checked=\"checked\"" : "" %>
+        <div class="checkbox">
+          <label data-value="<%= r.id %>" for="meal_plan_recipe_ids_<%= r.id %>">
+            <input type="checkbox" value="<%= r.id %>" <%= checked %> name="meal_plan[recipe_ids][]" id="meal_plan_recipe_ids_<%= r.id %>"> 
+            <%= link_to r.name, r %>
+          </label>
+        </div>
       <% end %>
-      </ul>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit submit_text, class: "btn btn-default" %>
     </div>
   <% end %>
-
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :recipes %>
-    <input type="hidden" name="meal_plan[recipe_ids][]" value>
-    <% current_user.recipes.each do |r| %>
-      <% checked = meal_plan.recipes.include?(r) ? "checked=\"checked\"" : "" %>
-      <div class="checkbox">
-        <label data-value="<%= r.id %>" for="meal_plan_recipe_ids_<%= r.id %>">
-          <input type="checkbox" value="<%= r.id %>" <%= checked %> name="meal_plan[recipe_ids][]" id="meal_plan_recipe_ids_<%= r.id %>" /> 
-          <%= link_to r.name, r %>
-        </label>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Save my meal plan", class: "btn btn-default" %>
-  </div>
-<% end %>
+</section>

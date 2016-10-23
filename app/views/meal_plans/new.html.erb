@@ -1,6 +1,5 @@
 <% content_for :page_header do %>
-  <h1>Create a new meal plan</h1>
+  <h1>Create A New Meal Plan</h1>
 <% end %>
 
-<%= render 'form', meal_plan: @meal_plan %>
-
+<%= render partial: "form", local: { meal_plan: @meal_plan, submit_text: "Save My Meal Plan" } %>

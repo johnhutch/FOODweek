@@ -2,13 +2,7 @@
   <%= form_for recipe do |f| %>
 
     <% if recipe.errors.any? %>
-      <aside class="form-errors">
-        <ul class="form-errors__list">
-          <% recipe.errors.full_messages.each do |error| %>
-            <li class="form-errors__list-item"><%= error %></li>
-          <% end %>
-        </ul>
-      </aside>
+      <%= render partial: "shared/form_errors", locals: { object: recipe } %>
     <% end %>
 
     <div class="form-group">
@@ -31,7 +25,9 @@
       <%= f.text_area :steps, class: "form-control" %>
     </div>
 
-    <%= f.submit submit_text, class: "btn btn-default" %>
+    <div class="form-actions">
+      <%= f.submit submit_text, class: "btn btn-default" %>
+    </div>
 
   <% end %>
 </section>

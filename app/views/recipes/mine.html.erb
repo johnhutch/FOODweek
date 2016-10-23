@@ -1,4 +1,5 @@
-<article class="recipes recipes--mine">
-  <%= render partial: "header", locals: { header_text: "Recipes I Added" } %>
-  <%= render partial: "list", locals: { recipes: @recipes } %>
-</article>
+<% content_for :page_header do %>                                                                                                                                                                         
+  <h1>Recipes I Added</h1>
+<% end %>
+
+<%= render partial: "list", locals: { recipes: @recipes } %>

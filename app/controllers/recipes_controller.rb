@@ -1,8 +1,8 @@
 class RecipesController < ApplicationController
+  before_action :set_recipe, only: [:show, :edit, :update, :destroy] 
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :mine]
 
   def show
-    @recipe = Recipe.find(params[:id])
   end
 
   def index
@@ -32,12 +32,9 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
   end
 
   def update
-    @recipe = current_user.recipes.find(params[:id])
-
     respond_to do |format|
       if @recipe.update(recipe_params)
         format.html { redirect_to @recipe, notice: "Your recipe has been updated." }
@@ -50,7 +47,6 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find(params[:id])
     @recipe.destroy
 
     respond_to do |format|
@@ -60,6 +56,10 @@ class RecipesController < ApplicationController
   end
 
   private
+ 
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :ingredients, :steps, :time)

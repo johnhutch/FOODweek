@@ -24,15 +24,18 @@
     <%= render "layouts/nav" %>
 
     <header class="container-fluid page-header page-header__hero" role="banner">
-      <% if content_for?(:page_header) %>
-        <%= yield :page_header %>
-      <% else %>
-        <div class="text-center page-header__text">
+      <div class="text-center page-header__content">
+        <!-- If the particular view has some markup for :page_header -->
+        <% if content_for?(:page_header) %>
+          <%= yield :page_header %>
+
+        <!-- Otherwise, show the hero banner -->
+        <% else %>
           <h1 class="page-header__title">FOODweek</h1>
           <h2 class="page-header__subtitle">Your recipes. Your meal plan. Your FOODweek.</h2>
           <h3 class="page-header__motto">See what's good to eat.</h3>
-        </div>
-      <% end %>
+        <% end %>
+      </div>
     </header>
 
     <main class="container" role="main">
@@ -46,8 +49,9 @@
         <% end %>
       </aside>
 
-      <!-- Add your site or application content here -->
-      <%= yield %>
+      <article class="<%= controller_name %>__article <%= controller_name %>__article--<%= action_name %>">
+        <%= yield %>
+      </article>
     </main>
 
     <footer class="container-fluid page-footer" role="contentinfo">
