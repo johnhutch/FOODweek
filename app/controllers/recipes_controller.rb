@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
     @meal_plan = current_user.meal_plans.last
 
     if @meal_plan.nil?
-      @meal_plan = current_user.meal_plans.build
+      @meal_plan = current_user.meal_plans.build(name: "Unnamed Meal Plan")
     end
   end
 
