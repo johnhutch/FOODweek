@@ -33,7 +33,7 @@
         <% else %>
           <h1 class="page-header__title">FOODweek</h1>
           <h2 class="page-header__subtitle">Your recipes. Your meal plan. Your FOODweek.</h2>
-          <h3 class="page-header__motto"><%= link_to "Start saving your recipes", new_user_session_path, class: "btn btn-info btn-lg" %> or just <%= link_to "see what's good to eat", recipes_path, class: "btn btn-info btn-lg" %>.</h3>
+          <h3 class="page-header__motto"><%= link_to "Start saving your recipes", new_user_session_path, class: "btn btn-info btn-lg" %> or just <%= link_to "see what's good to eat", recipes_path, class: "btn btn-info btn-lg" %></h3>
         <% end %>
       </div>
     </header>
@@ -66,6 +66,13 @@
         <p><a href="http://www.twitter.com/jon_athan_hall">@jon_athan_hall</a></p>
         <p><a href="http://www.twitter.com/arbitrarynoun">@arbitrarynoun</a></p>
         </p>
+      </div>
+      <div class="footer-junk">
+        <ul class="metalinks">
+          <li><%= link_to "Contact Us", contact_path %></li>
+          <li><%= link_to "Terms & Conditions", terms_path %></li>
+          <li><%= link_to "Privacy Policy", privacy_path %></li>
+        </ul>
       </div>
     </footer>
   </body>
