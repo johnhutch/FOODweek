@@ -1,0 +1,64 @@
+@mixin gradient($start: #ffffff, $end: #000000) {
+  background: $start;
+  background: -webkit-linear-gradient($start, $end);
+  background: -o-linear-gradient($start, $end);
+  background: -moz-linear-gradient($start, $end);
+  background: linear-gradient($start, $end);
+}
+
+body.layout--basic {
+   font-size: 16px;
+
+  .grocery-list {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    &__header {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      background-color: #ffffff;
+      border-bottom: 1px solid $brand-success;
+      text-align: center;
+    }
+
+    &__heading {
+      margin: 0;
+      padding: .5em;
+      color: $brand-success;
+      font-size: 2.5em;
+    }
+
+    &__list {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      list-style-type: none;
+    }
+
+    &__list-item {
+      @include gradient($brand-primary-light, $brand-primary-dark);
+      margin: 0 auto;
+      padding: 1em;
+      border-bottom: 1px solid $brand-primary-darker;
+      color: #ffffff;
+      font-size: 2.5em;
+
+      span.glyphicon {
+        float: left;
+        margin-top: -.4em;
+        margin-right: .5em;
+        font-size: 2em;
+      }
+
+      &--checked {
+        @include gradient($brand-primary, $brand-primary-lighter);
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
