@@ -1,5 +1,7 @@
 .recipes {
-  &__heading {
+  &__header {
+    h1 {
+    }
   }
 
   &--show {
@@ -25,40 +27,42 @@
   }
   &__steps {
   }
-
-  &--full {
-  }
-  &--brief {
-  }
 } // .recipe
 
 .recipe-actions {
   &__list {
   }
   &__list-item {
-  }
-  &__link {
+    a {
+    }
   }
 } // .recipe-actions
 
+.recipe-briefs {
+  &__list {
+  }
+  &__list-item {
+    a {
+    }
+  }
+} // .recipe-briefs
+
 .recipe-form {
-  &__item {
+  .form-group {
+    label {
+    }
+    .form-control {
+    }
   }
-  &__label {
-  }
-  &__input {
-  }
-  &__textarea {
-  }
-  &__submit {
+  input.btn {
   }
 } // .recipe-form
 
 .form-errors {
-  &__heading {
-  }
   &__list {
   }
   &__list-item {
+    a {
+    }
   }
 } // .form-errors

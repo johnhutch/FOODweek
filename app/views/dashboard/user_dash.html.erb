@@ -17,7 +17,7 @@
       <%= link_to "Create a new meal plan", new_meal_plan_path, class: "btn btn-primary"  %>
       <div class="row">
         <section class="meal_plan_recipes col-md-4">
-          <% unless @meal_plan.recipes.empty? %>
+          <% if @meal_plan.present? and @meal_plan.recipes.present? %>
             <h3>This week's recipes</h3>
             <%= render partial: "recipes/list", locals: { recipes: @meal_plan.recipes } %>
             <% modify_btn_text = "Modify this meal plan" %>
@@ -29,7 +29,7 @@
         </section>
 
         <section class="shopping_list col-md-4">
-          <% unless @meal_plan.recipes.nil? %>
+          <% if @meal_plan.present? and @meal_plan.recipes.present? %>
             <h3>Your Shopping List</h3>
             <div class="ingredients">
               <% @meal_plan.recipes.each do |r| %>

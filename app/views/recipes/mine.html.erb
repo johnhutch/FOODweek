@@ -1,4 +1,4 @@
 <article class="recipes recipes--mine">
-  <h1 class="recipes__heading">My Recipes</h1>
+  <%= render partial: "header", locals: { header_text: "Recipes I Added" } %>
   <%= render partial: "list", locals: { recipes: @recipes } %>
 </article>
