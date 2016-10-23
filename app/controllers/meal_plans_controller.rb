@@ -1,6 +1,6 @@
 class MealPlansController < ApplicationController
-  before_action :set_meal_plan, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :add_recipe]
+  before_action :set_meal_plan, only: [:show, :edit, :update, :destroy, :add_recipe, :remove_recipe]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :add_recipe, :remove_recipe]
 
   # GET /meal_plans
   # GET /meal_plans.json
@@ -63,23 +63,37 @@ class MealPlansController < ApplicationController
   end
 
   def add_recipe
-    @recipe = Recipe.find(params[:id])
-    redirect_to recipe_path(@recipe), notice: "Coolio"
+    respond_to do |format|
+      if @meal_plan.update(meal_plan_params)
+        format.html { redirect_to dashboard_path, notice: "Meal plan was successfully updated." }
+        format.json { render :show, status: :ok, location: @meal_plan }
+      else
+        format.html { redirect_to :edit }
+        format.json { render json: @meal_plan.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def remove_recipe
-    @recipe = Recipe.find(params[:id])
-    redirect_to recipe_path(@recipe), notice: "Smoolio"
+    respond_to do |format|
+      if @meal_plan.recipes.delete(@recipe)
+        format.html { redirect_to dashboard_path, notice: "Meal plan was successfully updated." }
+        format.json { render :show, status: :ok, location: @meal_plan }
+      else
+        format.html { redirect_to @recipe }
+        format.json { render json: @meal_plan.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_meal_plan
-      @meal_plan = MealPlan.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def meal_plan_params
-      params.require(:meal_plan).permit(:name, :active, { :recipe_ids => [] } )
-    end
+  def set_meal_plan
+    @meal_plan = MealPlan.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def meal_plan_params
+    params.require(:meal_plan).permit(:name, :active, { :recipe_ids => [] } )
+  end
 end

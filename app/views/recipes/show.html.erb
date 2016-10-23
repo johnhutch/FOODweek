@@ -1,10 +1,6 @@
-<% content_for :page_header do %>                                                                                                                                                                         
+<% content_for :page_header do %>
   <h1>How's This One Look?</h1>
 <% end %>
-
-<section>
-  <%= params.inspect %>
-</section>
 
 <section class="recipe">
   <h2 class="recipe__name"><%= @recipe.name %></h2>
@@ -17,19 +13,45 @@
   <p class="recipe__steps"><%= markdown(@recipe.steps) %></p>
 </section>
 
-<section class="recipe-actions">
-  <ul class="recipe-actions__list">
-    <% if @meal_plan.present? and @meal_plan.recipes.include?(@recipe) %>
-      <li class="recipe-actions__list-item"><%= link_to "Remove From Meal Plan", remove_recipe_from_meal_plan_path(@meal_plan, @recipe), method: :post %></li>
-    <% else %>
-      <li class="recipe-actions__list-item"><%= link_to "Add To Meal Plan", add_recipe_to_meal_plan_path(@meal_plan, @recipe), method: :post %></li>
-    <% end %>
+<% if user_signed_in? %>
+  <section class="recipe-actions">
+    <ul class="recipe-actions__list">
+      <!-- If this recipe is in the current user's meal plan,
+           allow them the chance to remove said recipe. -->
+      <% if @meal_plan.recipes.include?(@recipe) %>
+        <li class="recipe-actions__list-item">
+          <%= render partial: "meal_plans/hidden_form_remove_recipe",
+            locals: {
+              meal_plan: @meal_plan,
+              recipe: @recipe,
+            }
+          %>
+        </li>
 
-    <% if @recipe.user.present? and @recipe.user == current_user %>
-      <li class="recipe-actions__list-item"><%= link_to "Make Some Changes", edit_recipe_path(@recipe) %></li>
-      <li class="recipe-actions__list-item"><%= link_to "Erase From Database", @recipe, method: :delete %></li>
-    <% else %>
-      <li class="recipe-actions__list-item"><%= link_to "Save This One", @recipe, data: { confirm: "Save this recipe even though you didn't write it yourself." } %></li>
-    <% end %>
-  </ul>
-</section>
+      <!-- Otherwise, allow the current user to add the recipe
+           to their meal plan. -->
+      <% else %>
+        <li class="recipe-actions__list-item">
+          <%= render partial: "meal_plans/hidden_form_add_recipe",
+            locals: {
+              meal_plan: @meal_plan,
+              recipe: @recipe,
+            }
+          %>
+        </li>
+      <% end %>
+
+      <!-- If the current user is the creator of this recipe,
+           allow them to edit or destroy the recipe. -->
+      <% if @recipe.user.present? and @recipe.user == current_user %>
+        <li class="recipe-actions__list-item"><%= link_to "Make Some Changes", edit_recipe_path(@recipe) %></li>
+        <li class="recipe-actions__list-item"><%= link_to "Erase From Database", @recipe, method: :delete %></li>
+
+      <!-- Otherwise, allow the current user to save the recipe
+           as a favorite of sorts. -->
+      <% else %>
+        <li class="recipe-actions__list-item"><%= link_to "Save This One", @recipe, data: { confirm: "Save this recipe even though you didn't write it yourself." } %></li>
+      <% end %>
+    </ul>
+  </section>
+<% end %>

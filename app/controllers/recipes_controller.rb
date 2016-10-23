@@ -4,6 +4,10 @@ class RecipesController < ApplicationController
 
   def show
     @meal_plan = current_user.meal_plans.last
+
+    if @meal_plan.nil?
+      @meal_plan = current_user.meal_plans.build
+    end
   end
 
   def index
