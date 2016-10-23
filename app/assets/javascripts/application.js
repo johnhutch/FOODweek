@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).ready(function() {
+  $('.js-grocery-list-item').click(function(evt) {
+    var $listItem = $(this);
+    $listItem.toggleClass('grocery-list__list-item--checked');
+    var $glyph = $listItem.find('.glyphicon');
+    $glyph.toggleClass('glyphicon-check').toggleClass('glyphicon-unchecked');
+  });
+});
