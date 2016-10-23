@@ -5,6 +5,7 @@
 <section class="meal-plan">
   <% unless @meal_plan.recipes.empty? %>
     <h2 class="meal-plan__heading">Here is what you've picked out for this week's meal plan.</h2>
+    <h3 class="meal-plan__name"><%= @meal_plan.name %></h3>
     <%= render partial: "recipes/list", locals: { recipes: @meal_plan.recipes } %>
   <% else %>
     <h2 class="meal-plan__empty">You haven't added any recipes to this week's meal plan yet.</h2>

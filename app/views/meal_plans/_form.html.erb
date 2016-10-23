@@ -1,5 +1,5 @@
 <section class="meal-plan-form">
-  <%= form_for(meal_plan) do |f| %>
+  <%= form_for meal_plan do |f| %>
 
     <% if meal_plan.errors.any? %>
       <%= render partial: "shared/form_errors", locals: { object: meal_plan } %>  
@@ -28,5 +28,6 @@
     <div class="form-actions">
       <%= f.submit submit_text, class: "btn btn-default" %>
     </div>
+
   <% end %>
 </section>
