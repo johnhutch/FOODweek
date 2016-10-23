@@ -105,10 +105,12 @@ a	{
 
 
 .form-control	{
+  font-size: 1em;
+  height: 2.25em;
 	margin-bottom: 2.25em;
 	background-color: #FFFFE9;
 	color: #525255;
-  padding: 10px;
+  padding: .5 1em;
   border: solid 1px #ccc;
 
   &-with-checkbox {
@@ -118,7 +120,7 @@ a	{
 
 
 .form-control:focus	{
-  padding: 10px;
+  //padding: 10px;
   border-color: transparent;
   border-bottom-color: #FFFEB5;
   border-right-color: #FFFEB5;
