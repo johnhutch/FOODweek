@@ -17,32 +17,34 @@
     <ul class="recipe-actions__list">
       <!-- If this recipe is in the current user's meal plan,
            allow them the chance to remove said recipe. -->
-      <% if @meal_plan.recipes.include?(@recipe) %>
-        <li class="recipe-actions__list-item">
-          <%= render partial: "meal_plans/hidden_form_remove_recipe",
-            locals: {
-              meal_plan: @meal_plan,
-              recipe: @recipe,
-            }
-          %>
-        </li>
+      <% if @meal_plan.nil? %>
+        <% if @meal_plan.recipes.include?(@recipe) %>
+          <li class="recipe-actions__list-item">
+            <%= render partial: "meal_plans/hidden_form_remove_recipe",
+              locals: {
+                meal_plan: @meal_plan,
+                recipe: @recipe,
+              }
+            %>
+          </li>
 
-      <!-- Otherwise, allow the current user to add the recipe
-           to their meal plan (as long as they own that recipe). -->
-      <% elsif @recipe.user == current_user %>
-        <li class="recipe-actions__list-item">
-          <%= render partial: "meal_plans/hidden_form_add_recipe",
-            locals: {
-              meal_plan: @meal_plan,
-              recipe: @recipe,
-              action: @meal_plan.new_record? ? "create" : "add_recipe"
-            }
-          %>
-        </li>
+        <!-- Otherwise, allow the current user to add the recipe
+            to their meal plan (as long as they own that recipe). -->
+        <% elsif @recipe.user == current_user %>
+          <li class="recipe-actions__list-item">
+            <%= render partial: "meal_plans/hidden_form_add_recipe",
+              locals: {
+                meal_plan: @meal_plan,
+                recipe: @recipe,
+                action: @meal_plan.new_record? ? "create" : "add_recipe"
+              }
+            %>
+          </li>
+        <% end %>
       <% end %>
 
-      <!-- If the current user is the creator of this recipe,
-           allow them to edit or destroy the recipe. -->
+        <!-- If the current user is the creator of this recipe,
+            allow them to edit or destroy the recipe. -->
       <% if @recipe.user.present? and @recipe.user == current_user %>
         <li class="recipe-actions__list-item"><%= link_to "Make Some Changes", edit_recipe_path(@recipe), class: "btn btn-success btn-lg btn-recipe-form", role: "button" %></li>
         <li class="recipe-actions__list-item"><%= link_to "Delete This Recipe", @recipe, method: :delete, class: "btn btn-danger btn-lg btn-recipe-form", role: "button" %></li>
