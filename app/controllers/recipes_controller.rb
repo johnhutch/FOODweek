@@ -7,6 +7,7 @@ class RecipesController < ApplicationController
 
     if @meal_plan.nil?
       @meal_plan = current_user.meal_plans.build(name: "Unnamed Meal Plan")
+      @meal_plan.save
     end
   end
 

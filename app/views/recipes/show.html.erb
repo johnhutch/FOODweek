@@ -17,7 +17,7 @@
     <ul class="recipe-actions__list">
       <!-- If this recipe is in the current user's meal plan,
            allow them the chance to remove said recipe. -->
-      <% if @meal_plan.nil? %>
+      <% unless @meal_plan.nil? %>
         <% if @meal_plan.recipes.include?(@recipe) %>
           <li class="recipe-actions__list-item">
             <%= render partial: "meal_plans/hidden_form_remove_recipe",
