@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Kreon|Pontano+Sans|Source+Sans+Pro:300i');
 
 
-// Color Schema Setup
+// Color Schema Setup  ========================================================
 
 // green
 $brand-primary: #7bbf66;
@@ -51,7 +51,7 @@ $brand-inverse:             $gray-dark;         // confederate betrayal gray
 
 
 
-// Options
+// Options  ===================================================================
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-flex:               false !default;
@@ -65,7 +65,7 @@ $enable-print-styles:       true !default;
 
 
 
-// Spacing
+// Spacing  ===================================================================
 // You can add more entries to the $spacers map, should you need more variation.
 
 $spacer:   1rem !default;
@@ -93,7 +93,7 @@ $border-width: 1px !default;
 
 
 
-// Body
+// Body  ======================================================================
 //
 // Settings for the `<body>` element.
 
@@ -103,7 +103,7 @@ $body-color: $gray-dark !default;
 
 
 
-// Links
+// Links  =====================================================================
 
 $link-color:            $brand-warning !default;
 $link-decoration:       none !default;
@@ -112,7 +112,7 @@ $link-hover-decoration: underline !default;
 
 
 
-// Typography
+// typography   ===============================================================
 
 $font-family-sans-serif: 'Pontano Sans';
 $font-family-serif:      'Kreon';
@@ -183,7 +183,7 @@ $list-inline-padding: 5px !default;
 */
 
 
-// Components
+// Components   ===============================================================
 //
 // Define common padding and border radius sizes and more.
 
@@ -201,7 +201,7 @@ $caret-width:            .3em !default;
 $caret-width-lg:         $caret-width !default;
 
 
-// Tables
+// Tables   ===================================================================
 //
 // Customizes the `.table` component with basic values, each used across all table variations.
 
@@ -218,7 +218,7 @@ $table-border-color:            $gray-lighter !default;
 
 
 
-// Buttons
+// Buttons   ==================================================================
 
 $btn-padding-x:                  1rem !default;
 $btn-padding-y:                  .5rem !default;

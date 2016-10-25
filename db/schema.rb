@@ -21,14 +21,11 @@ ActiveRecord::Schema.define(version: 20161022161130) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.index ["user_id"], name: "index_meal_plans_on_user_id", using: :btree
   end
 
   create_table "meal_plans_recipes", id: false, force: :cascade do |t|
     t.integer "recipe_id",    null: false
     t.integer "meal_plan_id", null: false
-    t.index ["meal_plan_id"], name: "index_meal_plans_recipes_on_meal_plan_id", using: :btree
-    t.index ["recipe_id"], name: "index_meal_plans_recipes_on_recipe_id", using: :btree
   end
 
   create_table "recipes", force: :cascade do |t|
