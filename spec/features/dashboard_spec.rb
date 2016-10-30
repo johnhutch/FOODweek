@@ -11,5 +11,11 @@ RSpec.feature "User Dashboard", type: :feature do
 
       expect(page).to have_selector('h1.test-dash_header')
     end
+
+    it " shows user scenario 1 for a user with no recipes or meal plans" do 
+        login(user1)
+
+        expect(page).to have_selector('.test__user-scen-1')
+    end 
   end
 end

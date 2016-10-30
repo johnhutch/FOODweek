@@ -8,7 +8,7 @@
   <% unless current_user.recipes.present? %>
     <%# User scenario #1: No recipes, no meal plan %>
 
-    <p>Here is where you can build out a weekly meal plan. Peruse your recipes, pick a few for the week for reference, and you even get a handy shopping list for when you go grocery shopping.</p>
+    <p class="test__user-scen-1">Here is where you can build out a weekly meal plan. Peruse your recipes, pick a few for the week for reference, and you even get a handy shopping list for when you go grocery shopping.</p>
     <p>But first... you need to <%= link_to "Add some recipes", new_recipe_path %> to you cookbook first.</p>
 
   <% else %>
