@@ -9,7 +9,7 @@ RSpec.feature "User Dashboard", type: :feature do
     it " tells you you don't have any meals in your meal plan" do 
       login(user1)
 
-      page.has_css?('h1.dashboard_header')
+      expect(page).to have_selector('h1.test-dash_header')
     end
   end
 end

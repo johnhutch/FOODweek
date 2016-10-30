@@ -1,5 +1,5 @@
 <% content_for :page_header do %>
-  <h1>Hey. Welcome back.</h1>
+  <h1 class="test-dash_header">Hey. Welcome back.</h1>
 <% end %>
 
 <div class="container-fluid">
@@ -26,7 +26,7 @@
         <section class="dashboard__section dashboard__section--meal-plan col-md-12 col-lg-6">
           <p>Ok, so, you've got some recipes. Now it's time to decide what you're gonna make this week. Let's <%= link_to "create a meal plan", new_meal_plan_path %> and pick out a few recipes. When you're done, you'll have a quick reference of your chosen recipes all week, as well as a handy shopping list for the grocery store.</p>
 
-          <%= link_to "Create a meal plan", new_meal_plan_path, id: "new_meal_plan", class: "btn btn-default" %>
+          <%= link_to "Create a meal plan", new_meal_plan_path, id: "new-meal-plan-btn__user-scen-2", class: "btn btn-default" %>
         </section>
 
       <% else %>
@@ -46,7 +46,7 @@
             <%= link_to "Start over with a new meal plan", new_meal_plan_path, id: "new_meal_plan", class: "btn btn-default" %>
           </section>
 
-          <section class="dashboard__section dashboard__section--grocery-list col-md-12 col-lg-6">
+          <section class="dashboard__section dashboard__section--grocery-list test__grocery-list col-md-12 col-lg-6">
             <h2 class="dashboard__heading">Grocery List<span class="glyphicon glyphicon-shopping-cart"></span></h3>
             <p>This doesn't look so organized just yet, but at least you have them all in one place.</p>
             <ul class="dashboard__ingredients">
