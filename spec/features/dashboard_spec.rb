@@ -17,5 +17,27 @@ RSpec.feature "User Dashboard", type: :feature do
 
         expect(page).to have_selector('.test__user-scen-1')
     end 
+
+    it " shows user scenario 2 for a user who has recipes, but no meal plans" do 
+        recipe
+        login(user1)
+
+        expect(page).to have_selector('.test__user-scen-2')
+    end 
+
+    it " shows user scenario 3 for a user who has recipes and a meal plan, but no recipes added to the meal plan" do 
+        recipe
+        mealplan1
+        login(user1)
+
+        expect(page).to have_selector('.test__user-scen-3')
+    end 
+
+    it " shows user scenario 4 for a user  who has recipes, a meal plan, and recipes added to the meal plan" do
+        mealplan1.recipes << recipe
+        login(user1)
+
+        expect(page).to have_selector('.test__user-scen-4')
+    end 
   end
 end

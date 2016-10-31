@@ -23,7 +23,7 @@
       <% unless @meal_plan.present? %>
         <%# User Scenario #2: Has recipes, no meal plan %>
 
-        <section class="dashboard__section dashboard__section--meal-plan col-md-12 col-lg-6">
+        <section class="dashboard__section dashboard__section--meal-plan col-md-12 col-lg-6 test__user-scen-2">
           <p>Ok, so, you've got some recipes. Now it's time to decide what you're gonna make this week. Let's <%= link_to "create a meal plan", new_meal_plan_path %> and pick out a few recipes. When you're done, you'll have a quick reference of your chosen recipes all week, as well as a handy shopping list for the grocery store.</p>
 
           <%= link_to "Create a meal plan", new_meal_plan_path, id: "new-meal-plan-btn__user-scen-2", class: "btn btn-default" %>
@@ -33,13 +33,13 @@
 
         <% unless @meal_plan.recipes.present? %>
           <%# User Scenario #3: Has recipes, has meal plan, no recipes added %>
-          <p>Looks like you haven't finished setting up your new meal plan. Let's pick out some recipes and get you that sweet, sweet shopping list.</p>
+          <p class="test__user-scen-3">Looks like you haven't finished setting up your new meal plan. Let's pick out some recipes and get you that sweet, sweet shopping list.</p>
           <%= link_to "Add some recipes to your meal plan", edit_meal_plan_path(@meal_plan), class: "btn btn-default", id: "edit_meal_plan" %>
 
         <% else %>
           <%# User Scenario #4: Has recipes, has meal plan, meal plan has recipes %>
 
-          <section class="dashboard__section dashboard__section--meal-plan col-md-12 col-lg-6">
+          <section class="dashboard__section dashboard__section--meal-plan col-md-12 col-lg-6 test__user-scen-4">
             <h2 class="dashboard__heading">This Week's Recipes<span class="glyphicon glyphicon-calendar"></span></h2>
             <%= render partial: "recipes/list", locals: { recipes: @meal_plan.recipes } %>
             <%= link_to "Change this week's recipes", edit_meal_plan_path(@meal_plan), class: "btn btn-default", id: "edit_meal_plan" %>
