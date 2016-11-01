@@ -1,4 +1,4 @@
-<% content_for :page_header do %>                                                                                                                                                                         
+<% content_for :page_header do %>
   <h1>Meal Plan Overview</h1>
 <% end %>
 
@@ -8,7 +8,7 @@
     <h3 class="meal-plan__name"><%= @meal_plan.name %></h3>
     <%= render partial: "recipes/list", locals: { recipes: @meal_plan.recipes } %>
   <% else %>
-    <h2 class="meal-plan__empty">You haven't added any recipes to this week's meal plan yet.</h2>
+    <h2 class="meal-plan__empty test-no_recipes">You haven't added any recipes to this week's meal plan yet.</h2>
   <% end %>
 </section>
 

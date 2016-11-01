@@ -22,10 +22,10 @@
           <% end %>
 					<li><%= link_to '<i class="glyphicon glyphicon-plus"></i> Add Recipe'.html_safe, new_recipe_path %></li>
 					<li><%= link_to '<i class="glyphicon glyphicon-cog"></i> Settings'.html_safe, edit_user_registration_path, :method => :get %></li>
-					<li><%= link_to '<i class="glyphicon glyphicon-log-out"></i> Log out'.html_safe, destroy_user_session_path, :method => :delete %><li>
+          <li><%= link_to "<i class='glyphicon glyphicon-log-out'></i> #{t('devise.nav.log_out')}".html_safe, destroy_user_session_path, :method => :delete %><li>
 				<% else %>
-					<li><%= link_to '<i class="glyphicon glyphicon-log-in"></i> Log in'.html_safe, new_user_session_path, :method => :get %></li>
-					<li><%= link_to '<i class="glyphicon glyphicon-user"></i> Sign up'.html_safe, new_user_registration_path, :method => :get %></li>
+          <li><%= link_to "<i class='glyphicon glyphicon-log-in'></i> #{t('devise.nav.log_in')}".html_safe, new_user_session_path, :method => :get %></li>
+          <li><%= link_to "<i class='glyphicon glyphicon-user'></i> #{t('devise.nav.sign_up')}".html_safe, new_user_registration_path, :method => :get %></li>
 				<% end %>
 			</ul>
 		</section>

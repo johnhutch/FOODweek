@@ -61,6 +61,10 @@ group :development, :test do
 
   # Use database_cleaner for maintaining a clean test database on each run
   gem 'database_cleaner', '~> 1.5.3'
+
+  gem 'guard-rspec', '~> 4.7.3' # watcher for auto-running tests
+  gem 'rb-readline', '~> 0.5.3' #add inline readline support for guard
+  gem 'terminal-notifier-guard', '~> 1.7.0' # add mac os x notifications on guard runs
 end
 
 group :development do
