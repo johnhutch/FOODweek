@@ -9,12 +9,14 @@ RSpec.feature "User Dashboard", type: :feature do
     it " tells you you don't have any meals in your meal plan" do 
       login(user1)
 
+      visit dashboard_path
       expect(page).to have_selector('h1.test-dash_header')
     end
 
     it " shows user scenario 1 for a user with no recipes or meal plans" do 
         login(user1)
 
+        visit dashboard_path
         expect(page).to have_selector('.test__user-scen-1')
     end 
 
@@ -22,6 +24,7 @@ RSpec.feature "User Dashboard", type: :feature do
         recipe
         login(user1)
 
+        visit dashboard_path
         expect(page).to have_selector('.test__user-scen-2')
     end 
 
@@ -30,6 +33,7 @@ RSpec.feature "User Dashboard", type: :feature do
         mealplan1
         login(user1)
 
+        visit dashboard_path
         expect(page).to have_selector('.test__user-scen-3')
     end 
 
@@ -37,6 +41,7 @@ RSpec.feature "User Dashboard", type: :feature do
         mealplan1.recipes << recipe
         login(user1)
 
+        visit dashboard_path
         expect(page).to have_selector('.test__user-scen-4')
     end 
   end
