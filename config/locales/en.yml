@@ -22,3 +22,8 @@
 en:
   hello: "Hello world"
   brand: "FOODweek"
+  dashboard:
+    new_recipe: "Add some recipes"
+  recipes:
+    submit_new: "Add This Recipe"
+    new_saved: "Your new recipe has been saved."
