@@ -5,18 +5,20 @@ RSpec.feature "Recipe", type: :feature do
   let(:recipe) { FactoryGirl.create(:recipe, user: user1) }
   let(:mealplan1) { FactoryGirl.create(:meal_plan, user: user1) }
 
-  describe "GET /recipes/1" do
-    it " shows you the recipe" do
+  describe "Individual Recipe Page" do
+    it " shows you a recipe" do
       login(user1)
       recipe
 
       visit recipe_path(recipe)
       expect(page).to have_content recipe.name
     end
+    
+
   end
 
-  describe "GET /recipes/new" do
-    it " it creates a new recipe via the recipe meal_plan web form" do
+  describe "New Recipe Form" do
+    it " creates a new recipe via the recipe meal_plan web form" do
       login(user1)
 
       visit dashboard_path
@@ -32,4 +34,5 @@ RSpec.feature "Recipe", type: :feature do
       expect(page).to have_content I18n.t('recipes.new_saved')
     end
   end
+
 end
