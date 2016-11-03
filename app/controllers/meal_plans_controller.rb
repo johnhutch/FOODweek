@@ -66,7 +66,7 @@ class MealPlansController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     respond_to do |format|
       if @meal_plan.recipes << @recipe
-        format.html { redirect_to @recipe, notice: "Ok! We added the recipe to this week's meal plan." }
+        format.html { redirect_to @recipe, notice: t('meal_plans.added_recipe') }
         format.json { render :show, status: :ok, location: @meal_plan }
       else
         format.html { redirect_to :show }
@@ -79,7 +79,7 @@ class MealPlansController < ApplicationController
     @recipe = Recipe.find(params[:recipe_id])
     respond_to do |format|
       if @meal_plan.recipes.delete(@recipe)
-        format.html { redirect_to @recipe, notice: "Ok! We've removed the recipe from this week's meal plan." }
+        format.html { redirect_to @recipe, notice: t('meal_plans.removed_recipe') }
         format.json { render :show, status: :ok, location: @meal_plan }
       else
         format.html { redirect_to @recipe }

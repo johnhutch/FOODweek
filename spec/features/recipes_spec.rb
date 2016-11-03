@@ -13,8 +13,20 @@ RSpec.feature "Recipe", type: :feature do
       visit recipe_path(recipe)
       expect(page).to have_content recipe.name
     end
-    
 
+    it " allows you to add the recipe to the current mealplan and then remove it" do
+      login(user1)
+      recipe
+
+      visit recipe_path(recipe)
+      click_button I18n.t('recipes.add_to_mealplan')
+      expect(page).to have_content I18n.t('meal_plans.added_recipe')
+      expect(user1.current_meal_plan.recipes).to include(recipe)
+
+      click_button I18n.t('recipes.remove_from_mealplan')
+      expect(page).to have_content I18n.t('meal_plans.removed_recipe')
+      expect(user1.current_meal_plan.recipes).to_not include(recipe)
+    end
   end
 
   describe "New Recipe Form" do
