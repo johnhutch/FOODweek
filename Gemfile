@@ -64,7 +64,7 @@ group :development, :test do
 
   gem 'guard-rspec', '~> 4.7.3' # watcher for auto-running tests
   gem 'rb-readline', '~> 0.5.3' #add inline readline support for guard
-  gem 'terminal-notifier-guard', '~> 1.7.0' # add mac os x notifications on guard runs
+  gem 'terminal-notifier-guard', '~> 1.7.0' # add mac os x notifications on guard runs. be sure to brew install terminal-notifier
   gem 'email_spec', '~> 2.1.0' # adds matchers for various email tests
 end
 
