@@ -27,3 +27,8 @@ en:
   recipes:
     submit_new: "Add This Recipe"
     new_saved: "Your new recipe has been saved."
+    add_to_mealplan: "Add To Meal Plan"
+    remove_from_mealplan: "Remove From Meal Plan"
+  meal_plans:
+    added_recipe: "Ok! We added the recipe to this week's meal plan."
+    removed_recipe: "Ok! We've removed the recipe from this week's meal plan."

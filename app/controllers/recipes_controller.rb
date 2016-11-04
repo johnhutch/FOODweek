@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :mine]
 
   def show
-    @meal_plan = current_user.meal_plans.last
+    @meal_plan = current_user.current_meal_plan
 
     if @meal_plan.nil?
       @meal_plan = current_user.meal_plans.build(name: "Unnamed Meal Plan")

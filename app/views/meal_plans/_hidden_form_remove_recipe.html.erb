@@ -5,5 +5,5 @@
 
   <input type="hidden" value="<%= recipe.id %>" name="recipe_id" id="recipe_id_<%= recipe.id %>">
 
-  <%= f.submit "Remove From Meal Plan", class: 'btn btn-warning btn-lg btn-recipe-form' %>
+  <%= f.submit t('recipes.remove_from_mealplan'), class: 'btn btn-warning btn-lg btn-recipe-form' %>
 <% end %>
