@@ -1,67 +1,30 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
+gem 'rails', '~> 5.0.0', '>= 5.0.0.1' # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'pg', '~> 0.19.0' # User Postgresql as the database for Active Record
+gem 'puma', '~> 3.0' # Use Puma as the app server
 
-# User Postgresql as the database for Active Record
-gem 'pg', '~> 0.19.0'
+gem 'bootstrap-sass', '~> 3.3.6' # Use twitter bootstrap (with sass)
+gem 'sass-rails', '~> 5.0' # Use SCSS for stylesheets
+gem 'compass-rails', '~> 3.0.2' # Use compass for SCSS mixins
 
-# Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'uglifier', '>= 1.3.0' # Use Uglifier as compressor for JavaScript assets
 
-# Use twitter bootstrap (with sass)
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails', '~> 4.2.1' # Use jquery as the JavaScript library
+gem 'turbolinks', '~> 5' # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-
-# Use compass for SCSS mixins
-gem 'compass-rails', '~> 3.0.2'
-
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails', '~> 4.2.1'
-
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5'
-
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use for managing environment variables. Works nicely with Heroku too.
-gem 'figaro', '~> 1.1.1'
-
- # Allows for markup formatting in text.
-gem 'redcarpet', '~> 3.1.2'
-
-# Use devise for user authentication and omniauth
-gem 'devise', '~> 4.2.0'
+gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'figaro', '~> 1.1.1' # Use for managing environment variables. Works nicely with Heroku too.
+gem 'redcarpet', '~> 3.1.2' # Allows for markup formatting in text.
+gem 'devise', '~> 4.2.0' # Use devise for user authentication and omniauth
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', '~> 9.0.6', platform: :mri
-
-  # Use rspec for testing
-  gem 'rspec-rails', '~> 3.5.2'
-
-  # Use capybara for plain language testing
-  gem 'capybara', '~> 2.10.1'
-
-  # Use factory_girl_rails to generate data for tests
-  gem 'factory_girl_rails', '~> 4.7.0'
-
-  # Use database_cleaner for maintaining a clean test database on each run
-  gem 'database_cleaner', '~> 1.5.3'
-
+  gem 'byebug', '~> 9.0.6', platform: :mri # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'rspec-rails', '~> 3.5.2' # Use rspec for testing
+  gem 'capybara', '~> 2.10.1' # Use capybara for plain language testing
+  gem 'factory_girl_rails', '~> 4.7.0' # Use factory_girl_rails to generate data for tests
+  gem 'database_cleaner', '~> 1.5.3' # Use database_cleaner for maintaining a clean test database on each run
   gem 'guard-rspec', '~> 4.7.3' # watcher for auto-running tests
   gem 'rb-readline', '~> 0.5.3' #add inline readline support for guard
   gem 'terminal-notifier-guard', '~> 1.7.0' # add mac os x notifications on guard runs. be sure to brew install terminal-notifier
@@ -69,21 +32,15 @@ group :development, :test do
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console', '~> 3.3.1'
+  gem 'web-console', '~> 3.3.1' # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
 
   gem 'listen', '~> 3.0.5'
 
-  # Use letter-opener to view sent emails in browser instead of actually sending them
-  gem 'letter_opener', '~> 1.4.1'
+  gem 'letter_opener', '~> 1.4.1' # Use letter-opener to view sent emails in browser instead of actually sending them
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '~> 2.0.0'
+  gem 'spring', '~> 2.0.0' # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring-watcher-listen', '~> 2.0.0'
 
-  # better error pages for rack apps
-  gem 'better_errors', '~> 2.1.1'
-
-  # needed for advanced better_errors features
-  gem 'binding_of_caller', '~> 0.7.2'
+  gem 'better_errors', '~> 2.1.1' # better error pages for rack apps
+  gem 'binding_of_caller', '~> 0.7.2' # needed for advanced better_errors features
 end
