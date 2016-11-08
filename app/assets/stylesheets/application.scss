@@ -56,24 +56,6 @@ a	{
 */
 
 
-.mealplan-container	{
-	width: 85%;
-	padding: 1.5em;
-	margin-top: 2em;
-	margin-bottom: 4em;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 0.25em;
-	transform: scale(.875);
-	// border: solid 1px $gray-lighter;
-
-	.btn {
-    width: 340px;
-	}
-}
-
-
-
 .recipe-form {
   width: 85%;
   padding: 1.5em;
@@ -127,6 +109,14 @@ a	{
 }
 
 
+.form-subtext {
+  font-style: italic;
+  font-size: 0.85em;
+  line-height: 0.95em;
+  padding-bottom: 0.1em;
+}
+
+
 .field_with_errors {
   input {
     border-color: $brand-danger;
@@ -139,22 +129,45 @@ a	{
   }
 }
 
+.container {
+  &__devise {
+    em {
+      font-size: 0.5em;
+    }
+  }
 
-.devise-container {
-	width: 100%;
-	max-width: 370px;
+  &__mealplan {
+    width: 85%;
+    padding: 1.5em;
+    margin-top: 2em;
+    margin-bottom: 4em;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.25em;
+    transform: scale(.875);
+    
+    .btn {
+      width: 340px;
+    }
+  }
 
-	em {
-		font-size: 0.75em;
-		bottom-margin: 0em;
-		padding: 0em; 
-	
-		&.block {
-			display: block;
-			line-height: 1em;
-			margin-bottom: 0.5em;
-		}
-	}
+  &__cancelmyaccount  {
+    width: 75%;
+    padding: 1.5em;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 4em;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0.25em;
+    transform: scale(.875);
+    border: solid 1px $gray-lighter;
+
+    .btn-default  {
+      width: auto;
+    }
+  }
+
 
 	h3 {
 		line-height: 1em;
@@ -175,24 +188,6 @@ a	{
 .clear-all-margins {
 	margin-bottom: 0em;
 }
-
-.container-cancelmyaccount	{
-	width: 75%;
-	padding: 1.5em;
-	text-align: center;
-	margin-top: 2em;
-	margin-bottom: 4em;
-	margin-left: auto;
-	margin-right: auto;
-	border-radius: 0.25em;
-	transform: scale(.875);
-	border: solid 1px $gray-lighter;
-
-	.btn-default	{
-		width: auto;
-	}
-}
-
 
 
 .page-footer {

@@ -2,7 +2,7 @@
   <h1>Forgot your password?</h1>
 <% end %>
 
-<div class="devise-container container">
+<div class="devise-container container col-xs-12 col-md-8">
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= devise_error_messages! %>
 
