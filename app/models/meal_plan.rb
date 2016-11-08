@@ -7,7 +7,7 @@ class MealPlan < ApplicationRecord
     delimiter = /\s*\n+\s*/ # 0 or more whitespace characters, 1 or more newline character, 0 or more whitespace characters, I think?
   
     self.recipes.each do |recipe|
-      ingredients_lines = recipe.ingredients.split(delimiter)
+      ingredients_lines = recipe.ingredients_block.split(delimiter)
       groceries.concat(ingredients_lines)
     end
 

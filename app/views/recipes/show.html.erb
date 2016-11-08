@@ -11,7 +11,7 @@
     <p class="recipe__link">From <%= link_to @recipe.link, @recipe.link %></p>
   <% end %>
   <p class="recipe__time"><%= @recipe.time %> minutes</p>
-  <p class="recipe__ingredients"><%= markdown(@recipe.ingredients) %></p>
+  <p class="recipe__ingredients"><%= markdown(@recipe.ingredients_formatted) %></p>
   <p class="recipe__steps"><%= markdown(@recipe.steps) %></p>
 </section>
 

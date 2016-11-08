@@ -11,11 +11,11 @@ FactoryGirl.define do
   sequence(:recipe_name) { |n| "Recipe Name #{n}"}
   factory :recipe do
     name { generate(:recipe_name) }
-    ingredients "MyText"
+    ingredients_block "1/2 cup butter\n1/4 tsp salt\n1 gram sugar\n3 apples"
     steps "MyText"
     time 1
   end
-  # generated via: rails g factory_girl:model Recipe name ingredients:text steps:text time:integer user_id:integer
+  # generated via: rails g factory_girl:model Recipe name steps:text time:integer user_id:integer
 
   sequence(:meal_plan_name) { |n| "Meal Plan Name #{n}"}
   factory :meal_plan do

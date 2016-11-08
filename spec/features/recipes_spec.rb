@@ -39,7 +39,7 @@ RSpec.feature "Recipe", type: :feature do
       click_button I18n.t('recipes.submit_new')
       expect(page).to have_selector('.form-errors__list-item')
       fill_in "recipe_time", :with => "30"
-      fill_in "recipe_ingredients", :with => "Foo\bbar"
+      fill_in "recipe_ingredients_block", :with => "Foo\bbar"
       fill_in "recipe_steps", :with => "blah blah blah"
       click_button I18n.t('recipes.submit_new')
       expect(page).not_to have_selector('.form-errors__list-item')
