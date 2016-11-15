@@ -44,6 +44,13 @@ h4, h5, h6 {
 	color: $brand-success-light;
 }
 
+.page-header__title {
+  font-family: 'Pontano Sans', sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  margin: 0.2em 0;
+}
+
 /*
 em	{
 	font-family: 'Source Sans Pro', sans-serif;
@@ -187,6 +194,18 @@ a	{
 
 .clear-all-margins {
 	margin-bottom: 0em;
+}
+
+
+.row-sample {
+  margin-top: 3.5em;
+}
+
+
+.sample-img {
+  margin-top: 1em;
+  text-align: center;
+  image-zoom: auto;
 }
 
 
