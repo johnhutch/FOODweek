@@ -1,4 +1,10 @@
 FactoryGirl.define do
+  factory :ingredient do
+    parent_id 1
+    unit "MyString"
+    amount 1.5
+    name "MyString"
+  end
 
   sequence(:name) { |n| "Joe User #{n}"}
   sequence(:email) { |n| "johnhutch+user#{n}@gmail.com"}

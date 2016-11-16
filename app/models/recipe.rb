@@ -1,6 +1,7 @@
 class Recipe < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :meal_plans
+  has_many :ingredients, :as => :parent
 
   validates :name, presence: true
   validates :ingredients_block, presence: true
@@ -14,5 +15,18 @@ class Recipe < ApplicationRecord
     ingredients_lines = self.ingredients_block.split(delimiter)
     groceries.concat(ingredients_lines)
     groceries
+  end
+
+  def parse_and_save_ingredient_block
+    self.ingredients.delete_all
+
+    # take the text block of ingredients
+    # treat each new line as its own individual ingredienet
+    # use ingreedy to parse out the amount, unit, and name and save in
+    # an associated ingredient record
+    self.ingredients_block.split(delimiter).each do |ingredient|
+      parsed_ing = Ingreedy.parse(ingredient)
+      self.ingredients << Ingredient.create(name: @parsed_ing.ingredient, amount: @parsed_ing.amount, unit: @parsed_ing.unit)
+    end
   end
 end
