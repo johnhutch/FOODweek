@@ -9,6 +9,10 @@ class Recipe < ApplicationRecord
   validates :user_id, presence: true
 
   def ingredients_formatted
-    ingredients_block
+    groceries = Array.new
+    delimiter = /\s*\n+\s*/ # 0 or more whitespace characters, 1 or more newline character, 0 or more whitespace characters, I think?
+    ingredients_lines = self.ingredients_block.split(delimiter)
+    groceries.concat(ingredients_lines)
+    groceries
   end
 end
