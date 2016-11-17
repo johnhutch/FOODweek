@@ -3,7 +3,7 @@
 <% end %>
 
 
-<div class="devise-container container">
+<div class="container container__devise col-xs-12 col-sm-8 col-sm-offset-2">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
 
@@ -19,9 +19,9 @@
     <div class="form-group">
       <%= f.label :password, class: "clear-all-margins" %>
       <% if @minimum_password_length %>
-        <em><%= @minimum_password_length %> characters minimum</em>
+        <span class="form-subtext"><%= @minimum_password_length %> characters minimum</span>
       <% end %>
-      <em class="block">(leave blank if you don't want to change it)</em>
+      <div class="form-subtext">(leave blank if you don't want to change it)</div>
       <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
 <!-- A separate div class="form-group" use to begin here, in case anything goes wrong -->
       <%= f.label :password_confirmation %><br />
@@ -30,7 +30,7 @@
 
     <div class="form-group">
       <%= f.label :current_password, class: "clear-all-margins" %> 
-      <em class="block">(we need your current password to confirm your changes)</em>
+      <div class="form-subtext">(we need your current password to confirm your changes)</div>
       <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
     </div>
 
@@ -39,7 +39,7 @@
     </div>
   <% end %>
 
-  <div class ="container-cancelmyaccount">
+  <div class ="container__cancelmyaccount">
     <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-lg" %></p>
     </div>
 </div>
