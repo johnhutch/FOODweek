@@ -49,7 +49,6 @@ RSpec.feature "Recipe", type: :feature do
       click_link I18n.t('recipes.edit_recipe')
       fill_in "recipe_ingredients_block", :with => @ingredients_second
       click_button I18n.t('recipes.submit_edit')
-      save_and_open_page
       expect(page).to have_content I18n.t('recipes.edit_saved')
       expect(page).to have_content "2 cups stock"
       expect(page).to have_content "2/3 cups flour"
