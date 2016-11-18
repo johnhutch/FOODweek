@@ -25,6 +25,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.build(recipe_params)
+    @recipe.parse_ingredient_block
 
     respond_to do |format|
       if @recipe.save
@@ -43,7 +44,8 @@ class RecipesController < ApplicationController
   def update
     respond_to do |format|
       if @recipe.update(recipe_params)
-        format.html { redirect_to @recipe, notice: "Your recipe has been updated." }
+        @recipe.parse_ingredient_block
+        format.html { redirect_to @recipe, notice: t('recipes.edit_saved') }
         format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit }

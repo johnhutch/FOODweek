@@ -17,8 +17,9 @@ class Recipe < ApplicationRecord
     groceries
   end
 
-  def parse_and_save_ingredient_block
+  def parse_ingredient_block
     self.ingredients.delete_all
+    delimiter = /\s*\n+\s*/ # 0 or more whitespace characters, 1 or more newline character, 0 or more whitespace characters, I think?
 
     # take the text block of ingredients
     # treat each new line as its own individual ingredienet
@@ -26,7 +27,7 @@ class Recipe < ApplicationRecord
     # an associated ingredient record
     self.ingredients_block.split(delimiter).each do |ingredient|
       parsed_ing = Ingreedy.parse(ingredient)
-      self.ingredients << Ingredient.create(name: @parsed_ing.ingredient, amount: @parsed_ing.amount, unit: @parsed_ing.unit)
+      self.ingredients << Ingredient.create(name: parsed_ing.ingredient, amount: parsed_ing.amount, unit: parsed_ing.unit)
     end
   end
 end

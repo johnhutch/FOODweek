@@ -11,7 +11,7 @@
     <p class="recipe__link">From <%= link_to @recipe.link, @recipe.link %></p>
   <% end %>
   <p class="recipe__time"><%= @recipe.time %> minutes</p>
-  <p class="recipe__ingredients"><%= markdown(@recipe.ingredients_block) %></p>
+  <p class="recipe__ingredients"><%= format_ingredients(@recipe.ingredients) %></p>
   <p class="recipe__steps"><%= markdown(@recipe.steps) %></p>
 </section>
 
@@ -49,8 +49,8 @@
         <!-- If the current user is the creator of this recipe,
             allow them to edit or destroy the recipe. -->
       <% if @recipe.user.present? and @recipe.user == current_user %>
-        <li class="recipe-actions__list-item"><%= link_to "Make Some Changes", edit_recipe_path(@recipe), class: "btn btn-success btn-lg btn-recipe-form", role: "button" %></li>
-        <li class="recipe-actions__list-item"><%= link_to "Delete This Recipe", @recipe, method: :delete, class: "btn btn-danger btn-lg btn-recipe-form", role: "button" %></li>
+        <li class="recipe-actions__list-item"><%= link_to t('recipes.edit_recipe').html_safe, edit_recipe_path(@recipe), class: "btn btn-success btn-lg btn-recipe-form", role: "button" %></li>
+        <li class="recipe-actions__list-item"><%= link_to t('recipes.delete_recipe').html_safe, @recipe, method: :delete, class: "btn btn-danger btn-lg btn-recipe-form", role: "button" %></li>
 
       <!-- Otherwise, allow the current user to save the recipe
            as a favorite of sorts. -->
