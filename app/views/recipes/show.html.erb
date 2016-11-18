@@ -13,7 +13,7 @@
   <p class="recipe__time"><%= @recipe.time %> minutes</p>
   <ul class="recipe__ingredients">
     <% @recipe.ingredients.each do |i| %>
-      <li><%= pluralize(i.numeric_amount, i.unit) %> <%= i.name %></li>
+      <li><%= pluralize_ingredient(i) %> <%= i.name %></li>
     <% end %>
   </ul>
   <p class="recipe__steps"><%= markdown(@recipe.steps) %></p>

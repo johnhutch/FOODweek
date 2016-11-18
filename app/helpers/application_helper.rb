@@ -28,4 +28,8 @@ module ApplicationHelper
     ingredients.sort_by { |name, amount, unit| name }
   end
 
+  def pluralize_ingredient(i)
+    i.unit ? pluralize(i.numeric_amount, i.unit) : i.numeric_amount
+  end
+
 end
