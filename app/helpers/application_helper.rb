@@ -24,19 +24,8 @@ module ApplicationHelper
     text.gsub!(/_/, '-')
   end
 
-  def format_ingredients(ingredients, sort = nil)
-    # takes an array of ingreedy'd ingredients and makes them displayable
-    # if sort == true, sort the ingredients
-
-    if sort
-      ingredients = ingredients.sort_by { |name, amount, unit| name }
-    end
-
-    output = '<ul class="ingredients">'
-    ingredients.each do |i|
-      output += '<li>' + pluralize(i.numeric_amount, i.unit) + ' ' + i.name + '</li>'
-    end
-    output += '</ul>'
-    output
+  def sort_ingredients(ingredients)
+    ingredients.sort_by { |name, amount, unit| name }
   end
+
 end

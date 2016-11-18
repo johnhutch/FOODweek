@@ -42,9 +42,13 @@ class RecipesController < ApplicationController
   end
 
   def update
+    old_ingredients = @recipe.ingredients_block
     respond_to do |format|
       if @recipe.update(recipe_params)
-        @recipe.parse_ingredient_block
+        # don't bother re-parsing the ingredients if they haven't changed
+        unless old_ingredients == @recipe.ingredients_block
+          @recipe.parse_ingredient_block
+        end
         format.html { redirect_to @recipe, notice: t('recipes.edit_saved') }
         format.json { render :show, status: :ok, location: @recipe }
       else
