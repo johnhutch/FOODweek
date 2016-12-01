@@ -89,7 +89,7 @@ class MealPlansController < ApplicationController
   end
 
   def grocery_list
-    @grocery_list = @meal_plan.grocery_list
+    @grocery_list = @meal_plan.ingredients
 
     respond_to do |format|
       format.html { render layout: "basic" }
