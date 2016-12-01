@@ -26,6 +26,8 @@ RSpec.feature "Meal Plan", type: :feature do
         check("meal_plan_recipe_ids_" + recipe.id.to_s)
         click_button('submit_meal_plan')
         expect(page).to have_selector('section.test__grocery-list')
+        click_link ('test-nav-grocery_list')
+        expect(page).to have_content recipe.ingredients.first.name
     end
   end
 end

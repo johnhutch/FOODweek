@@ -22,6 +22,8 @@
 en:
   hello: "Hello world"
   brand: "FOODweek"
+  nav:
+    grocery_list: '<i class="glyphicon glyphicon-list-alt"></i> Grocery List'
   dashboard:
     new_recipe: "Add some recipes"
   recipes:

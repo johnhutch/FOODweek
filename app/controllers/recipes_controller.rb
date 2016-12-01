@@ -25,7 +25,6 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = current_user.recipes.build(recipe_params)
-    @recipe.parse_ingredient_block
 
     respond_to do |format|
       if @recipe.save

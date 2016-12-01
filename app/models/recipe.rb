@@ -9,6 +9,8 @@ class Recipe < ApplicationRecord
   validates :time, presence: true, numericality: { presence: true, only_integer: true, greater_than: 0 }
   validates :user_id, presence: true
 
+  after_save :parse_ingredient_block
+
   def ingredients_formatted
     groceries = Array.new
     delimiter = /\s*\n+\s*/ # 0 or more whitespace characters, 1 or more newline character, 0 or more whitespace characters, I think?
