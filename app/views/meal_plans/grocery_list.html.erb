@@ -4,7 +4,7 @@
   </header>
   <ul class="grocery-list__list">
     <% @grocery_list.each do |g| %>
-      <li class="grocery-list__list-item js-grocery-list-item"><span class="glyphicon glyphicon-unchecked"></span><span class="text"><%= pluralize_ingredient(g) %> <%= g.name %></span></li>
+      <li class="grocery-list__list-item js-grocery-list-item"><span class="glyphicon glyphicon-unchecked"></span><span class="text"><%= pluralize_ingredient(g) %></span></li>
     <% end %>
   </ul>
 </article>

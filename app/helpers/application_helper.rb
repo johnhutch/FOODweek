@@ -29,7 +29,7 @@ module ApplicationHelper
   end
 
   def pluralize_ingredient(i)
-    i.unit ? pluralize(i.numeric_amount, i.unit) : i.numeric_amount
+    i.unit ? pluralize(i.numeric_amount, i.unit) + " " + i.name : pluralize(i.numeric_amount, i.name)
   end
 
 end
