@@ -16,4 +16,6 @@ class ContentController < ApplicationController
   def style_guide
   end
 
+  def error
+  end
 end
