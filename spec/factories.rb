@@ -15,9 +15,11 @@ FactoryGirl.define do
   end
 
   sequence(:recipe_name) { |n| "Recipe Name #{n}"}
+  sequence(:ingredients) { |n| "1/2 cup butter\n1/4 tsp salt\n1 gram sugar\n3 apples\n1 RecipeIngredient#{n}"}
+
   factory :recipe do
     name { generate(:recipe_name) }
-    ingredients_block "1/2 cup butter\n1/4 tsp salt\n1 gram sugar\n3 apples"
+    ingredients_block { generate(:ingredients) }
     steps "MyText"
     time 1
   end
