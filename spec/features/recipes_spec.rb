@@ -64,7 +64,7 @@ RSpec.feature "Recipe", type: :feature do
       fill_in "recipe_time", :with => "30"
       fill_in "recipe_ingredients_block", :with => "butts"
       fill_in "recipe_steps", :with => "blah blah blah"
-      click_button I18n.t('recipes.submit_new')
+      expect{click_button I18n.t('recipes.submit_new')}.to_not raise_error
       expect(page).to have_content I18n.t('recipes.new_saved')
     end
   end
