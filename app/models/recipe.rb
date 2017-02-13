@@ -28,8 +28,14 @@ class Recipe < ApplicationRecord
     # use ingreedy to parse out the amount, unit, and name and save in
     # an associated ingredient record
     self.ingredients_block.split(delimiter).each do |ingredient|
-      parsed_ing = Ingreedy.parse(ingredient)
-      self.ingredients << Ingredient.create(name: parsed_ing.ingredient, amount: parsed_ing.amount, unit: parsed_ing.unit)
+      begin
+        parsed_ing = Ingreedy.parse(ingredient)
+        self.ingredients << Ingredient.create(name: parsed_ing.ingredient, amount: parsed_ing.amount, unit: parsed_ing.unit)
+      rescue 
+        # ingreedy chokes if you give it an ingredient string that doesn't contain a quantity. so let's handle that so our 
+        # app doesn't crash
+        self.ingredients << Ingredient.create(name: ingredient)
+      end
     end
   end
 end
