@@ -54,6 +54,19 @@ RSpec.feature "Recipe", type: :feature do
       expect(page).to have_content "2/3 cups flour"
       expect(page).to_not have_content "1 cup butter"
     end
+
+    it " doesn't crash when you add a malformed ingredient in the new recipe form" do
+      login(user1)
+
+      visit dashboard_path
+      click_link I18n.t('dashboard.new_recipe')
+      fill_in "recipe_name", :with => "My new recipe"
+      fill_in "recipe_time", :with => "30"
+      fill_in "recipe_ingredients_block", :with => "butts"
+      fill_in "recipe_steps", :with => "blah blah blah"
+      click_button I18n.t('recipes.submit_new')
+      expect(page).to have_content I18n.t('recipes.new_saved')
+    end
   end
 
 end
