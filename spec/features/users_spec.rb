@@ -28,8 +28,7 @@ RSpec.feature "User Dashboard", type: :feature do
       fill_in "user_password", :with => "secret"
       fill_in "user_password_confirmation", :with => "secret"
       click_button I18n.t('devise.registrations.submit_button')
-      expect(page).to have_selector(".test-dash_header")
-      expect(page).to have_content( I18n.t('devise.registrations.signed_up') )
+      expect(page).to have_content( I18n.t('devise.registrations.signed_up_but_unconfirmed') )
     end
   end
 
