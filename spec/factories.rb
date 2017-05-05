@@ -12,6 +12,7 @@ FactoryGirl.define do
   factory :user do
     email
     password 'secret'
+    confirmed_at "#{Time.now}"
   end
 
   sequence(:recipe_name) { |n| "Recipe Name #{n}"}
