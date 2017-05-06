@@ -21,6 +21,8 @@ gem 'devise', '~> 4.2.0' # Use devise for user authentication and omniauth
 #gem 'parslet', :git => 'https://github.com/kschiess/parslet' # i thought getting the most recent changes might fix the malformed ingredient error issue
 gem 'ingreedy' # parses block ingredient strings into individual ingredients
 
+gem 'rollbar'
+
 group :development, :test do
   gem 'byebug', '~> 9.0.6', platform: :mri # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'rspec-rails', '~> 3.5.2' # Use rspec for testing
