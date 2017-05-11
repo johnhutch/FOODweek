@@ -22,13 +22,27 @@ RSpec.feature "User Dashboard", type: :feature do
 
   describe "POST /users/" do 
     it "signs a user up" do
+      test_email = "test@email.com"
+      test_pass = "secret"
+
       visit new_user_registration_path
       expect(page).to have_selector(".test-sign_up_form")
-      fill_in "user_email", :with => "test@email.com"
-      fill_in "user_password", :with => "secret"
-      fill_in "user_password_confirmation", :with => "secret"
+      fill_in "user_email", :with => test_email
+      fill_in "user_password", :with => test_pass
+      fill_in "user_password_confirmation", :with => test_pass
       click_button I18n.t('devise.registrations.submit_button')
-      expect(page).to have_content( I18n.t('devise.registrations.signed_up_but_unconfirmed') )
+      expect(page).to have_content I18n.t('devise.registrations.signed_up_but_unconfirmed')
+      expect(unread_emails_for(test_email)).to be_present
+      open_email test_email, :with_subject => I18n.t('devise.mailer.confirmation_instructions.subject')
+      click_first_link_in_email
+      expect(page).to have_content I18n.t('devise.confirmations.confirmed')
+    end
+  end
+
+  describe "didn't receive confirmation link" do 
+    it "displays the page properly" do
+      visit new_user_confirmation_path
+      expect(page).to have_selector(".test--resend_confirmation_instructions")
     end
   end
 
@@ -48,7 +62,7 @@ RSpec.feature "User Dashboard", type: :feature do
       current_email_address = user1.email
       # EmailSpec::EmailViewer::save_and_open_all_raw_emails
       expect(unread_emails_for(user1.email)).to be_present
-      open_email user1.email, :with_subject => "Reset password instructions"
+      open_email user1.email, :with_subject => I18n.t('devise.mailer.reset_password_instructions.subject');
       click_first_link_in_email
       expect(page).to have_selector(".test--change_password")
       fill_in "user_password", :with => "newpass"
