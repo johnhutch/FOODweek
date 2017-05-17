@@ -1,15 +1,5 @@
 FactoryGirl.define do
-  factory :product do
-    user_id 1
-    grocery_list_id 1
-    name "MyString"
-    amount "MyString"
-    checked false
-    unit "MyString"
-  end
-  factory :grocery_list do
-    user_id 1
-  end
+
   factory :ingredient do
     parent_id 1
     unit "MyString"
@@ -41,5 +31,8 @@ FactoryGirl.define do
   factory :meal_plan do
     name { generate(:meal_plan_name) }
     active 1
+  end
+
+  factory :grocery_list do
   end
 end
