@@ -25,10 +25,11 @@ class MealPlansController < ApplicationController
   # POST /meal_plans
   # POST /meal_plans.json
   def create
-    @meal_plan = current_user.meal_plans.build(meal_plan_params)
+    @meal_plan = current_user.meal_plans.build( { name: params[:name] } )
 
     respond_to do |format|
       if @meal_plan.save
+        @meal_plan.update(meal_plan_params)
         format.html { redirect_to dashboard_path, notice: 'Meal plan was successfully created.' }
         format.json { render :show, status: :created, location: @meal_plan }
       else
@@ -85,15 +86,6 @@ class MealPlansController < ApplicationController
         format.html { redirect_to @recipe }
         format.json { render json: @meal_plan.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  def grocery_list
-    @grocery_list = @meal_plan.ingredients
-
-    respond_to do |format|
-      format.html { render layout: "basic" }
-      format.json { render json: @grocery_list }
     end
   end
 
