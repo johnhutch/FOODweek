@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :recipes
   has_many :meal_plans
+  has_one :grocery_list
 
   def current_meal_plan
     self.meal_plans.last
