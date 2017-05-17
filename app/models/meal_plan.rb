@@ -16,6 +16,7 @@ class MealPlan < ApplicationRecord
           list_i.amount = Unit.new( Unit.new(list_i.amount + (list_i.unit || "") ) + Unit.new(recipe_i.amount + (recipe_i.unit || "") ) ).scalar
           list_i.save
           found = true
+          break
         end
       end
       self.user.grocery_list.ingredients.create(name: recipe_i.name, amount: recipe_i.amount, unit: recipe_i.unit) unless found
