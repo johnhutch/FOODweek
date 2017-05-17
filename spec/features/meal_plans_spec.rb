@@ -35,6 +35,8 @@ RSpec.feature "Meal Plan", type: :feature do
         expect(page).to have_content recipe.ingredients.last.name
         expect(page).to have_content recipe3.ingredients.last.name
         expect(page).to_not have_content recipe2.ingredients.last.name
+        expect(page).to have_content "1 cup butter"
+        expect(page).to have_content "1/2 teaspoons salt"
     end
   end
 end
