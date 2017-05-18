@@ -26,6 +26,8 @@ en:
     grocery_list: '<i class="glyphicon glyphicon-list-alt"></i> Grocery List'
   dashboard:
     new_recipe: "Add some recipes"
+  grocery_list:
+    ingredient_added: " has been added to your grocery list"
   recipes:
     submit_new: "Add This Recipe"
     submit_edit: "Update This Recipe"
