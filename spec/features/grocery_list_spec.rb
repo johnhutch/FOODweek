@@ -18,7 +18,21 @@ RSpec.feature "GroceryList", type: :feature do
       visit grocery_list_path
     end
 
-    it "can be appended, edited, and trimmed"
+    it "can be appended" do
+      login(user1)
+      mealplan1.recipes << recipe
+      mealplan1.recipes << recipe2
+      mealplan1.recipes << recipe3
+
+      visit dashboard_path
+
+      fill_in "new_ingredient", :with => "3 tbsp of butter"
+      click_button I18n.t('recipes.submit_new')
+      expect(page).to have_content I18n.t('grocery_list.ingredient_added')
+    end
+
+    it "can be edited"
+    it "can be trimmed"
     it "reorganizes as you check items off it"
     it "can be added to from Alexa"
   end
