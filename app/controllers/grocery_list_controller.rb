@@ -16,7 +16,7 @@ class GroceryListController < ApplicationController
 
     respond_to do |format|
       if @grocery_list.add_ingredient(@ingredient)
-        format.html { redirect_back(fallback_location: dashboard_path, notice: "#{@ingredient.name} #{t('grocery_list.ingredient_added')}" ) }
+        format.html { redirect_back(fallback_location: dashboard_path, success: "#{@ingredient.name} #{t('grocery_list.ingredient_added')}" ) }
         format.json { redirect_back(fallback_location: dashboard_path, status: :ok, location: grocery_list_path) }
       else
         format.html { redirect_back(fallback_location: dashboard_path, notice: t('grocery_list.problem_adding_ingredient')) }
@@ -28,7 +28,7 @@ class GroceryListController < ApplicationController
   def remove_ingredient
     respond_to do |format|
       if @grocery_list.subtract_ingredient(@ingredient)
-        format.html { redirect_back(fallback_location: dashboard_path, notice: "#{@ingredient.name} #{t('grocery_list.ingredient_added')}" ) }
+        format.html { redirect_back(fallback_location: dashboard_path, success: "#{@ingredient.name} #{t('grocery_list.ingredient_removed')}" ) }
         format.json { redirect_back(fallback_location: dashboard_path, status: :ok, location: grocery_list_path) }
       else
         format.html { redirect_back(fallback_location: dashboard_path, notice: t('grocery_list.problem_adding_ingredient')) }

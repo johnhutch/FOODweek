@@ -26,9 +26,7 @@ RSpec.describe GroceryList, type: :request do
 		it "redirects to login if no session is found" do
       mealplan1.recipes << recipe
 
-      expect { 
-        post add_ingredient_to_grocery_list_path, params: { :ingredient => { :ingredient_string => "1/4 cup of butter" } } 
-      }.to_not change(Ingredient, :count)
+      post add_ingredient_to_grocery_list_path, params: { :ingredient => { :ingredient_string => "1/4 cup of butter" } } 
       expect(response).to redirect_to(new_user_session_url)
     end
 
@@ -38,6 +36,7 @@ RSpec.describe GroceryList, type: :request do
 
       post add_ingredient_to_grocery_list_path, params: { :ingredient => { :ingredient_string => "1/4 cup of butter" } }
       expect(response).to redirect_to(dashboard_path)
+      expect(flash[:success]).to match "butter #{I18n.t('grocery_list.ingredient_added')}"
     end
   end
 
@@ -49,15 +48,13 @@ RSpec.describe GroceryList, type: :request do
 
       post remove_ingredient_from_grocery_list_path, params: { :id => ingredient.id } 
       expect(response).to redirect_to(dashboard_path)
-      expect(flash[:notice]).to match "#{ingredient.name} #{I18n.t('grocery_list.ingredient_added')}"
+      expect(flash[:success]).to match "#{ingredient.name} #{I18n.t('grocery_list.ingredient_removed')}"
     end
 
 		it "redirects to login if no session is found" do
       mealplan1.recipes << recipe
 
-      expect { 
-        post remove_ingredient_from_grocery_list_path, params: { :ingredient => { :id => mealplan1.recipes.first.ingredients.first.id } } 
-      }.to_not change(Ingredient, :count)
+      post remove_ingredient_from_grocery_list_path, params: { :ingredient => { :id => mealplan1.recipes.first.ingredients.first.id } } 
       expect(response).to redirect_to(new_user_session_url)
     end
   end
