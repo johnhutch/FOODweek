@@ -42,8 +42,23 @@ RSpec.describe GroceryList, type: :request do
   end
 
   describe "POST /grocery_list/remove_ingredient" do
-		it "parses the submitted ingedient and removes it from the grocery list"
-		it "parses the submitted ingedient and subtracts the amount from the grocery list"
-		it "redirects to login if no session is found"
+		it "parses the submitted ingedient and removes it from the grocery list" do
+      login(user1)
+      mealplan1.recipes << recipe
+      ingredient = recipe.ingredients.first
+
+      post remove_ingredient_from_grocery_list_path, params: { :id => ingredient.id } 
+      expect(response).to redirect_to(dashboard_path)
+      expect(flash[:notice]).to match "#{ingredient.name} #{I18n.t('grocery_list.ingredient_added')}"
+    end
+
+		it "redirects to login if no session is found" do
+      mealplan1.recipes << recipe
+
+      expect { 
+        post remove_ingredient_from_grocery_list_path, params: { :ingredient => { :id => mealplan1.recipes.first.ingredients.first.id } } 
+      }.to_not change(Ingredient, :count)
+      expect(response).to redirect_to(new_user_session_url)
+    end
   end
 end

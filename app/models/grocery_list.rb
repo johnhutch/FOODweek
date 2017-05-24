@@ -24,7 +24,7 @@ class GroceryList < ApplicationRecord
 
     self.ingredients.each do |list_i|
       if list_i.name == sub_i.name
-        if list_i.unitized_amount > sub_i.unitized_amount
+        if list_i.unitized_amount.nil? || list_i.unitized_amount > sub_i.unitized_amount
           list_i.amount = Unit.new( list_i.unitized_amount - sub_i.unitized_amount ).scalar
           return list_i.save
         else

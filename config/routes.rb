@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   get "grocery_list", to: "grocery_list#index", as: "grocery_list"
   post "grocery_list/add_ingredient", to: "grocery_list#add_ingredient", as: "add_ingredient_to_grocery_list"
+  post "grocery_list/remove_ingredient", to: "grocery_list#remove_ingredient", as: "remove_ingredient_from_grocery_list"
 
   get "/privacy" => "content#privacy"
   get "/style_guide" => "content#style_guide"

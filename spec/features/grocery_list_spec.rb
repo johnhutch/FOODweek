@@ -33,7 +33,5 @@ RSpec.feature "GroceryList", type: :feature do
 
     it "can be edited"
     it "can be trimmed"
-    it "reorganizes as you check items off it"
-    it "can be added to from Alexa"
   end
 end
