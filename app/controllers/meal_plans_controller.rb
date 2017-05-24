@@ -1,6 +1,6 @@
 class MealPlansController < ApplicationController
-  before_action :set_meal_plan, only: [:show, :edit, :update, :destroy, :add_recipe, :remove_recipe, :grocery_list]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :add_recipe, :remove_recipe, :grocery_list]
+  before_action :set_meal_plan, only: [:show, :edit, :update, :destroy, :add_recipe, :remove_recipe]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :add_recipe, :remove_recipe]
 
   # GET /meal_plans
   # GET /meal_plans.json

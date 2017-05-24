@@ -7,7 +7,6 @@ class MealPlan < ApplicationRecord
 
   validates_presence_of :user
 
-
   def append_ingredients_to_grocery_list(recipe)
     recipe.ingredients.map do |recipe_i|
       # search for the ingredient by name

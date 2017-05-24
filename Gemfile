@@ -28,6 +28,7 @@ gem 'rollbar'
 group :development, :test do
   gem 'byebug', '~> 9.0.6', platform: :mri # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'rspec-rails', '~> 3.5.2' # Use rspec for testing
+  gem 'rails-controller-testing'
   gem 'capybara', '~> 2.10.1' # Use capybara for plain language testing
   gem 'factory_girl_rails', '~> 4.7.0' # Use factory_girl_rails to generate data for tests
   gem 'database_cleaner', '~> 1.5.3' # Use database_cleaner for maintaining a clean test database on each run
