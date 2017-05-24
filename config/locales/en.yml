@@ -28,6 +28,7 @@ en:
     new_recipe: "Add some recipes"
   grocery_list:
     ingredient_added: " has been added to your grocery list"
+    problem_adding_ingredient: "There was an issue adding to your grocery list."
   recipes:
     submit_new: "Add This Recipe"
     submit_edit: "Update This Recipe"

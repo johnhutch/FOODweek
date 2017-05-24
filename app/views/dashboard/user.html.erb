@@ -48,7 +48,12 @@
 
           <section class="dashboard__section dashboard__section--grocery-list test__grocery-list col-md-12 col-lg-6">
             <h2 class="dashboard__heading">Grocery List<span class="glyphicon glyphicon-shopping-cart"></span></h3>
-            <p>This doesn't look so organized just yet, but at least you have them all in one place.</p>
+            <%= form_for Ingredient.new, as: :ingredient, url: add_ingredient_to_grocery_list_path do |f| %>
+              <%= f.label "ingredient[ingredient_string]", "Add to grocery list" %>
+              <%= text_field_tag "ingredient[ingredient_string]", nil, class: "form-control" %>
+
+              <%= f.submit t('recipes.submit_new'), class: "_strinobtn btn-primary btn-xs" %>
+            <% end %>
             <ul class="dashboard__ingredients">
               <% @grocery_list.ingredients.each do |i| %>
                 <li class="dashboard__ingredients-set"><%= pluralize_ingredient(i) %></li>

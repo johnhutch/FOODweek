@@ -36,10 +36,8 @@ RSpec.describe GroceryList, type: :request do
       login(user1)
       mealplan1.recipes << recipe
 
-      expect { 
-        post add_ingredient_to_grocery_list_path, params: { :ingredient => { :ingredient_string => "1/4 cup of butter" } }
-      }.to change(Ingredient, :count).by(1)
-      expect(response).to have_http_status(:ok)
+      post add_ingredient_to_grocery_list_path, params: { :ingredient => { :ingredient_string => "1/4 cup of butter" } }
+      expect(response).to redirect_to(dashboard_path)
     end
   end
 

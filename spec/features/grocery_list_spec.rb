@@ -16,19 +16,19 @@ RSpec.feature "GroceryList", type: :feature do
       mealplan1.recipes << recipe3
 
       visit grocery_list_path
+      expect(page).to have_content ("3/2 cups butter")
     end
 
     it "can be appended" do
       login(user1)
       mealplan1.recipes << recipe
-      mealplan1.recipes << recipe2
-      mealplan1.recipes << recipe3
 
       visit dashboard_path
 
-      fill_in "new_ingredient", :with => "3 tbsp of butter"
+      fill_in "ingredient_ingredient_string", :with => "3 tbsp of butter"
       click_button I18n.t('recipes.submit_new')
       expect(page).to have_content I18n.t('grocery_list.ingredient_added')
+      expect(page).to have_content ("11/16 cups butter")
     end
 
     it "can be edited"
