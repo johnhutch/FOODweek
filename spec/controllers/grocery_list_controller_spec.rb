@@ -26,7 +26,9 @@ RSpec.describe GroceryList, type: :request do
 		it "redirects to login if no session is found" do
       mealplan1.recipes << recipe
 
-      expect { post add_ingredient_to_grocery_list_path, params: { :ingredient => { :ingredient_string => "1/4 cup of butter" } } }.to change(Ingredient, :count).by(1)
+      expect { 
+        post add_ingredient_to_grocery_list_path, params: { :ingredient => { :ingredient_string => "1/4 cup of butter" } } 
+      }.to_not change(Ingredient, :count)
       expect(response).to redirect_to(new_user_session_url)
     end
 
@@ -34,7 +36,9 @@ RSpec.describe GroceryList, type: :request do
       login(user1)
       mealplan1.recipes << recipe
 
-      post add_ingredient_to_grocery_list_path, params: { :ingredient => { :ingredient_string => "1/4 cup of butter" } }
+      expect { 
+        post add_ingredient_to_grocery_list_path, params: { :ingredient => { :ingredient_string => "1/4 cup of butter" } }
+      }.to change(Ingredient, :count).by(1)
       expect(response).to have_http_status(:ok)
     end
   end
