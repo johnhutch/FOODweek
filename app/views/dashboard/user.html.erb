@@ -56,7 +56,7 @@
             <% end %>
             <ul class="dashboard__ingredients">
               <% @grocery_list.ingredients.each do |i| %>
-                <li class="dashboard__ingredients-set"><%= pluralize_ingredient(i) %></li>
+                <li class="dashboard__ingredients-set"><%= pluralize_ingredient(i).html_safe %></li>
               <% end %>
             </ul>
           </section>

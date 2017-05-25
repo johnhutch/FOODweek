@@ -11,6 +11,9 @@
       margin-top: 0em;
     }
 
+    &--grocery-list {
+    }
+
   } // .dashboard__section
 
   &__heading {
@@ -29,11 +32,29 @@
     }
   } // .dashboard__heading
 
-  &__grocery-list {
+  &__ingredients {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: .9em;
+    display: table;
   }
 
-  &__grocery-item {
+  &__ingredients-set {
+    clear: both;
+    @include clearfix;
+    border-bottom: 1px dotted #ddd;
+    display: table-row;
+
+    .measurement {
+      padding: .2em .4em;
+      display: table-cell;
+    }
+    .name {
+      padding: .2em .4em;
+      display: table-cell;
+    }
   }
+
 } // .dashboard
 
 $line-height-computed-em: em($line-height-computed);
