@@ -1,5 +1,6 @@
 class Ingredient < ApplicationRecord
   belongs_to :parent, polymorphic: true
+  validates_presence_of :name
 
   def numeric_amount
     # because "2".to_r == 2/1, and no one writes recipes like that
@@ -14,10 +15,14 @@ class Ingredient < ApplicationRecord
       if den == 1
         self.amount.to_i 
       else
-        if den > num
-          self.amount.to_r
+        if den > 32
+          self.amount.to_r.to_f.round(2)
         else
-          (num / den).to_i.to_s + " " + (num % den).to_s + "/" + den.to_s
+          if den > num
+            self.amount.to_r
+          else
+            (num / den).to_i.to_s + " " + (num % den).to_s + "/" + den.to_s
+          end
         end
       end
     else

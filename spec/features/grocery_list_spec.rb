@@ -33,7 +33,5 @@ RSpec.feature "GroceryList", type: :feature do
       expect(page).to have_content ("11/16 cups butter")
     end
 
-    it "can be edited"
-    it "can be trimmed"
   end
 end

@@ -1,7 +1,9 @@
 FactoryGirl.define do
 
+  factory :grocery_list do
+  end
+
   factory :ingredient do
-    parent_id 1
     unit "ounces"
     amount 1.5
     name "beef"
@@ -33,6 +35,4 @@ FactoryGirl.define do
     active 1
   end
 
-  factory :grocery_list do
-  end
 end
