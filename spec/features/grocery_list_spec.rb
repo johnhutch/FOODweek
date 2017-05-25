@@ -16,7 +16,9 @@ RSpec.feature "GroceryList", type: :feature do
       mealplan1.recipes << recipe3
 
       visit grocery_list_path
-      expect(page).to have_content ("3/2 cups butter")
+      expect(page).to have_content ("1 1/2 cups butter")
+      expect(page).to have_content ("3/4 teaspoons salt")
+      expect(page).to have_content ("3 grams sugar")
     end
 
     it "can be appended" do

@@ -1,10 +1,25 @@
 class Ingredient < ApplicationRecord
+  belongs_to :parent, polymorphic: true
 
   def numeric_amount
     # because "2".to_r == 2/1, and no one writes recipes like that
-    # so we check to see if the denominator is 1. if so, use to_i. otherwise, .to_r
+    # so we check to see if the denominator is 1. if so, use to_i. 
+    # if not, we check to see if we're dealing with any whole numbers,
+    # e.g., 2 3/4, or just sub-1 numbers, e.g., 1/4
+    # and display the appropriate formatting
     if self.amount
-      self.amount.to_r.denominator == 1 ? self.amount.to_i : self.amount.to_r
+      den = self.amount.to_r.denominator
+      num = self.amount.to_r.numerator
+
+      if den == 1
+        self.amount.to_i 
+      else
+        if den > num
+          self.amount.to_r
+        else
+          (num / den).to_i.to_s + " " + (num % den).to_s + "/" + den.to_s
+        end
+      end
     else
       ""
     end
