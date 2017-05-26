@@ -49,10 +49,12 @@
           <section class="dashboard__section dashboard__section--grocery-list test__grocery-list col-md-12 col-lg-6">
             <h2 class="dashboard__heading">Grocery List<span class="glyphicon glyphicon-shopping-cart"></span></h3>
             <%= form_for Ingredient.new, as: :ingredient, url: add_ingredient_to_grocery_list_path do |f| %>
-              <%= f.label "ingredient[ingredient_string]", "Add to grocery list" %>
-              <%= text_field_tag "ingredient[ingredient_string]", nil, class: "form-control" %>
-
-              <%= f.submit t('recipes.submit_new'), class: "_strinobtn btn-primary btn-xs" %>
+              <div class="input-group input-group-sm">
+                <%= text_field_tag "ingredient[ingredient_string]", nil, class: "form-control", placeholder: "New grocery list item..."  %>
+                <span class="input-group-btn">
+                  <%= f.submit t('ingredients.add_new'), class: "btn-primary btn" %>
+                </span>
+              </div>
             <% end %>
             <ul class="dashboard__ingredients">
               <% @grocery_list.ingredients.each do |i| %>

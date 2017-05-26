@@ -40,10 +40,8 @@
   }
 
   &__ingredients-set {
-    clear: both;
-    @include clearfix;
-    border-bottom: 1px dotted #ddd;
     display: table-row;
+    border-bottom: 1px dotted #ddd;
 
     .measurement {
       padding: .2em .4em;
