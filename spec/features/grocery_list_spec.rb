@@ -21,20 +21,30 @@ RSpec.feature "GroceryList", type: :feature do
       expect(page).to have_content ("3 grams sugar")
     end
 
-    it "can be appended" do
-      login(user1)
-      mealplan1.recipes << recipe
+    context "on the dashboard" do
+      it "can be appended" do
+        login(user1)
+        mealplan1.recipes << recipe
 
-      visit dashboard_path
+        visit dashboard_path
+        fill_in "ingredient_ingredient_string", :with => "3 tbsp of butter"
+        click_button I18n.t('ingredients.add_new')
+        expect(page).to have_content I18n.t('grocery_list.ingredient_added')
+        expect(page).to have_content ("11/16 cups butter")
+      end
 
-      fill_in "ingredient_ingredient_string", :with => "3 tbsp of butter"
-      click_button I18n.t('ingredients.add_new')
-      expect(page).to have_content I18n.t('grocery_list.ingredient_added')
-      expect(page).to have_content ("11/16 cups butter")
+      it "doesn't crash if adding a unitless ingredient to a unit'd ingredient" do
+        #e.g., adding "3 steaks" to "16 oz of steak" is ok
+        login(user1)
+        mealplan1.recipes << recipe
+
+        visit dashboard_path
+
+        fill_in "ingredient_ingredient_string", :with => "3 pounds of apple"
+        click_button I18n.t('ingredients.add_new')
+        expect(page).to have_content I18n.t('grocery_list.ingredient_added')
+      end
     end
-
-    it "doesn't crash when you add a unit-less ingredient to a unit'd ingredient"
-    #e.g., adding "3 steaks" when you have "16 oz of steak" on the list already
 
   end
 end
