@@ -28,10 +28,13 @@ RSpec.feature "GroceryList", type: :feature do
       visit dashboard_path
 
       fill_in "ingredient_ingredient_string", :with => "3 tbsp of butter"
-      click_button I18n.t('recipes.submit_new')
+      click_button I18n.t('ingredients.add_new')
       expect(page).to have_content I18n.t('grocery_list.ingredient_added')
       expect(page).to have_content ("11/16 cups butter")
     end
+
+    it "doesn't crash when you add a unit-less ingredient to a unit'd ingredient"
+    #e.g., adding "3 steaks" when you have "16 oz of steak" on the list already
 
   end
 end

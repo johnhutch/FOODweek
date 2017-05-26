@@ -9,7 +9,7 @@ class GroceryList < ApplicationRecord
     # TODO: could this be improved with an includes? or more intelligent map?
 
     self.ingredients.each do |list_i|
-      if list_i.name == add_i.name
+      if list_i.name.singularize == add_i.name.singularize
         list_i.amount = Unit.new( list_i.unitized_amount + add_i.unitized_amount ).scalar
         return list_i.save
       end
@@ -23,7 +23,7 @@ class GroceryList < ApplicationRecord
     # TODO: could this be improved with an includes? or more intelligent map?
 
     self.ingredients.each do |list_i|
-      if list_i.name == sub_i.name
+      if list_i.name.singularize == sub_i.name.singularize
         if list_i.unitized_amount.nil? || list_i.unitized_amount > sub_i.unitized_amount
           list_i.amount = Unit.new( list_i.unitized_amount - sub_i.unitized_amount ).scalar
           return list_i.save
