@@ -16,8 +16,10 @@ Rails.application.routes.draw do
     end
   end
 
-  get "/privacy" => "content#privacy"
-  get "/style_guide" => "content#style_guide"
-  get "/terms" => "content#terms"
-  get "/contact" => "content#contact"
+  get "privacy" => "content#privacy"
+  get "style_guide" => "content#style_guide"
+  get "terms" => "content#terms"
+  get "contact" => "content#contact"
+
+  match "*unmatched_route", via: :all, to: "application#raise_routing_error"
 end
