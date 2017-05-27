@@ -4,14 +4,22 @@ class GroceryList < ApplicationRecord
 
   def add_ingredient(add_i)
     # search for the ingredient by name
-    # if found, sum the amounts in the recipe and the grocery list
+    # if found, verify that the param ingredient and found ingredient 
+    # have summable units. if so, sum the amounts in the recipe and the grocery list
+    # if units are not summable, keep searching.
     # if not found, add a new ingredient to the grocery list
-    # TODO: could this be improved with an includes? or more intelligent map?
 
     self.ingredients.each do |list_i|
       if list_i.name.singularize == add_i.name.singularize
-        list_i.amount = Unit.new( list_i.unitized_amount + add_i.unitized_amount ).scalar
-        return list_i.save
+        if list_i.unitless? || add_i.unitless?
+          if list_i.unitless? && add_i.unitless?
+            list_i.amount = sum_i(list_i, add_i)
+            return list_i.save
+          end
+        else
+          list_i.amount = Unit.new( list_i.unitized_amount + add_i.unitized_amount ).scalar
+          return list_i.save
+        end
       end
     end
     self.ingredients.create(name: add_i.name, amount: add_i.amount, unit: add_i.unit)
@@ -20,7 +28,6 @@ class GroceryList < ApplicationRecord
   def subtract_ingredient(sub_i)
     # search for the ingredient by name, then subtract the recipe's amount from the grocery list
     # if amount = 0, remove entirely
-    # TODO: could this be improved with an includes? or more intelligent map?
 
     self.ingredients.each do |list_i|
       if list_i.name.singularize == sub_i.name.singularize
@@ -34,4 +41,9 @@ class GroceryList < ApplicationRecord
     end
   end
 
+  private
+
+  def sum_i(list_i, add_i)
+    Unit.new( list_i.unitized_amount + add_i.unitized_amount ).scalar
+  end
 end

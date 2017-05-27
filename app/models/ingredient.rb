@@ -30,6 +30,10 @@ class Ingredient < ApplicationRecord
     end
   end
 
+  def unitless?
+    self.unit.nil?
+  end
+
   def unitized_amount
     Unit.new(self.amount + (self.unit || "") )
   end

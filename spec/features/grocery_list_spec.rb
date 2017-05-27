@@ -43,6 +43,14 @@ RSpec.feature "GroceryList", type: :feature do
         fill_in "ingredient_ingredient_string", :with => "3 pounds of apple"
         click_button I18n.t('ingredients.add_new')
         expect(page).to have_content I18n.t('grocery_list.ingredient_added')
+        expect(page).to have_content ("3 pounds apple")
+        expect(page).to have_content ("3 apples")
+        save_and_open_page
+
+        fill_in "ingredient_ingredient_string", :with => "1 salt"
+        click_button I18n.t('ingredients.add_new')
+        expect(page).to have_content I18n.t('grocery_list.ingredient_added')
+        expect(page).to have_content ("1 salt")
       end
     end
 
