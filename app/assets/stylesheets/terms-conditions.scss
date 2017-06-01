@@ -1,0 +1,51 @@
+ol.terms {
+    font-size: 1.15em;
+    color: $brand-primary;
+    counter-reset:li; /* Initiate a counter */
+    margin-left:0; /* Remove the default left margin */
+    padding-left:0; /* Remove the default left padding */
+};
+
+ol.terms h2 {
+    margin-top: 0;
+};
+
+ol.terms > li {
+    position:relative; /* Create a positioning context */
+    margin:0 0 6px 2em; /* Give each list item a left margin to make room for the numbers */
+    padding:4px 10px 16px; /* Add some spacing around the content */
+    list-style:none; /* Disable the normal item numbering */
+};
+
+ol.terms > li:before {
+    content:counter(li); /* Use the counter as content */
+    counter-increment:li; /* Increment the counter by 1 */
+    /* Position and style the number */
+    position:absolute;
+    top:1px;
+    left:-2em;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+    width:2em;
+    /* Some space between the number and the content in browsers that support
+       generated content but not positioning it (Camino 2 is one example) */
+    margin-right:12px;
+    padding:4px;
+    color:#fff;
+    background: $brand-primary;
+    font-weight: bold;
+    text-align:center;
+};
+
+ol.terms p {
+    font-size: 20px;
+    color: #525255;
+};
+
+ol.terms ul {
+    font-size: 20px;
+    color: #525255;
+    padding-top: 0;
+    padding-bottom: 0.5em;
+};
