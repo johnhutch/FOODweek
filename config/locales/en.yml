@@ -22,13 +22,20 @@
 en:
   hello: "Hello world"
   brand: "FOODweek"
+  nav:
+    grocery_list: '<i class="glyphicon glyphicon-list-alt"></i> Grocery List'
   dashboard:
     new_recipe: "Add some recipes"
   recipes:
     submit_new: "Add This Recipe"
+    submit_edit: "Update This Recipe"
     new_saved: "Your new recipe has been saved."
+    edit_saved: "Your recipe has been updated."
     add_to_mealplan: "Add To Meal Plan"
     remove_from_mealplan: "Remove From Meal Plan"
+    no_ingredients: "No ingredients listed"
+    edit_recipe: "Edit"
+    delete_recipe: "Delete <i class='glyphicon glyphicon-remove'></i>"
   meal_plans:
     added_recipe: "Ok! We added the recipe to this week's meal plan."
     removed_recipe: "Ok! We've removed the recipe from this week's meal plan."

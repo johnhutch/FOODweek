@@ -30,8 +30,10 @@ RSpec.feature "Recipe", type: :feature do
   end
 
   describe "New Recipe Form" do
-    it " creates a new recipe via the recipe meal_plan web form" do
+    it " creates a new recipe via the recipe meal_plan web form, then lets you edit the recipe and makes sure the ingredients differ" do
       login(user1)
+      @ingredients_first = "1 cup butter\n2 tbsp of salt\n1/2 tsp of sugar\n1 ham"
+      @ingredients_second = "2 cups stock\n1 pound beef\n0.5 grams of xanthum gum\n2/3 cup of flour, sifted"
 
       visit dashboard_path
       click_link I18n.t('dashboard.new_recipe')
@@ -39,10 +41,30 @@ RSpec.feature "Recipe", type: :feature do
       click_button I18n.t('recipes.submit_new')
       expect(page).to have_selector('.form-errors__list-item')
       fill_in "recipe_time", :with => "30"
-      fill_in "recipe_ingredients", :with => "Foo\bbar"
+      fill_in "recipe_ingredients_block", :with => @ingredients_first
       fill_in "recipe_steps", :with => "blah blah blah"
       click_button I18n.t('recipes.submit_new')
       expect(page).not_to have_selector('.form-errors__list-item')
+      expect(page).to have_content I18n.t('recipes.new_saved')
+      click_link I18n.t('recipes.edit_recipe')
+      fill_in "recipe_ingredients_block", :with => @ingredients_second
+      click_button I18n.t('recipes.submit_edit')
+      expect(page).to have_content I18n.t('recipes.edit_saved')
+      expect(page).to have_content "2 cups stock"
+      expect(page).to have_content "2/3 cups flour"
+      expect(page).to_not have_content "1 cup butter"
+    end
+
+    it " doesn't crash when you add a malformed ingredient in the new recipe form" do
+      login(user1)
+
+      visit dashboard_path
+      click_link I18n.t('dashboard.new_recipe')
+      fill_in "recipe_name", :with => "My new recipe"
+      fill_in "recipe_time", :with => "30"
+      fill_in "recipe_ingredients_block", :with => "butts"
+      fill_in "recipe_steps", :with => "blah blah blah"
+      expect{click_button I18n.t('recipes.submit_new')}.to_not raise_error
       expect(page).to have_content I18n.t('recipes.new_saved')
     end
   end

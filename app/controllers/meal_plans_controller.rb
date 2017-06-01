@@ -1,6 +1,6 @@
 class MealPlansController < ApplicationController
-  before_action :set_meal_plan, only: [:show, :edit, :update, :destroy, :add_recipe, :remove_recipe]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :add_recipe, :remove_recipe]
+  before_action :set_meal_plan, only: [:show, :edit, :update, :destroy, :add_recipe, :remove_recipe, :grocery_list]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :add_recipe, :remove_recipe, :grocery_list]
 
   # GET /meal_plans
   # GET /meal_plans.json
@@ -85,6 +85,15 @@ class MealPlansController < ApplicationController
         format.html { redirect_to @recipe }
         format.json { render json: @meal_plan.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def grocery_list
+    @grocery_list = @meal_plan.ingredients
+
+    respond_to do |format|
+      format.html { render layout: "basic" }
+      format.json { render json: @grocery_list }
     end
   end
 

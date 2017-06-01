@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161103040240) do
+ActiveRecord::Schema.define(version: 20161116010352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ingredients", force: :cascade do |t|
+    t.integer  "parent_id"
+    t.string   "parent_type"
+    t.string   "unit"
+    t.string   "amount"
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "meal_plans", force: :cascade do |t|
     t.string   "name"
@@ -21,23 +31,20 @@ ActiveRecord::Schema.define(version: 20161103040240) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.index ["user_id"], name: "index_meal_plans_on_user_id", using: :btree
   end
 
   create_table "meal_plans_recipes", id: false, force: :cascade do |t|
     t.integer "recipe_id",    null: false
     t.integer "meal_plan_id", null: false
-    t.index ["meal_plan_id"], name: "index_meal_plans_recipes_on_meal_plan_id", using: :btree
-    t.index ["recipe_id"], name: "index_meal_plans_recipes_on_recipe_id", using: :btree
   end
 
   create_table "recipes", force: :cascade do |t|
     t.string  "name"
-    t.text    "ingredients"
     t.text    "steps"
     t.integer "time"
     t.integer "user_id"
     t.string  "link"
+    t.text    "ingredients_block"
     t.index ["user_id"], name: "index_recipes_on_user_id", using: :btree
   end
 
@@ -54,6 +61,10 @@ ActiveRecord::Schema.define(version: 20161103040240) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

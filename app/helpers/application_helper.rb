@@ -23,4 +23,13 @@ module ApplicationHelper
   def dash_it(text)
     text.gsub!(/_/, '-')
   end
+
+  def sort_ingredients(ingredients)
+    ingredients.sort_by { |name, amount, unit| name }
+  end
+
+  def pluralize_ingredient(i)
+    i.unit ? pluralize(i.numeric_amount, i.unit) + " " + i.name : pluralize(i.numeric_amount, i.name)
+  end
+
 end

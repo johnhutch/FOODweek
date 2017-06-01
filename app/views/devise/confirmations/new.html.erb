@@ -1,5 +1,5 @@
 <% content_for :page_header do %>
-  <h1>Resend Confirmation Instructions</h1>
+  <h1 class="test--resend_confirmation_instructions">Resend Confirmation Instructions</h1>
 <% end %>
 
 <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
@@ -7,7 +7,7 @@
 
   <div class="form-group">
     <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, class: "form-control form-control-with-checkbox", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), %>
+    <%= f.email_field :email, autofocus: true, class: "form-control form-control-with-checkbox", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
   </div>
 
   <div class="actions">
