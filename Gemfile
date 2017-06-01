@@ -20,6 +20,7 @@ gem 'redcarpet', '~> 3.1.2' # Allows for markup formatting in text.
 gem 'devise', '~> 4.2.0' # Use devise for user authentication and omniauth
 #gem 'parslet', :git => 'https://github.com/kschiess/parslet' # i thought getting the most recent changes might fix the malformed ingredient error issue
 gem 'ingreedy' # parses block ingredient strings into individual ingredients
+gem 'carrierwave', '~> 1.1.0' # image uploading/processing library
 
 gem 'rollbar'
 
