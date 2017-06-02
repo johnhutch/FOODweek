@@ -8,6 +8,8 @@ require 'rspec/rails'
 require 'capybara/rails'
 require "email_spec"
 require "email_spec/rspec"
+require 'carrierwave/test/matchers'
+
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
