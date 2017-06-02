@@ -1,9 +1,12 @@
 FactoryGirl.define do
+
+  factory :grocery_list do
+  end
+
   factory :ingredient do
-    parent_id 1
-    unit "MyString"
+    unit "ounces"
     amount 1.5
-    name "MyString"
+    name "beef"
   end
 
   sequence(:name) { |n| "Joe User #{n}"}
@@ -16,7 +19,15 @@ FactoryGirl.define do
   end
 
   sequence(:recipe_name) { |n| "Recipe Name #{n}"}
-  sequence(:ingredients) { |n| "1/2 cup butter\n1/4 tsp salt\n1 gram sugar\n3 apples\n1 RecipeIngredient#{n}"}
+  sequence(:ingredients) { |n| 
+  %Q|1/2 cup butter
+    1/4 tsp salt
+    1 gram sugar
+    3 apples
+    1 pound of beef
+    3 ounces beef
+    1 RecipeIngredient#{n}|
+  }
 
   factory :recipe do
     name { generate(:recipe_name) }
@@ -31,4 +42,5 @@ FactoryGirl.define do
     name { generate(:meal_plan_name) }
     active 1
   end
+
 end

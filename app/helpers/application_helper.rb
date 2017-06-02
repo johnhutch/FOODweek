@@ -29,7 +29,13 @@ module ApplicationHelper
   end
 
   def pluralize_ingredient(i)
-    i.unit ? pluralize(i.numeric_amount, i.unit) + " " + i.name : pluralize(i.numeric_amount, i.name)
+    if i.unit 
+      %Q|<div class="measurement">#{pluralize(i.numeric_amount, i.unit)}</div>
+         <div class="name">#{i.name}</div>|
+    else
+      %Q|<div class="measurement">#{i.numeric_amount}</div>
+         <div class="name">#{i.name.pluralize(i.numeric_amount)}</div>|
+    end
   end
 
 end

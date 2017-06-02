@@ -45,14 +45,22 @@
     </header>
 
     <main class="container" role="main">
-      <% if notice || alert %>
+      <% if notice || alert || success || error %>
         <aside class="flash-messages">
+          <% if success %>
+            <p class="bg-info flash-messages__success"><%= success %></p>
+          <% end %>
+
           <% if notice %>
             <p class="bg-info flash-messages__notice"><%= notice %></p>
           <% end %>
 
           <% if alert %>
             <p class="bg-warning flash-messages__alert"><%= alert %></p>
+          <% end %>
+
+          <% if error %>
+            <p class="bg-info flash-messages__error"><%= error %></p>
           <% end %>
         </aside>
       <% end %>
