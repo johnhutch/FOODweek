@@ -12,6 +12,7 @@
 @import "dashboard";
 @import "grocery-list";
 @import "terms-conditions";
+@import "devise-shared-links";
 
 html, body, .em, .rem {
 	box-sizing: border-box;
@@ -179,17 +180,6 @@ a	{
 
 	h3 {
 		line-height: 1em;
-	}
-
-	.login-links {
-		margin: auto;
-		width: 75%;
-		text-align: center;
-		padding: 0.5em;
-
-			.btn {
-				margin-bottom: 0.5em;
-			}
 	}
 }
 
