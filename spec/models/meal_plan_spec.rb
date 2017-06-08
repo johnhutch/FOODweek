@@ -12,6 +12,7 @@ RSpec.describe GroceryList, type: :model do
   let(:recipe2) { FactoryGirl.create(:recipe, user: user1, ingredients_block: %Q|5 tbsp soy sauce
                                      4 grams mild or hot chili powder
                                      6 1/2 lbs boneless pork shoulder, rind removed|) }
+  let(:recipe3) { FactoryGirl.create(:recipe, user: user1, ingredients_block: %Q|2 cloves garlic, finely chopped| ) }
   let(:mealplan1) { FactoryGirl.create(:meal_plan, user: user1) }
 
   it "doesn't crash when subtracting a recipe with a weird unit" do
@@ -19,6 +20,12 @@ RSpec.describe GroceryList, type: :model do
     mealplan1.recipes.delete(recipe1)
 		expect(mealplan1).to be_valid
 	end
+
+  it "doesn't invent weird units" do
+    mealplan1.recipes << recipe3
+    ingredient = mealplan1.recipes.first.ingredients.first
+    expect(ingredient.unit).to be_nil
+  end
 
   it "doesn't crash when trying to add incompatible units" do
     mealplan1.recipes << recipe1
