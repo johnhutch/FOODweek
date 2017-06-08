@@ -38,19 +38,24 @@ class Ingredient < ApplicationRecord
     if self.unit
       Unit.new(self.amount + " " + self.unit)
     else
-      self.amount
+      self.amount.to_i
     end
   end
 
   def ingreedy_parse(ing_string)
     begin
       parsed_ing = Ingreedy.parse(ing_string)
-      self.name = parsed_ing.ingredient
-      self.amount = parsed_ing.amount
-      self.unit = parsed_ing.unit
     rescue 
       # ingreedy chokes if you give it an ingredient string that doesn't contain a 
       # quantity. so let's handle that so our app doesn't crash
+      parsed_ing = false
+    end
+
+    if parsed_ing
+      self.name = parsed_ing.ingredient
+      self.amount = parsed_ing.amount
+      self.unit = parsed_ing.unit
+    else
       self.name = ing_string
     end
   end

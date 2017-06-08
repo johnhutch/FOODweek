@@ -17,8 +17,10 @@ class GroceryList < ApplicationRecord
             return list_i.save
           end
         else
-          list_i.amount = Unit.new( list_i.unitized_amount + add_i.unitized_amount ).scalar
-          return list_i.save
+          if list_i.unitized_amount.compatible?(add_i.unitized_amount)
+            list_i.amount = Unit.new( list_i.unitized_amount + add_i.unitized_amount ).scalar
+            return list_i.save
+          end
         end
       end
     end
@@ -31,7 +33,7 @@ class GroceryList < ApplicationRecord
 
     self.ingredients.each do |list_i|
       if list_i.name.singularize == sub_i.name.singularize
-        if list_i.unitized_amount.nil? || list_i.unitized_amount > sub_i.unitized_amount
+        if (list_i.unitized_amount > sub_i.unitized_amount) && list_i.unitized_amount.compatible?(sub_i.unitized_amount)
           list_i.amount = Unit.new( list_i.unitized_amount - sub_i.unitized_amount ).scalar
           return list_i.save
         else
