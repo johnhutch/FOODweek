@@ -35,7 +35,11 @@ class Ingredient < ApplicationRecord
   end
 
   def unitized_amount
-    Unit.new(self.amount + (self.unit ? " " + self.unit : "") )
+    if self.unit
+      Unit.new(self.amount + " " + self.unit)
+    else
+      self.amount
+    end
   end
 
   def ingreedy_parse(ing_string)
