@@ -42,6 +42,10 @@ class Ingredient < ApplicationRecord
     end
   end
 
+  def matched?(ing)
+      return self.name.singularize == ing.name.singularize
+  end
+
   def ingreedy_parse(ing_string)
     begin
       parsed_ing = Ingreedy.parse(ing_string)

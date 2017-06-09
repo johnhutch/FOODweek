@@ -10,7 +10,7 @@ class GroceryList < ApplicationRecord
     # if not found, add a new ingredient to the grocery list
 
     self.ingredients.each do |list_i|
-      if list_i.name.singularize == add_i.name.singularize
+      if list_i.matched?(add_i)
         if list_i.unitless? || add_i.unitless?
           if list_i.unitless? && add_i.unitless?
             list_i.amount = sum_i(list_i, add_i)
@@ -32,7 +32,7 @@ class GroceryList < ApplicationRecord
     # if amount = 0, remove entirely
 
     self.ingredients.each do |list_i|
-      if list_i.name.singularize == sub_i.name.singularize
+      if list_i.matched?(sub_i)
         if (list_i.unitized_amount > sub_i.unitized_amount) && list_i.unitized_amount.compatible?(sub_i.unitized_amount)
           list_i.amount = Unit.new( list_i.unitized_amount - sub_i.unitized_amount ).scalar
           return list_i.save
