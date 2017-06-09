@@ -27,10 +27,11 @@ RSpec.describe GroceryList, type: :model do
     expect(ingredient.unit).to be_nil
   end
 
-  it "doesn't crash when trying to add incompatible units" do
+  it "doesn't crash when trying to add and subtract incompatible units" do
     mealplan1.recipes << recipe1
     mealplan1.recipes << recipe2
-		expect(mealplan1).to be_valid
+    mealplan1.recipes.delete(recipe2)
+    expect(mealplan1).to be_valid
   end
 
 end
