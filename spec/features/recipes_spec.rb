@@ -69,4 +69,14 @@ RSpec.feature "Recipe", type: :feature do
     end
   end
 
+  describe "Edit Recipe Form" do
+    it " shows a recipe link after saving, if a user adds a link in the form." do
+      login(user1)
+      visit recipe_path(recipe)
+      click_link I18n.t('recipes.edit_recipe')
+      fill_in "recipe_link", :with => "www.google.com"
+      click_button I18n.t('recipes.submit_edit')
+      expect(page).to have_content "www.google.com"
+    end
+  end
 end
