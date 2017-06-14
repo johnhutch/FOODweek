@@ -85,6 +85,7 @@ class Ingredient < ApplicationRecord
         end
       end
     end
+    return false
   end
 
   def ingreedy_parse(ing_string)
