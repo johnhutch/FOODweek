@@ -17,6 +17,11 @@ RSpec.describe MealPlan, type: :model do
   let(:recipe_unitless_2) { FactoryGirl.create(:recipe, user: user1, ingredients_block: "3 apples") }
   let(:recipe5) { FactoryGirl.create(:recipe, user: user1, ingredients_block: "4 pounds of apples") }
   let(:recipe6) { FactoryGirl.create(:recipe, user: user1, ingredients_block: "4 grams of apples") }
+
+  let(:recipe7) { FactoryGirl.create(:recipe, user: user1) }
+  let(:recipe8) { FactoryGirl.create(:recipe, user: user1) }
+  let(:recipe9) { FactoryGirl.create(:recipe, user: user1) }
+
   let(:mealplan1) { FactoryGirl.create(:meal_plan, user: user1) }
 
   it "doesn't crash when subtracting a recipe with a weird unit" do
@@ -90,6 +95,13 @@ RSpec.describe MealPlan, type: :model do
     mealplan1.recipes.delete(recipe5)
     expect(mealplan1.user.grocery_list.ingredients.first.unitized_amount).to eq recipe_unitless_1.ingredients.first.unitized_amount
     expect(mealplan1.user.grocery_list.ingredients.first.unitized_amount).to_not eq recipe5.ingredients.first.unitized_amount
+  end
+
+  it "doesn't completely wipe out the grocery list in our meal plan feature spec scenario" do
+    mealplan1.recipes << recipe7
+    mealplan1.recipes << recipe9
+    mealplan1.recipes.delete(recipe7)
+    expect(mealplan1.user.grocery_list.ingredients).to eq recipe7.ingredients.first
   end
 
 end
