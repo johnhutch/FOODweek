@@ -88,18 +88,33 @@ class Ingredient < ApplicationRecord
   end
 
   def ingreedy_parse(ing_string)
+
+    # ingreedy chokes if you give it an ingredient string that doesn't contain a 
+    # quantity. so let's handle that so our app doesn't crash
     begin
       parsed_ing = Ingreedy.parse(ing_string)
     rescue
-      # ingreedy chokes if you give it an ingredient string that doesn't contain a 
-      # quantity. so let's handle that so our app doesn't crash
       parsed_ing = false
     end
 
+    # ruby-units chokes if it's not a recognized unit, and we currently have no way
+    # of checking valid units ahead of time. so we rescue the exception and handle
+    # the conditional after.
+    unity = true
+    begin
+      Unit.new(parsed_ing.amount.to_s + " " + parsed_ing.unit.to_s)
+    rescue
+      unity = false
+    end
+
     if parsed_ing
-      self.name = parsed_ing.ingredient
       self.amount = parsed_ing.amount
-      self.unit = parsed_ing.unit
+      if unity
+        self.name = parsed_ing.ingredient
+        self.unit = parsed_ing.unit
+      else
+        self.name = parsed_ing.unit.to_s + " " + parsed_ing.ingredient.to_s
+      end
     else
       self.name = ing_string
     end
