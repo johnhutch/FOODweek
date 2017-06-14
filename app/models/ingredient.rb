@@ -46,10 +46,51 @@ class Ingredient < ApplicationRecord
       return self.name.singularize == ing.name.singularize
   end
 
+  def sum(ing)
+    # verify that ingredients are compatibly unit'd (or not unit'd)
+    # could probably be combined with sub(ing) with the math operator sent as a 
+    # param but I don't know how to do that.
+
+    if self.unitless? || ing.unitless?
+      if self.unitless? && ing.unitless?
+        self.amount = Unit.new( self.unitized_amount + ing.unitized_amount ).scalar
+        return self.save
+      end
+    else
+      if self.unitized_amount.compatible?(ing.unitized_amount)
+        self.amount = Unit.new( self.unitized_amount + ing.unitized_amount ).scalar
+        return self.save
+      end
+    end
+    return false
+  end
+
+  def sub(ing)
+    # verify that ingredients are compatibly unit'd (or not unit'd) and then subtract
+    # could probably be combined with sum(ing) with the math operator sent as a param
+    # but I don't know how to do that.
+
+    if self.unitless? || ing.unitless?
+      if self.unitless? && ing.unitless?
+        if (self.amount > ing.amount)
+          self.amount = Unit.new( self.unitized_amount - ing.unitized_amount ).scalar
+          return self.save
+        end
+      end
+    else
+      if self.unitized_amount.compatible?(ing.unitized_amount)
+        if (self.unitized_amount > ing.unitized_amount)
+          self.amount = Unit.new( self.unitized_amount - ing.unitized_amount ).scalar
+          return self.save
+        end
+      end
+    end
+  end
+
   def ingreedy_parse(ing_string)
     begin
       parsed_ing = Ingreedy.parse(ing_string)
-    rescue 
+    rescue
       # ingreedy chokes if you give it an ingredient string that doesn't contain a 
       # quantity. so let's handle that so our app doesn't crash
       parsed_ing = false
