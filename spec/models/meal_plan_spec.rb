@@ -101,7 +101,11 @@ RSpec.describe MealPlan, type: :model do
     mealplan1.recipes << recipe7
     mealplan1.recipes << recipe9
     mealplan1.recipes.delete(recipe7)
-    expect(mealplan1.user.grocery_list.ingredients).to eq recipe7.ingredients.first
+    expect(mealplan1.user.grocery_list.ingredients).to contain_one_or_more_records_that(have_attributes(
+      :unit => recipe7.ingredients.first.unit,
+      :amount => recipe7.ingredients.first.amount,
+      :name => recipe7.ingredients.first.name)
+    )
   end
 
 end

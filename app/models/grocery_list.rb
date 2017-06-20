@@ -27,9 +27,10 @@ class GroceryList < ApplicationRecord
       if list_i.matched?(sub_i)
         if list_i.sub(sub_i)
           return true
+        else
+          return self.ingredients.delete(list_i)
         end
       end
-      return self.ingredients.delete(list_i)
     end
   end
 
