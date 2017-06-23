@@ -14,6 +14,12 @@ RSpec.feature "Recipe", type: :feature do
       expect(page).to have_content recipe.name
     end
 
+    it " shows an unauthenticated user the recipe, sans meal_plan controls" do
+      visit recipe_path(recipe)
+      expect(page).to have_content recipe.name
+      expect(page).to_not have_selector('.recipe-actions')
+    end
+
     it " allows you to add the recipe to the current mealplan and then remove it" do
       login(user1)
       recipe

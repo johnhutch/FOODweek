@@ -3,11 +3,13 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy, :mine]
 
   def show
-    @meal_plan = current_user.current_meal_plan
+    if user_signed_in?
+      @meal_plan = current_user.current_meal_plan
 
-    if @meal_plan.nil?
-      @meal_plan = current_user.meal_plans.build(name: "Unnamed Meal Plan")
-      @meal_plan.save
+      if @meal_plan.nil?
+        @meal_plan = current_user.meal_plans.build(name: "Unnamed Meal Plan")
+        @meal_plan.save
+      end
     end
   end
 
