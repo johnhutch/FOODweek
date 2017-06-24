@@ -12,8 +12,17 @@ class ContentController < ApplicationController
 
   def privacy
   end
-  
+
   def style_guide
+  end
+
+  def grocery_list
+    @grocery_list = current_user.grocery_list
+
+    respond_to do |format|
+      format.html { render layout: "basic" }
+      format.json { render json: @grocery_list }
+    end
   end
 
 end

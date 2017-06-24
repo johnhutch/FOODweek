@@ -1,0 +1,10 @@
+<article class="grocery-list">
+  <header class="grocery-list__header">
+    <h1 class="grocery-list__heading">Grocery List</h1>
+  </header>
+  <ul class="grocery-list__list">
+    <% @grocery_list.ingredients.each do |g| %>
+      <li class="grocery-list__list-item js-grocery-list-item"><span class="glyphicon glyphicon-unchecked"></span><span class="text"><%= pluralize_ingredient(g).html_safe %></span></li>
+    <% end %>
+  </ul>
+</article>

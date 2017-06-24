@@ -18,7 +18,7 @@
       <ul class="nav navbar-nav navbar-right">
 				<% if user_signed_in? %>
           <% if current_user.meal_plans.last.present? %>
-            <li><%= link_to t('nav.grocery_list').html_safe, grocery_list_meal_plan_path(current_user.meal_plans.last), target: "_blank", id: "test-nav-grocery_list" %></li>
+            <li><%= link_to t('nav.grocery_list').html_safe, grocery_list_path, id: "test-nav-grocery_list" %></li>
           <% end %>
 					<li><%= link_to '<i class="glyphicon glyphicon-plus"></i> Add Recipe'.html_safe, new_recipe_path %></li>
 					<li><%= link_to '<i class="glyphicon glyphicon-cog"></i> Settings'.html_safe, edit_user_registration_path, :method => :get %></li>
