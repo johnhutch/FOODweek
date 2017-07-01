@@ -56,3 +56,9 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
+
+CarrierWave.configure do |config|
+	config.ignore_integrity_errors = false
+	config.ignore_processing_errors = false
+	config.ignore_download_errors = false
+end

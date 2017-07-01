@@ -45,3 +45,6 @@ en:
   meal_plans:
     added_recipe: "Ok! We added the recipe to this week's meal plan."
     removed_recipe: "Ok! We've removed the recipe from this week's meal plan."
+  errors:
+    messages:
+      mini_magick_processing_error: "There was an issue processing your picture upload."

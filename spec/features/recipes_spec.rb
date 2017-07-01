@@ -12,7 +12,7 @@ RSpec.feature "Recipe", type: :feature do
 
       visit recipe_path(recipe)
       expect(page).to have_content recipe.name
-      expect(page).to have_image recipe.photo.hero.url
+      expect(page).to have_css("img[src*='#{recipe.photo.hero.url}']")
     end
 
     it " shows an unauthenticated user the recipe, sans meal_plan controls" do

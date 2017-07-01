@@ -23,6 +23,7 @@ gem 'devise', '~> 4.2.0' # Use devise for user authentication and omniauth
 gem 'ingreedy' # parses block ingredient strings into individual ingredients
 
 gem 'fog-aws', '~> 1.4.0' # ruby cloud services library
+gem 'mini_magick', '~> 4.7.2'
 gem 'carrierwave', '~> 1.1.0' # image uploading/processing library
 gem 'carrierwave_direct', '~> 0.0.15' # background processing for carrierwave s3 updloads
 

@@ -3,6 +3,9 @@ class Recipe < ApplicationRecord
   has_and_belongs_to_many :meal_plans
   has_many :ingredients, :as => :parent
 
+  mount_uploader :photo, PhotoUploader
+
+
   validates :name, presence: true
   validates :ingredients_block, presence: true
   validates :steps, presence: true

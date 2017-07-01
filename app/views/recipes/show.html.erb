@@ -1,5 +1,6 @@
 <% content_for :page_header do %>
   <h1><%= @recipe.name %></h1>
+  <div class="recipe__hero"><img src="<%= @recipe.photo.hero.url %>" /></div>
 <% end %>
 
 <section class="recipe">
