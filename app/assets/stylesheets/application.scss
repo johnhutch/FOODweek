@@ -187,6 +187,22 @@ a	{
 	margin-bottom: 0em;
 }
 
+.row__hero-banner {
+  margin-top: 1em;
+  
+  h1 {
+    text-indent: -9999px;
+    width: 1px;
+    height: 1px;
+    background-image: '';
+    overflow: hidden;
+  }
+}
+
+.row__hero-flow {
+  text-align: center;
+}
+
 
 .row-sample {
   margin-top: 3.5em;
