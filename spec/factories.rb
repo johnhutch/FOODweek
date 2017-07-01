@@ -43,4 +43,8 @@ FactoryGirl.define do
     active 1
   end
 
+  trait :with_photo do
+    picture {Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'recipe_photos', 'chicken_bowl.jpg'))}
+  end
+
 end

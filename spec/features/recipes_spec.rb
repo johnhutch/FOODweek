@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Recipe", type: :feature do
   let(:user1) {FactoryGirl.create(:user)}
-  let(:recipe) { FactoryGirl.create(:recipe, user: user1) }
+  let(:recipe) { FactoryGirl.create(:recipe, :with_photo, user: user1) }
   let(:mealplan1) { FactoryGirl.create(:meal_plan, user: user1) }
 
   describe "Individual Recipe Page" do
@@ -12,6 +12,7 @@ RSpec.feature "Recipe", type: :feature do
 
       visit recipe_path(recipe)
       expect(page).to have_content recipe.name
+      expect(page).to have_image recipe.photo.hero.url
     end
 
     it " shows an unauthenticated user the recipe, sans meal_plan controls" do

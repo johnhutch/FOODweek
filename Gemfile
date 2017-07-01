@@ -18,11 +18,15 @@ gem 'jbuilder', '~> 2.5' # Build JSON APIs with ease. Read more: https://github.
 gem 'figaro', '~> 1.1.1' # Use for managing environment variables. Works nicely with Heroku too.
 gem 'redcarpet', '~> 3.1.2' # Allows for markup formatting in text.
 gem 'devise', '~> 4.2.0' # Use devise for user authentication and omniauth
+
 #gem 'parslet', :git => 'https://github.com/kschiess/parslet' # i thought getting the most recent changes might fix the malformed ingredient error issue
 gem 'ingreedy' # parses block ingredient strings into individual ingredients
-gem 'carrierwave', '~> 1.1.0' # image uploading/processing library
-gem 'ruby-units' # allows summation and subtraction of differing units, e.g., pounds and ounces
 
+gem 'fog-aws', '~> 1.4.0' # ruby cloud services library
+gem 'carrierwave', '~> 1.1.0' # image uploading/processing library
+gem 'carrierwave_direct', '~> 0.0.15' # background processing for carrierwave s3 updloads
+
+gem 'ruby-units' # allows summation and subtraction of differing units, e.g., pounds and ounces
 
 gem 'rollbar'
 
