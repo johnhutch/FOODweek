@@ -2,16 +2,21 @@
   margin-top: 1em;
   
   h1 {
-    text-indent: -9999px;
+    text-indent:    -9999px;
     margin: 0;
-    max-width: 856px;
-    background-image: url(FW_LG-Logo-Color@1.00x.png);
-    background-size: contain;
-    overflow: hidden;
+    max-width:  100%;
+    background-image:   url(FW_LG-Logo-Color@1.00x.png);
+    background-size:    contain;
+    background-repeat:  no-repeat;
+    overflow:   hidden;
   }
 }
 
 
 .row__hero-flow {
-  text-align: center;
+    text-align:   center;
+    background-image:   url(FW-Cycle@1.50x.png);
+    background-size:    contain;
+    background-repeat:  no-repeat;
+    background-position: center;
 }

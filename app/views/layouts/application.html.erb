@@ -31,7 +31,7 @@
         <!-- Otherwise, show the hero banner -->
         <% else %>
           <div class="row__hero-banner">
-            <div class="col-sm-12 col-md-4 col-md-offset-1">
+            <div class="col-sm-12 col-md-5 col-md-offset-1">
               <h1 class="page-header__title"><%= t('brand') %></h1>
               <h2 class="page-header__subtitle">Plan your meals for the  week using your favorite recipes from your self-curated cookbook.</h2>
               <h3 class="page-header__motto">We'll even build you a shopping list to take to the grocery store.</h3>
@@ -41,11 +41,11 @@
                 <%= link_to "Log in to your account", new_user_session_path, class: "btn btn-default" %>
               </div>
             </div>
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-5">
               <div class="row row__hero-flow">
-                <div class="col-sm-12 col-md-12"><%= image_tag "ScreenGrab@1.5x.png", alt: " Step 1: Enter recipes." %><p>Add recipes.</p></div>
-                <div class="col-sm-6 col-md-6"><%= image_tag "ScreenGrab@1.5x.png", alt: "Step 2: Plan your FoodWeek." %><p>Create a foodweek.</p></div>
-                <div class="col-sm-6 col-md-6"><%= image_tag "ScreenGrab@1.5x.png", alt: "Step 3: Generate your shopping list." %><p>Go shopping.</p></div>
+                <div class="col-sm-12 col-md-12"><%= image_tag "FW-New-Blocker@0.75x.png", alt: " Step 1: Enter recipes." %><p>Add recipes.</p></div>
+                <div class="col-sm-6 col-md-6"><%= image_tag "FW-New-Blocker@0.75x.png", alt: "Step 2: Plan your FoodWeek." %><p>Create a foodweek.</p></div>
+                <div class="col-sm-6 col-md-6"><%= image_tag "FW-New-Blocker@0.75x.png", alt: "Step 3: Generate your shopping list." %><p>Go shopping.</p></div>
               </div>
             </div>
           </div>
