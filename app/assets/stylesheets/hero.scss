@@ -1,22 +1,42 @@
 .row__hero-banner {
-  margin-top: 1em;
+    margin:  0.5em 0.5em 0em 0.5em;
   
-  h1 {
-    text-indent:    -9999px;
-    margin: 0;
-    max-width:  100%;
-    background-image:   url(FW_LG-Logo-Color@1.00x.png);
-    background-size:    contain;
-    background-repeat:  no-repeat;
-    overflow:   hidden;
-  }
+    h1 {
+        text-indent:    -9999px;
+        margin: auto;
+        max-width:  100%;
+        min-height: 13vw;
+        background-image:   url(FW_LG-Logo-Color@1.00x.png);
+        background-size:    contain;
+        background-repeat:  no-repeat;
+        background-position: center;
+        overflow:   hidden;
+      }
 }
-
 
 .row__hero-flow {
     text-align:   center;
-    background-image:   url(FW-Cycle@1.50x.png);
+    // background-image:   url(FW-Cycle@1.50x.png); 
     background-size:    contain;
     background-repeat:  no-repeat;
     background-position: center;
+}
+
+.image__hero-flow   {
+//    max-width: 100%;
+//   height: auto;
+    display: block;
+    padding: 0em 2em 0em 2em;
+    margin: auto;
+}
+
+
+@media (min-width: 600px)   {
+    .row__hero-flow {
+        text-align:   center;
+        background-image:   url(FW-Cycle@1.50x.png);
+        background-size:    contain;
+        background-repeat:  no-repeat;
+        background-position: center;
+    }
 }
