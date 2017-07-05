@@ -1,5 +1,5 @@
 .row__hero-banner {
-    margin:  0.5em 0.5em 0em 0.5em;
+   // margin:  0.5em 0.5em 0em 0.5em;
   
     h1 {
         text-indent:    -9999px;
@@ -22,16 +22,45 @@
     background-position: center;
 }
 
-.image__hero-flow   {
-//    max-width: 100%;
-//   height: auto;
-    display: block;
-    padding: 0em 2em 0em 2em;
-    margin: auto;
+// ----- Responsive Section ----- //
+
+//  Bootstrap...........Large (lg) 1200px or greater (Desktop)
+
+
+
+
+//  Bootstrap..........Medium (md)  992px or greater (Desktop)
+
+@media (min-width: 992px)  {
+    .row__hero-banner {
+        //margin:  0.5em 0.5em 0em 0.5em;
+      
+        h1 {
+            text-indent:    -9999px;
+            margin: auto;
+            max-width:  100%;
+            min-height: 13vw;
+            background-image:   url(FW_LG-Logo-Color@1.00x.png);
+            background-size:    contain;
+            background-repeat:  no-repeat;
+            background-position: center;
+            overflow:   hidden;
+        }
+    }
+
+    .image__hero-flow   {
+        max-width: 25vw;
+        height: auto;
+        display: block;
+        padding: 0em 2em 0em 2em;
+        margin: auto;
+    }
+
 }
 
+//  Bootstrap...........Small (sm)  768px or greater (Tablet)
 
-@media (min-width: 600px)   {
+@media (min-width: 768px)   {
     .row__hero-flow {
         text-align:   center;
         background-image:   url(FW-Cycle@1.50x.png);
@@ -40,3 +69,6 @@
         background-position: center;
     }
 }
+
+
+//  Bootstrap.....Extra Small (xs)  576px or greater (Phone) Bootstrap Default
