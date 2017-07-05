@@ -1,0 +1,25 @@
+.panel {
+  margin: 0;
+  padding: 1em;
+  border: 1px solid $text-color;
+  border-radius: 0;
+
+  &__header {
+    padding: 0 1em;
+    color: $brand-primary;
+  }
+
+  &__content {
+    padding: 0 1em;
+  }
+} // .panel
+
+.panel--foodweek {
+  .btn {
+    margin-bottom: 1em;
+    width: 100%;
+    font-family: $font-family-serif;
+    line-height: 4.5em;
+    text-transform: uppercase;
+  }
+} // .panel--foodweek

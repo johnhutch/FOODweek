@@ -1,32 +1,35 @@
-<section class="row">
+<div class="row">
 <!-- Foodweek Panel -->
-<article class="col-12 panel panel--foodweek">
+<article class="col-md-12 panel panel--foodweek">
   <header class="panel__header">
     <h2>Foodweek</h2>
   </header>
 
-  <section class="panel__content">
+  <section class="row panel__content">
     <% if @meal_plan.present? %>
       <% @meal_plan.recipes.each do |recipe| %>
-        <div class="recipe-brief">
-            <img class="recipe-brief--image" src="https://www.washingtonian.com/wp-content/uploads/2015/03/fiveguys_1-11.jpg.optimal.jpg">
-            <h3 class="recipe-brief--heading"><%= link_to recipe.name, recipe %></h3>
+        <div class="col-md-4 recipe-brief">
+            <img class="recipe-brief__image" src="https://www.washingtonian.com/wp-content/uploads/2015/03/fiveguys_1-11.jpg.optimal.jpg">
+            <h3 class="recipe-brief__heading"><%= link_to recipe.name, recipe %></h3>
         </div>
       <% end %>
-        <div class="">
-          <%= link_to "Edit Plan", edit_meal_plan_path(@meal_plan), class: "btn btn-default" %>
-          <%= link_to "Start Over", new_meal_plan_path, class: "btn btn-info" %>
+        <div class="col-md-4">
+          <%= link_to "Edit this Foodweek", edit_meal_plan_path(@meal_plan), class: "btn btn-primary" %>
+          <%= link_to "View this Foodweek", @meal_plan, class: "btn btn-info" %>
+          <%= link_to "Clear All", new_meal_plan_path %>
         </div>
     <% else %>
-      <p>Ok, so, you've got some recipes. Now it's time to decide what you're gonna make this week. Let's <%= link_to "create a meal plan", new_meal_plan_path %> and pick out a few recipes. When you're done, you'll have a quick reference of your chosen recipes all week, as well as a handy shopping list for the grocery store.</p>
-      <%= link_to "Create a Meal Plan", new_meal_plan_path, class: "btn btn-default" %>
+      <div class="col-md-12">
+        <p>Ok, so, you've got some recipes. Now it's time to decide what you're gonna make this week. Let's <%= link_to "create a meal plan", new_meal_plan_path %> and pick out a few recipes. When you're done, you'll have a quick reference of your chosen recipes all week, as well as a handy shopping list for the grocery store.</p>
+        <%= link_to "Create a Meal Plan", new_meal_plan_path, class: "btn btn-default" %>
+      </div>
     <% end %>
   </section>
 </article>
 <!-- Foodweek Panel -->
 
 <!-- Recipes Panel -->
-<article class="col-6 panel panel--recipes">
+<article class="col-md-6 panel panel--recipes">
   <header class="panel__header">
     <h2>Recipes</h2>
     <% link_to new_recipe_path, class: "btn btn-primary" do %>
@@ -55,7 +58,7 @@
 <!-- Recipes Panel -->
 
 <!-- Grocery List Panel -->
-<article class="col-6 panel panel--grocery-list">
+<article class="col-md-6 panel panel--grocery-list">
   <header class="panel__header">
     <h2>Grocery List</h2>
   </header>
@@ -72,7 +75,7 @@
       <table class="ingredients__table">
         <% @grocery_list.ingredients.each do |i| %>
           <tr>
-            <td class="dashboard__ingredients-set"><%= pluralize_ingredient(i).html_safe %></td>
+            <td class="ingredients__table-data"><%= pluralize_ingredient(i).html_safe %></td>
           </tr>
         <% end %>
       </table>
@@ -80,4 +83,4 @@
   </section>
 </article>
 <!-- Grocery List Panel -->
-</section>
+</div>
