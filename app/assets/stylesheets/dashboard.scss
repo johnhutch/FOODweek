@@ -1,4 +1,10 @@
 .dashboard {
+  &--user {
+  }
+} // .dashboard
+
+/*
+.dashboard {
   &__article {
     &--user {
     } // .dashboard__article--user
@@ -97,3 +103,4 @@ $line-height-computed-em: em($line-height-computed);
     }
   }
 } // .dashboard__section
+*/

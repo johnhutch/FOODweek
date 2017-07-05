@@ -4,9 +4,10 @@
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title><%= content_for?(:page_title).presence || 'FOODweek' %></title>
+    <title><%= content_for?(:page_title).presence || 'FOODWEEK' %></title>
     <%= csrf_meta_tags %>
 
+    <%= stylesheet_link_tag    'application', 'https://fonts.googleapis.com/css?family=Roboto:300,400|Rubik:500,900' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -16,13 +17,14 @@
 		<link rel="apple-touch-icon" href="apple-touch-icon.png">
 	</head>
 
-  <body class="<%= dash_it(controller_name) %> <%= dash_it(action_name) %>">
+  <body class="<%= controller_name.gsub(/_/, '') %> <%= controller_name.gsub(/_/, '') %>--<%= action_name.gsub(/_/, '') %>">
 		<!--[if lt IE 8]>
 		  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
     <%= render "layouts/nav" unless current_page?('/') %>
 
+    <% unless current_page?('/dashboard') %>
     <header class="container-fluid page-header page-header__hero" role="banner">
       <div class="text-center page-header__content">
         <!-- If the particular view has some markup for :page_header -->
@@ -43,6 +45,7 @@
         <% end %>
       </div>
     </header>
+    <% end %>
 
     <main class="container" role="main">
       <% if notice || alert || success || error %>
@@ -65,9 +68,7 @@
         </aside>
       <% end %>
 
-      <article class="<%= dash_it(controller_name) %>__article <%= dash_it(controller_name) %>__article--<%= dash_it(action_name) %>">
-        <%= yield %>
-      </article>
+      <%= yield %>
     </main>
 
     <footer class="container-fluid page-footer" role="contentinfo">

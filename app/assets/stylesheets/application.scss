@@ -1,26 +1,28 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400|Rubik:500,900);
 @import "compass";
-@import "bootstrap-customizations";
 @import "bootstrap-sprockets";
+@import "bootstrap-variables";
 @import "bootstrap";
+@import "dashboard";
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+}
+
+h3 {
+  font-family: $font-family-sans-serif;
+  text-transform: none;
+}
+/*
 @import "helpers_and_mixins";
-@import url('https://fonts.googleapis.com/css?family=Kreon|Pontano+Sans|Source+Sans+Pro:300i');
 @import "page-header";
 @import "flash-messages";
 @import "form-errors";
 @import "recipes";
 @import "meal-plans";
-@import "dashboard";
 @import "grocery-list";
 @import "terms-conditions";
 @import "devise-shared-links";
-
-html, body, .em, .rem {
-	box-sizing: border-box;
-	font-family: 'Pontano Sans', sans-serif;
-	color: #525255;
-	font-size: 20px;
-	line-height: 1.5em; 
-}
 
 .navbar-brand {
 	font-size: 1.1em;
@@ -53,7 +55,6 @@ h4, h5, h6 {
   margin: 0.2em 0;
 }
 
-/*
 em	{
 	font-family: 'Source Sans Pro', sans-serif;
 	padding-right: 0.1em;
@@ -62,7 +63,6 @@ em	{
 a	{
 	color: $pop-color-dark;
 }
-*/
 
 
 .recipe-form {
@@ -234,5 +234,4 @@ a	{
     }
   }
 } // .page-footer 
-
-
+*/
