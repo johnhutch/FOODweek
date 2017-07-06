@@ -5,16 +5,6 @@
   }
 
   &__heading {
-    font-size: 1.25em;
     margin: .5em 0 1.5em 0;
-
-    a {
-      color: $text-color;
-
-      &:hover {
-        border-bottom: 2px solid $text-color;
-        text-decoration: none;
-      }
-    }
   } // .&__heading
 } // .recipe-brief

@@ -8,6 +8,12 @@
 
 @import "recipe-brief";
 
+body {
+  -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+              font-smooth: always;
+}
+
 h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
@@ -15,6 +21,15 @@ h1, h2, h3, h4, h5, h6 {
 h3 {
   font-family: $font-family-sans-serif;
   text-transform: none;
+}
+
+a {
+  color: $text-color;
+
+  &:hover {
+    text-decoration: none;
+    border-bottom: 2px solid $text-color;
+  }
 }
 /*
 @import "helpers_and_mixins";

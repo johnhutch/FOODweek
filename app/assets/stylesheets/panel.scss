@@ -1,7 +1,6 @@
 .panel {
   margin: 0;
   padding: 1em;
-  border: 1px solid $text-color;
   border-radius: 0;
 
   &__header {
@@ -15,6 +14,8 @@
 } // .panel
 
 .panel--foodweek {
+  border-bottom: 2px solid $text-color;
+
   .btn {
     margin-bottom: 1em;
     width: 100%;
@@ -23,3 +24,11 @@
     text-transform: uppercase;
   }
 } // .panel--foodweek
+
+.panel--recipes {
+  border-right: 1px solid $text-color;
+} // .panel--recipes
+
+.panel--grocery-list {
+  border-left: 1px solid $text-color;
+} // .panel--grocery-list
