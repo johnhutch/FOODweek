@@ -1,31 +1,38 @@
+//---- Styles -----//
+
 .row__hero-banner {
-   // margin:  0.5em 0.5em 0em 0.5em;
   
     h1 {
-        text-indent:    -9999px;
+        text-indent: -9999px;
         margin: auto;
-        max-width:  100%;
-        // min-height: 13vw;
-        background-image:   url(FW_LG-Logo-Color@1.00x.png);
-        background-size:    contain;
-        background-repeat:  no-repeat;
+        max-width: 100%;
+        background-image: url(FW_LG-Logo-Color@1.00x.png);
+        background-size: contain;
+        background-repeat: no-repeat;
         background-position: center;
-        overflow:   hidden;
+        overflow: hidden;
       }
 }
 
 .row__hero-flow {
-    text-align:   center;
-    // background-image:   url(FW-Cycle@1.50x.png); 
-    background-size:    contain;
-    background-repeat:  no-repeat;
+    text-align: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
 }
+
+.page-header__login {
+    text-align: center;
+}
+
+.page-header__call-to-action    {
+    text-align: center;
+}
+
 
 // ----- Responsive Section ----- //
 
 //  Bootstrap...........Large (lg) 1200px or greater (Desktop)
-
 
 
 
@@ -36,15 +43,15 @@
         //margin:  0.5em 0.5em 0em 0.5em;
       
         h1 {
-            text-indent:    -9999px;
+            text-indent: -9999px;
             margin: auto;
-            max-width:  100%;
+            max-width: 100%;
             // min-height: 13vw;
-            background-image:   url(FW_LG-Logo-Color@1.00x.png);
-            background-size:    contain;
-            background-repeat:  no-repeat;
+            background-image: url(FW_LG-Logo-Color@1.00x.png);
+            background-size: contain;
+            background-repeat: no-repeat;
             background-position: center;
-            overflow:   hidden;
+            overflow: hidden;
         }
     }
 
@@ -55,17 +62,27 @@
         padding: 0em 2em 0em 2em;
         margin: auto;
     }
-
 }
+
+@media (min-width: 992px) and (max-width: 1199px)   { 
+    .page-header__login {
+        text-align: left;
+    }
+
+    .page-header__call-to-action    {
+        text-align: left;
+    }
+}
+
 
 //  Bootstrap...........Small (sm)  768px or greater (Tablet)
 
 @media (min-width: 768px)   {
     .row__hero-flow {
-        text-align:   center;
-        background-image:   url(FW-Cycle@1.50x.png);
-        background-size:    contain;
-        background-repeat:  no-repeat;
+        text-align: center;
+        background-image: url(FW-Cycle@1.50x.png);
+        background-size: contain;
+        background-repeat: no-repeat;
         background-position: center;
     }
 }
@@ -75,18 +92,17 @@
 
 @media (max-width: 400px)   {
     .row__hero-banner {
-       // margin:  0.5em 0.5em 0em 0.5em;
       
         h1 {
-            text-indent:    -9999px;
+            text-indent: -9999px;
             margin: auto;
-            max-width:  100%;
+            max-width: 100%;
             min-height: 40vw;
-            background-image:   url(FW_VertLogo@1.00x.png);
-            background-size:    contain;
-            background-repeat:  no-repeat;
+            background-image: url(FW_VertLogo@1.00x.png);
+            background-size: contain;
+            background-repeat: no-repeat;
             background-position: center;
-            overflow:   hidden;
+            overflow: hidden;
           }
     }
 }
