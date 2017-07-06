@@ -5,6 +5,13 @@ RSpec.feature "Meal Plan", type: :feature do
   let(:recipe) { FactoryGirl.create(:recipe, user: user1) }
   let(:recipe2) { FactoryGirl.create(:recipe, user: user1) }
   let(:recipe3) { FactoryGirl.create(:recipe, user: user1) }
+  let(:recipe4) { FactoryGirl.create(:recipe, user: user1, ingredients_block: %Q|5 tbsp soy sauce
+                                     4 tbsp mild or hot chili powder
+                                     3 tbsp five-spice powder
+                                     2 tbsp light muscovado sugar
+                                     2 cloves garlic, finely chopped
+                                     4 cm piece of fresh ginger, peeled and finely chopped
+                                     6 1/2 lbs boneless pork shoulder, rind removed|) }
   let(:mealplan1) { FactoryGirl.create(:meal_plan, user: user1) }
 
   describe "The meal plan show page" do
