@@ -33,8 +33,13 @@ module ApplicationHelper
       %Q|<td class="ingredient-table__measurement">#{pluralize(i.numeric_amount, i.unit)}</td>
          <td class="ingredient-table__name">#{i.name}</td>|
     else
-      %Q|<td class="ingredient-table__measurement">#{i.numeric_amount}</td>
-         <td class="ingredient-table__name">#{i.name.pluralize(i.numeric_amount)}</td>|
+      if i.name.split.count > 1
+        %Q|<td class="ingredient-table__measurement">#{i.numeric_amount}</td>
+          <td class="ingredient-table__name">#{i.name}</td>|
+      else
+        %Q|<td class="ingredient-table__measurement">#{i.numeric_amount}</td>
+          <td class="ingredient-table__name">#{i.name.pluralize(i.numeric_amount)}</td>|
+      end
     end
   end
 

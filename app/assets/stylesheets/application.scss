@@ -4,12 +4,30 @@
 @import "bootstrap-customizations";
 @import "bootstrap-variables";
 @import "bootstrap";
+@import "helpers_and_mixins";
+@import "page-header";
+@import "flash-messages";
+@import "form-errors";
+@import "recipes";
+@import "meal-plans";
+@import "grocery-list";
+@import "terms-conditions";
+@import "devise-shared-links";
+@import "hero";
+
 @import "dashboard";
 @import "panel";
-
 @import "recipe-brief";
 @import "recipe-list";
 @import "ingredient-table";
+
+html, body, .em, .rem {
+	box-sizing: border-box;
+	font-family: 'Pontano Sans', sans-serif;
+	color: #333333;
+	font-size: 20px;
+	line-height: 1.5em; 
+}
 
 body {
   -moz-osx-font-smoothing: grayscale;
@@ -25,16 +43,6 @@ h3 {
   font-family: $font-family-sans-serif;
   text-transform: none;
 }
-
-@import "helpers_and_mixins";
-@import "page-header";
-@import "flash-messages";
-@import "form-errors";
-@import "recipes";
-@import "meal-plans";
-@import "grocery-list";
-@import "terms-conditions";
-@import "devise-shared-links";
 
 .navbar-brand {
 	font-size: 1.1em;
@@ -52,12 +60,16 @@ h2	{
 	color: $brand-primary;
 }
 
-h3	{
-	color: $bgfill-color-darker;
+h3, h4, h5, h6	{
+	color: $pop-color;
 }
 
-h4, h5, h6 {
-	color: $brand-success-light;
+a {
+  color: $pop-color;
+}
+
+a:hover, a:focus {
+  color: $brand-success;
 }
 
 .page-header__title {
@@ -75,7 +87,6 @@ em	{
 a	{
 	color: $pop-color-dark;
 }
-
 
 .recipe-form {
   width: 85%;
