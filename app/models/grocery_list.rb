@@ -10,15 +10,9 @@ class GroceryList < ApplicationRecord
     # if not found, add a new ingredient to the grocery list
 
     self.ingredients.each do |list_i|
-      if list_i.name.singularize == add_i.name.singularize
-        if list_i.unitless? || add_i.unitless?
-          if list_i.unitless? && add_i.unitless?
-            list_i.amount = sum_i(list_i, add_i)
-            return list_i.save
-          end
-        else
-          list_i.amount = Unit.new( list_i.unitized_amount + add_i.unitized_amount ).scalar
-          return list_i.save
+      if list_i.matched?(add_i)
+        if list_i.sum(add_i)
+          return true
         end
       end
     end
@@ -27,13 +21,12 @@ class GroceryList < ApplicationRecord
 
   def subtract_ingredient(sub_i)
     # search for the ingredient by name, then subtract the recipe's amount from the grocery list
-    # if amount = 0, remove entirely
+    # if resultant amount would be <= 0, remove entirely
 
     self.ingredients.each do |list_i|
-      if list_i.name.singularize == sub_i.name.singularize
-        if list_i.unitized_amount.nil? || list_i.unitized_amount > sub_i.unitized_amount
-          list_i.amount = Unit.new( list_i.unitized_amount - sub_i.unitized_amount ).scalar
-          return list_i.save
+      if list_i.matched?(sub_i)
+        if list_i.sub(sub_i)
+          return true
         else
           return self.ingredients.delete(list_i)
         end
@@ -41,9 +34,4 @@ class GroceryList < ApplicationRecord
     end
   end
 
-  private
-
-  def sum_i(list_i, add_i)
-    Unit.new( list_i.unitized_amount + add_i.unitized_amount ).scalar
-  end
 end
