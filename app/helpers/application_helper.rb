@@ -30,11 +30,11 @@ module ApplicationHelper
 
   def pluralize_ingredient(i)
     if i.unit 
-      %Q|<div class="measurement">#{pluralize(i.numeric_amount, i.unit)}</div>
-         <div class="name">#{i.name}</div>|
+      %Q|<td class="ingredient-table__measurement">#{pluralize(i.numeric_amount, i.unit)}</td>
+         <td class="ingredient-table__name">#{i.name}</td>|
     else
-      %Q|<div class="measurement">#{i.numeric_amount}</div>
-         <div class="name">#{i.name.pluralize(i.numeric_amount)}</div>|
+      %Q|<td class="ingredient-table__measurement">#{i.numeric_amount}</td>
+         <td class="ingredient-table__name">#{i.name.pluralize(i.numeric_amount)}</td>|
     end
   end
 

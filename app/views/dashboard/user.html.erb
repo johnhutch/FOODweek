@@ -1,86 +1,91 @@
 <div class="row">
-<!-- Foodweek Panel -->
-<article class="col-md-12 panel panel--foodweek">
-  <header class="panel__header">
-    <h2>Foodweek</h2>
-  </header>
+  <!-- Foodweek Panel -->
+  <article class="col-md-12 panel panel--foodweek">
+    <header class="panel__header">
+      <h2>Foodweek</h2>
+    </header>
 
-  <section class="row panel__content">
-    <% if @meal_plan.present? %>
-      <% @meal_plan.recipes.each do |recipe| %>
-        <div class="col-md-4 recipe-brief">
-            <img class="recipe-brief__image" src="https://www.washingtonian.com/wp-content/uploads/2015/03/fiveguys_1-11.jpg.optimal.jpg">
-            <h3 class="recipe-brief__heading"><%= link_to recipe.name, recipe %></h3>
-        </div>
-      <% end %>
+    <section class="row panel__content">
+      <!-- User has a meal plan. -->
+      <% if @meal_plan.present? %>
+        <% @meal_plan.recipes.each do |recipe| %>
+          <div class="col-md-4 recipe-brief">
+              <img class="recipe-brief__image" src="https://www.washingtonian.com/wp-content/uploads/2015/03/fiveguys_1-11.jpg.optimal.jpg">
+              <h3 class="recipe-brief__heading"><%= link_to recipe.name, recipe %></h3>
+          </div>
+        <% end %>
         <div class="col-md-4">
           <%= link_to "Edit this Foodweek", edit_meal_plan_path(@meal_plan), class: "btn btn-primary" %>
           <%= link_to "View this Foodweek", @meal_plan, class: "btn btn-info" %>
           <%= link_to "Clear All", new_meal_plan_path %>
         </div>
-    <% else %>
-      <div class="col-md-12">
-        <p>Ok, so, you've got some recipes. Now it's time to decide what you're gonna make this week. Let's <%= link_to "create a meal plan", new_meal_plan_path %> and pick out a few recipes. When you're done, you'll have a quick reference of your chosen recipes all week, as well as a handy shopping list for the grocery store.</p>
-        <%= link_to "Create a Meal Plan", new_meal_plan_path, class: "btn btn-default" %>
-      </div>
-    <% end %>
-  </section>
-</article>
-<!-- Foodweek Panel -->
 
-<!-- Recipes Panel -->
-<article class="col-md-6 panel panel--recipes">
-  <header class="panel__header">
-    <h2>Recipes</h2>
-    <% link_to new_recipe_path, class: "btn btn-primary" do %>
-      <span class="glyphicon glyphicon-plus"></span>
-    <% end %>
-  </header>
+      <!-- User does not have a meal plan. -->
+      <% else %>
+        <div class="col-md-12">
+          <p>Ok, so, you've got some recipes. Now it's time to decide what you're gonna make this week. Let's <%= link_to "create a meal plan", new_meal_plan_path %> and pick out a few recipes. When you're done, you'll have a quick reference of your chosen recipes all week, as well as a handy shopping list for the grocery store.</p>
+          <%= link_to "Create a Meal Plan", new_meal_plan_path, class: "btn btn-default" %>
+        </div>
+      <% end %>
+    </section>
+  </article>
+  <!-- Foodweek Panel -->
 
-  <section class="panel__content">
-    <% if current_user.recipes.present? %>
-      <div class="recipes">
+  <!-- Recipes Panel -->
+  <article class="col-md-6 panel panel--recipes">
+    <header class="panel__header">
+      <h2>Recipes</h2>
+      <% link_to new_recipe_path, class: "btn btn-primary" do %>
+        <span class="glyphicon glyphicon-plus"></span>
+      <% end %>
+    </header>
+
+    <section class="panel__content">
+      <!-- User has recipes. -->
+      <% if current_user.recipes.present? %>
+        <%= link_to "Add New", new_recipe_path, class: "btn btn-primary" %>
         <% current_user.recipes.each do |recipe| %>
-          <ul class="recipes__list">
-            <li class="recipes__item">
-              <%= link_to recipe.name, recipe %>
+          <ul class="recipe-list">
+            <li class="recipe-list__item">
+              <%= link_to recipe do %>
+                <span class="recipe-list__icon glyphicon glyphicon-edit"></span><span class="recipe-list__name"><%= recipe.name %></span>
+              <% end %>
             </li>
           </ul>
         <% end %>
-      </div>
-      <% link_to "See All Recipes", recipes_path %>
-    <% else %>
-      <p class="test__user-scen-1">Here is where you can build out a weekly meal plan. Peruse your recipes, pick a few for the week for reference, and you even get a handy shopping list for when you go grocery shopping.</p>
-      <p>But first... you need to <%= link_to t('dashboard.new_recipe'), new_recipe_path, class: "text--new_recipe" %> to you cookbook first.</p>
-    <% end %>
-  </section>
-</article>
-<!-- Recipes Panel -->
+        <%= link_to "See All Recipes", recipes_path %>
 
-<!-- Grocery List Panel -->
-<article class="col-md-6 panel panel--grocery-list">
-  <header class="panel__header">
-    <h2>Grocery List</h2>
-  </header>
+      <!-- User does not have recipes. -->
+      <% else %>
+        <p class="test__user-scen-1">Here is where you can build out a weekly meal plan. Peruse your recipes, pick a few for the week for reference, and you even get a handy shopping list for when you go grocery shopping.</p>
+        <p>But first... you need to <%= link_to t('dashboard.new_recipe'), new_recipe_path, class: "text--new_recipe" %> to you cookbook first.</p>
+      <% end %>
+    </section>
+  </article>
+  <!-- Recipes Panel -->
 
-  <section class="panel__content">
-    <%= form_for Ingredient.new, as: :ingredient, url: add_ingredient_to_grocery_list_path do |f| %>
-      <div class="form-group">
-        <%= text_field_tag "ingredient[ingredient_string]", nil, class: "form-control", placeholder: "New Ingredient"  %>
-      </div>
-      <%= f.submit t('ingredients.add_new'), class: "btn btn-primary" %>
-    <% end %>
+  <!-- Grocery List Panel -->
+  <article class="col-md-6 panel panel--grocery-list">
+    <header class="panel__header">
+      <h2>Grocery List</h2>
+    </header>
 
-    <div class="ingredients">
-      <table class="ingredients__table">
+    <section class="panel__content">
+      <!-- New ingredient form. -->
+      <%= form_for Ingredient.new, as: :ingredient, url: add_ingredient_to_grocery_list_path, html: { class: "form-inline" } do |f| %>
+        <div class="form-group">
+          <%= text_field_tag "ingredient[ingredient_string]", nil, class: "form-control", placeholder: "New Ingredient"  %>
+        </div>
+        <%= f.submit t('ingredients.add_new'), class: "btn btn-primary" %>
+      <% end %>
+
+      <!-- Grocery list of ingredients. -->
+      <table class="ingredient-table">
         <% @grocery_list.ingredients.each do |i| %>
-          <tr>
-            <td class="ingredients__table-data"><%= pluralize_ingredient(i).html_safe %></td>
-          </tr>
+          <tr class="ingredient-table__row"><%= pluralize_ingredient(i).html_safe %></tr>
         <% end %>
       </table>
-    </div>
-  </section>
-</article>
-<!-- Grocery List Panel -->
+    </section>
+  </article>
+  <!-- Grocery List Panel -->
 </div>

@@ -1,7 +1,8 @@
 .panel {
+  position: relative;
   margin: 0;
   padding: 1em;
-  border-radius: 0;
+  border-radius: 0px;
 
   &__header {
     padding: 0 1em;
@@ -26,9 +27,27 @@
 } // .panel--foodweek
 
 .panel--recipes {
-  border-right: 1px solid $text-color;
+  .btn {
+    position: absolute;
+    top: 2.5em;
+    right: 2em;
+    padding: 6px 24px;
+    font-family: $font-family-serif;
+    text-transform: uppercase;
+  }
 } // .panel--recipes
 
 .panel--grocery-list {
-  border-left: 1px solid $text-color;
+  border-left: 2px solid $text-color;
+
+  .form-inline {
+    position: absolute;
+    top: 2.5em;
+    right: 2em;
+
+    .btn {
+      font-family: $font-family-serif;
+      text-transform: uppercase;
+    }
+  }
 } // .panel--grocery-list
