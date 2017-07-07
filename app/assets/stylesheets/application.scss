@@ -2,7 +2,6 @@
 @import "compass";
 @import "bootstrap-sprockets";
 @import "bootstrap-customizations";
-@import "bootstrap-variables";
 @import "bootstrap";
 @import "helpers_and_mixins";
 @import "page-header";
@@ -23,7 +22,6 @@
 
 html, body, .em, .rem {
 	box-sizing: border-box;
-	font-family: 'Pontano Sans', sans-serif;
 	color: #333333;
 	font-size: 20px;
 	line-height: 1.5em; 
@@ -48,10 +46,6 @@ h3 {
 	font-size: 1.1em;
 }
 
-h1, h2, h3, h4, h5, h6	{
-	font-family: 'Kreon', serif;
-}
-
 h1	{
 	color: $brand-primary-darker;
 }
@@ -73,19 +67,13 @@ a:hover, a:focus {
 }
 
 .page-header__title {
-  font-family: 'Pontano Sans', sans-serif;
   font-size: 3em;
   font-weight: 700;
   margin: 0.2em 0;
 }
 
 em	{
-	font-family: 'Source Sans Pro', sans-serif;
 	padding-right: 0.1em;
-}
-
-a	{
-	color: $pop-color-dark;
 }
 
 .recipe-form {

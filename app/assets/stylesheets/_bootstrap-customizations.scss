@@ -111,8 +111,8 @@ $link-hover-decoration: underline !default;
 
 // Typography   ===============================================================
 
-$font-family-sans-serif: 'Roboto, Helvetica';
-$font-family-serif:      'Rubik'; // Not really a serif type but it's our only other font so why not.
+$font-family-sans-serif: "Roboto", Helvetica, Arial, sans-serif;
+$font-family-serif:      "Rubik"; // Not really a serif type but it's our only other font so why not.
 $font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 $font-family-base:       $font-family-sans-serif;
 
