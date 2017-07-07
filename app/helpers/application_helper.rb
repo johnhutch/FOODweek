@@ -33,8 +33,13 @@ module ApplicationHelper
       %Q|<div class="measurement">#{pluralize(i.numeric_amount, i.unit)}</div>
          <div class="name">#{i.name}</div>|
     else
-      %Q|<div class="measurement">#{i.numeric_amount}</div>
-         <div class="name">#{i.name.pluralize(i.numeric_amount)}</div>|
+      if i.name.split.count > 1
+        %Q|<div class="measurement">#{i.numeric_amount}</div>
+          <div class="name">#{i.name}</div>|
+      else
+        %Q|<div class="measurement">#{i.numeric_amount}</div>
+          <div class="name">#{i.name.pluralize(i.numeric_amount)}</div>|
+      end
     end
   end
 

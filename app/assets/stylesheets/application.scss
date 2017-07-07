@@ -13,11 +13,12 @@
 @import "grocery-list";
 @import "terms-conditions";
 @import "devise-shared-links";
+@import "hero";
 
 html, body, .em, .rem {
 	box-sizing: border-box;
 	font-family: 'Pontano Sans', sans-serif;
-	color: #525255;
+	color: #333333;
 	font-size: 20px;
 	line-height: 1.5em; 
 }
@@ -38,12 +39,16 @@ h2	{
 	color: $brand-primary;
 }
 
-h3	{
-	color: $bgfill-color-darker;
+h3, h4, h5, h6	{
+	color: $pop-color;
 }
 
-h4, h5, h6 {
-	color: $brand-success-light;
+a {
+  color: $pop-color;
+}
+
+a:hover, a:focus {
+  color: $brand-success;
 }
 
 .page-header__title {
@@ -57,10 +62,6 @@ h4, h5, h6 {
 em	{
 	font-family: 'Source Sans Pro', sans-serif;
 	padding-right: 0.1em;
-}
-
-a	{
-	color: $pop-color-dark;
 }
 */
 

@@ -42,6 +42,9 @@ group :development, :test do
   gem 'rb-readline', '~> 0.5.3' #add inline readline support for guard
   gem 'terminal-notifier-guard', '~> 1.7.0' # add mac os x notifications on guard runs. be sure to brew install terminal-notifier
   gem 'email_spec', '~> 2.1.0' # adds matchers for various email tests
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-stack_explorer'
 end
 
 group :development do
