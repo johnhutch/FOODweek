@@ -23,7 +23,7 @@
       <!-- User does not have a meal plan. -->
       <% else %>
         <div class="col-md-12">
-          <p>Ok, so, you've got some recipes. Now it's time to decide what you're gonna make this week. Let's <%= link_to "create a meal plan", new_meal_plan_path %> and pick out a few recipes. When you're done, you'll have a quick reference of your chosen recipes all week, as well as a handy shopping list for the grocery store.</p>
+          <p class="message--no-meal-plan">Ok, so, you've got some recipes. Now it's time to decide what you're gonna make this week. Let's <%= link_to "create a meal plan", new_meal_plan_path %> and pick out a few recipes. When you're done, you'll have a quick reference of your chosen recipes all week, as well as a handy shopping list for the grocery store.</p>
           <%= link_to "Create a Meal Plan", new_meal_plan_path, class: "btn btn-default" %>
         </div>
       <% end %>
@@ -57,8 +57,7 @@
 
       <!-- User does not have recipes. -->
       <% else %>
-        <p class="test__user-scen-1">Here is where you can build out a weekly meal plan. Peruse your recipes, pick a few for the week for reference, and you even get a handy shopping list for when you go grocery shopping.</p>
-        <p>But first... you need to <%= link_to t('dashboard.new_recipe'), new_recipe_path, class: "text--new_recipe" %> to you cookbook first.</p>
+        <p class="message--no-recipes">You need to <%= link_to t('dashboard.new_recipe'), new_recipe_path, class: "text--new_recipe" %> to you cookbook first.</p>
       <% end %>
     </section>
   </article>

@@ -6,43 +6,26 @@ RSpec.feature "User Dashboard", type: :feature do
   let(:mealplan1) { FactoryGirl.create(:meal_plan, user_id: user1.id) }
 
   describe "GET /dashboard/" do
-    it " tells you you don't have any meals in your meal plan" do 
+    it " displays the dashboard to a logged-in user." do 
       login(user1)
 
       visit dashboard_path
-      expect(page).to have_selector('h1.test-dash_header')
+      expect(page).to have_selector('.panel--foodweek')
     end
 
-    it " shows user scenario 1 for a user with no recipes or meal plans" do 
+    it " shows appropriate message for a user with no meal plan." do 
         login(user1)
 
         visit dashboard_path
-        expect(page).to have_selector('.test__user-scen-1')
+        expect(page).to have_selector('.message--no-meal-plan')
     end 
 
-    it " shows user scenario 2 for a user who has recipes, but no meal plans" do 
+    it " shows appropriate message for user with no recipes." do 
         recipe
         login(user1)
 
         visit dashboard_path
-        expect(page).to have_selector('.test__user-scen-2')
-    end 
-
-    it " shows user scenario 3 for a user who has recipes and a meal plan, but no recipes added to the meal plan" do 
-        recipe
-        mealplan1
-        login(user1)
-
-        visit dashboard_path
-        expect(page).to have_selector('.test__user-scen-3')
-    end 
-
-    it " shows user scenario 4 for a user  who has recipes, a meal plan, and recipes added to the meal plan" do
-        mealplan1.recipes << recipe
-        login(user1)
-
-        visit dashboard_path
-        expect(page).to have_selector('.test__user-scen-4')
+        expect(page).to have_selector('.message--no-meal-plan')
     end 
   end
 end
