@@ -27,7 +27,8 @@ en:
   dashboard:
     meal_plan_header: "My Current Meal Plan"
     new_recipe: "Add some recipes"
-    edit_mealplan: "Change My Recipes"
+    edit_mealplan: '<i class="glyphicon glyphicon-edit"></i> Change My Recipes'
+    clear_mealplan: '<i class="glyphicon glyphicon-remove"></i> Clear All'
   grocery_list:
     ingredient_added: "has been added to your grocery list"
     ingredient_removed: "has been removed from your grocery list"

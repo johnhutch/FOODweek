@@ -4,8 +4,8 @@
     <header class="component__header">
       <h2><%= t('dashboard.meal_plan_header') %></h2>
       <div class="component__header--controls">
-        <%= link_to t('dashboard.edit_mealplan'), edit_meal_plan_path(@meal_plan), class: "btn btn-xs btn-outline btn-primary" %>
-        <%= link_to "Clear All", new_meal_plan_path, class: "btn btn-xs btn-outline btn-default" %>
+        <%= link_to t('dashboard.edit_mealplan').html_safe, edit_meal_plan_path(@meal_plan), class: "btn btn-xs btn-outline btn-primary" %>
+        <%= link_to t('dashboard.clear_mealplan').html_safe, new_meal_plan_path, class: "btn btn-xs btn-outline btn-default" %>
       </div>
     </header>
 
