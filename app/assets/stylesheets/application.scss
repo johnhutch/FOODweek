@@ -32,15 +32,16 @@ h1, h2, h3, h4, h5, h6	{
 }
 
 h1	{
-	color: $brand-primary-darker;
-}
-
-h2	{
 	color: $brand-primary;
 }
 
-h3, h4, h5, h6	{
+h2	{
 	color: $pop-color;
+  text-shadow: 1px 1px $pop-color2;
+}
+
+h3, h4, h5, h6	{
+	color: $brand-success;
 }
 
 a {
