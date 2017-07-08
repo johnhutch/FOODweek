@@ -46,6 +46,11 @@ $brand-warning:             $pop-color2-dark;     // yellow
 $brand-danger:              $pop-color-dark;     // reddish
 $brand-inverse:             $gray-dark;          // confederate betrayal gray
 
+$default-box-shadow-color: $pop-color;
+$default-box-shadow-blur: 5px; // why is blur affecting what I expcted to be v offset? wtf. fix this on next commit
+$default-box-shadow-spread: 0px;
+$default-box-shadow-v-offset: 5px;
+$default-box-shadow-h-offset: 5px;
 
 
 // Options  ===================================================================

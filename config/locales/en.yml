@@ -25,7 +25,9 @@ en:
   nav:
     grocery_list: '<i class="glyphicon glyphicon-list-alt"></i> Grocery List'
   dashboard:
+    meal_plan_header: "My Current Meal Plan"
     new_recipe: "Add some recipes"
+    edit_mealplan: "Change My Recipes"
   grocery_list:
     ingredient_added: "has been added to your grocery list"
     ingredient_removed: "has been removed from your grocery list"

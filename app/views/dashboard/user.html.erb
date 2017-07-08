@@ -1,24 +1,23 @@
 <div class="row">
-  <!-- Foodweek Panel -->
-  <article class="col-md-12 panel panel--foodweek">
-    <header class="panel__header">
-      <h2>Foodweek</h2>
+  <!-- Foodweek component -->
+  <section class="col-md-12 component component--foodweek">
+    <header class="component__header">
+      <h2><%= t('dashboard.meal_plan_header') %></h2>
+      <div class="component__header--controls">
+        <%= link_to t('dashboard.edit_mealplan'), edit_meal_plan_path(@meal_plan), class: "btn btn-xs btn-outline btn-primary" %>
+        <%= link_to "Clear All", new_meal_plan_path, class: "btn btn-xs btn-outline btn-default" %>
+      </div>
     </header>
 
-    <section class="row panel__content">
+    <div class="row component__content">
       <!-- User has a meal plan. -->
       <% if @meal_plan.present? %>
         <% @meal_plan.recipes.each do |recipe| %>
-          <div class="col-md-4 recipe-brief">
+          <div class="col-md-3 recipe-brief">
               <img class="recipe-brief__image" src="https://www.washingtonian.com/wp-content/uploads/2015/03/fiveguys_1-11.jpg.optimal.jpg">
               <h3 class="recipe-brief__heading"><%= link_to recipe.name, recipe %></h3>
           </div>
         <% end %>
-        <div class="col-md-4">
-          <%= link_to "Edit this Foodweek", edit_meal_plan_path(@meal_plan), class: "btn btn-primary" %>
-          <%= link_to "View this Foodweek", @meal_plan, class: "btn btn-info" %>
-          <%= link_to "Clear All", new_meal_plan_path %>
-        </div>
 
       <!-- User does not have a meal plan. -->
       <% else %>
@@ -27,20 +26,20 @@
           <%= link_to "Create a Meal Plan", new_meal_plan_path, class: "btn btn-default" %>
         </div>
       <% end %>
-    </section>
-  </article>
-  <!-- Foodweek Panel -->
+    </div>
+  </section>
+  <!-- Foodweek component -->
 
-  <!-- Recipes Panel -->
-  <article class="col-md-6 panel panel--recipes">
-    <header class="panel__header">
+  <!-- Recipes component -->
+  <section class="col-md-6 component component--recipes">
+    <header class="component__header">
       <h2>Recipes</h2>
       <% link_to new_recipe_path, class: "btn btn-primary" do %>
         <span class="glyphicon glyphicon-plus"></span>
       <% end %>
     </header>
 
-    <section class="panel__content">
+    <div class="component__content">
       <!-- User has recipes. -->
       <% if current_user.recipes.present? %>
         <%= link_to "Add New", new_recipe_path, class: "btn btn-primary" %>
@@ -59,17 +58,17 @@
       <% else %>
         <p class="message--no-recipes">You need to <%= link_to t('dashboard.new_recipe'), new_recipe_path, class: "text--new_recipe" %> to you cookbook first.</p>
       <% end %>
-    </section>
-  </article>
-  <!-- Recipes Panel -->
+    </div>
+  </section>
+  <!-- Recipes component -->
 
-  <!-- Grocery List Panel -->
-  <article class="col-md-6 panel panel--grocery-list">
-    <header class="panel__header">
+  <!-- Grocery List component -->
+  <section class="col-md-6 component component--grocery-list">
+    <header class="component__header">
       <h2>Grocery List</h2>
     </header>
 
-    <section class="panel__content">
+    <div class="component__content">
       <!-- New ingredient form. -->
       <%= form_for Ingredient.new, as: :ingredient, url: add_ingredient_to_grocery_list_path, html: { class: "form-inline" } do |f| %>
         <div class="form-group">
@@ -84,7 +83,7 @@
           <tr class="ingredient-table__row"><%= pluralize_ingredient(i).html_safe %></tr>
         <% end %>
       </table>
-    </section>
-  </article>
-  <!-- Grocery List Panel -->
+    </div>
+  </section>
+  <!-- Grocery List component -->
 </div>

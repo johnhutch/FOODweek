@@ -1,7 +1,8 @@
 .recipe-brief {
   &__image {
     width: 100%;
-    border: 2px solid $text-color;
+    border: 3px solid white;
+    @include single-box-shadow;
   }
 
   &__heading {

@@ -1,35 +1,37 @@
-.panel {
+.component {
   position: relative;
   margin: 0;
   padding: 1em;
-  font-size: 16px;
-  border-radius: 0px;
+  border: 0px solid $gray-lighter;
 
   &__header {
     padding: 0 1em;
     color: $brand-primary;
     font-family: $font-family-serif;
     font-size: 1.25em;
+    @include clearfix;
+
+    h2 {
+      float: left;
+    }
+
+    &--controls {
+      float: right;
+      padding-top: .8em;
+      padding-left: 1em;
+    }
   }
 
   &__content {
     padding: 0 1em;
   }
-} // .panel
+} // .component
 
-.panel--foodweek {
-  border-bottom: 2px solid $text-color;
+.component--foodweek {
+  border-bottom-width: 1px;
+} // .component--foodweek
 
-  .btn {
-    margin-bottom: 1em;
-    width: 100%;
-    font-family: $font-family-serif;
-    line-height: 4.5em;
-    text-transform: uppercase;
-  }
-} // .panel--foodweek
-
-.panel--recipes {
+.component--recipes {
   .btn {
     position: absolute;
     top: 2.5em;
@@ -38,10 +40,10 @@
     font-family: $font-family-serif;
     text-transform: uppercase;
   }
-} // .panel--recipes
+} // .component--recipes
 
-.panel--grocery-list {
-  border-left: 2px solid $text-color;
+.component--grocery-list {
+  border-left-width: 1px;
 
   .form-inline {
     position: absolute;
@@ -57,4 +59,4 @@
       text-transform: uppercase;
     }
   }
-} // .panel--grocery-list
+} // .component--grocery-list
