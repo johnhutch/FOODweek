@@ -3,22 +3,22 @@
 
 // Color Schema Setup  ========================================================
 
-// blue
-$brand-primary: #273075;
+// barry bluejeans
+$brand-primary: #3E4354;
 $brand-primary-lighter: lighten( $brand-primary, 10%);
 $brand-primary-light: lighten( $brand-primary, 3%);
 $brand-primary-dark: darken( $brand-primary, 10%);
 $brand-primary-darker: darken( $brand-primary, 25%);
 
 // greenish
-$pop-color: #acbfa2; 
+$pop-color: #7CBF65; 
 $pop-color-lighter: lighten( $pop-color, 10%);
 $pop-color-light: lighten( $pop-color, 3%);
 $pop-color-dark: darken( $pop-color, 10%);
 $pop-color-darker: darken( $pop-color, 25%);
 
-// tannish
-$pop-color2: #a69888;
+// bold pink
+$pop-color2: #E63E62;
 $pop-color2-lighter: lighten( $pop-color2, 10%);
 $pop-color2-light: lighten( $pop-color2, 3%);
 $pop-color2-dark: darken( $pop-color2, 10%);
@@ -32,7 +32,7 @@ $bgfill-color-dark: darken( $bgfill-color, 10%);
 $bgfill-color-darker: darken( $bgfill-color, 25%);
 
 // pink
-$brand-success: #E63E62;
+$brand-success: #F28585;
 $brand-success-lighter: lighten( $brand-success, 10%);
 $brand-success-light: lighten( $brand-success, 3%);
 $brand-success-dark: darken( $brand-success, 10%);
@@ -235,7 +235,7 @@ $btn-box-shadow:                 inset 0 1px 0 rgba(255,255,255,.15), 0 1px 1px 
 $btn-active-box-shadow:          inset 0 3px 5px rgba(0,0,0,.125) !default;
 
 $btn-primary-color:              #fff !default;
-$btn-primary-bg:                 $brand-primary !default;     /* Confirm */
+$btn-primary-bg:                 $pop-color2 !default;     /* Confirm */
 $btn-primary-border:             $btn-primary-bg !default;
 
 $btn-secondary-color:            $gray-dark !default;
