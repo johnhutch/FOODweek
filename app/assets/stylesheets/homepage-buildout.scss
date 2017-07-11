@@ -1,0 +1,47 @@
+//---- Styles -----//
+
+.row__homepage {
+    margin: 2em 0 0 0;
+}
+
+.col__homepage--description {
+    margin: 0;
+    padding: 0 1em;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.col__homepage--icon {
+    margin: 0;
+    min-width: 185px;
+    min-height: 185px;
+    overflow: hidden;
+    position: relative;
+}
+
+.img__homepage--step12 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -80px 0 0 -80px;
+}
+
+.img__homepage--step3 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -85px 0 0 -85px;
+}
+
+// ----- Responsive Section ----- //
+
+//  Bootstrap...........Large (lg) 1200px or greater (Desktop)
+
+
+//  Bootstrap..........Medium (md)  992px or greater (Desktop)
+
+
+//  Bootstrap...........Small (sm)  768px or greater (Tablet)
+
+
+//  Bootstrap.....Extra Small (xs)  576px or greater (Phone) Bootstrap Default
