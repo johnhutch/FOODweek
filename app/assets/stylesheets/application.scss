@@ -13,7 +13,9 @@
 @import "grocery-list";
 @import "terms-conditions";
 @import "devise-shared-links";
+@import "homepage-buildout";
 @import "hero";
+
 
 html, body, .em, .rem {
 	box-sizing: border-box;
@@ -32,15 +34,15 @@ h1, h2, h3, h4, h5, h6	{
 }
 
 h1	{
-	color: $brand-primary-darker;
-}
-
-h2	{
 	color: $brand-primary;
 }
 
-h3, h4, h5, h6	{
+h2	{
 	color: $pop-color;
+}
+
+h3, h4, h5, h6	{
+	color: $brand-success;
 }
 
 a {
