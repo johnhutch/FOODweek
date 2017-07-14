@@ -74,6 +74,21 @@ RSpec.feature "Recipe", type: :feature do
       expect{click_button I18n.t('recipes.submit_new')}.to_not raise_error
       expect(page).to have_content I18n.t('recipes.new_saved')
     end
+
+    it " creates a new recipe, including an uploaded image." do
+      login(user1)
+
+      visit dashboard_path
+      click_link I18n.t('dashboard.new_recipe')
+
+      fill_in "recipe_name", :with => "My new recipe"
+      fill_in "recipe_time", :with => "30"
+      fill_in "recipe_ingredients_block", :with => "2 butts\n1 cup of butts"
+      fill_in "recipe_steps", :with => "fill cup of butts with the two butts"
+      attach_file("photo", "#{Rails.root}/spec/support/recipe_photos/chicken_bowl.jpg");
+      expect{click_button I18n.t('recipes.submit_new')}.to_not raise_error
+      expect(page.find('.recipe__photo')['src']).to have_content 'chicken_bowl.jpg'
+    end
   end
 
   describe "Edit Recipe Form" do
