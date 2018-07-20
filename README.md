@@ -1,14 +1,22 @@
 # FOODweek
 
+## Elevator Pitch
+
+Every week, I meal plan. Once a week, I sit down and pick out recipes for the next week whilst doing my food shopping on freshdirect. I may be checking what's on sale and googling for recipes. I may ask my wife or kids if they have they're in the mood for anything. I may just be sitting and wondering what haven't I made in a while. And in this process, I’m hopping between:
+
+1. conversations with family
+2. the grocery cart on fresh direct
+3. googling recipes
+4. a text file where I write out my meal plan
+
+FOODweek is an online tool to help you do all that in one place. Well, most of it. It can't talk to your kids. That's on you.
 
 # Purpose:
 
 1. Store your favorite recipes
 2. Use your stored recipes to create a weekly meal plan
 3. Have your weekly meal plan generate a shopping list for you
-
-
-We like food. We like lists. We don't like expending unecessary energy. Hopefully the convenience will one day offset the time, effort, and single malt we put into this bad boy.
+4. Future: integrate with online grocery services to help you order your shopping list
 
 ---
 
@@ -41,22 +49,11 @@ We like food. We like lists. We don't like expending unecessary energy. Hopefull
 * hit enter after the guard prompt to start it running
 * begin work to see errors as you change things
 
-# Things we will eventually cover:
+# Info we still need to add here
 
-* Ruby version: 2.3.1
-
-* System dependencies: 
-
-* Configuration:
-
-* Database creation:
-
-* Database initialization
-
-* How to run the test suite... super suite.
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions 
-
-* What we want on our pizza
+* System dependencies: how to not get stymied installing nokogiri or readline on mac
+* Configuration: how figaro grabs environment variables from heroku and set them up so your dev environment works
+* Database creation and init: what's in the db seeds
+* Running the test suite with guard
+* Utilizing best TDD practices
+* Heroku deployment instructions
