@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'the.foodweek.team@gmail.com'
+  default from: 'foodweek@swiftkickweb.com'
   layout 'mailer'
 end
