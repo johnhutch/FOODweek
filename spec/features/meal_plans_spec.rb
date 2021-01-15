@@ -10,6 +10,8 @@ RSpec.feature "Meal Plan", type: :feature do
                                      3 tbsp five-spice powder
                                      2 tbsp light muscovado sugar
                                      2 cloves garlic, finely chopped
+                                     pinch of cayenne 
+                                     splash of vinegar
                                      4 cm piece of fresh ginger, peeled and finely chopped
                                      6 1/2 lbs boneless pork shoulder, rind removed|) }
   let(:mealplan1) { FactoryGirl.create(:meal_plan, user: user1) }
@@ -29,6 +31,7 @@ RSpec.feature "Meal Plan", type: :feature do
         recipe
         recipe2
         recipe3
+        recipe4
 
         visit dashboard_path
         expect(page).to have_selector('.test__recipe-list-item')
@@ -36,6 +39,7 @@ RSpec.feature "Meal Plan", type: :feature do
         fill_in "meal_plan_name", :with => "My new meal plan"
         check("meal_plan_recipe_ids_" + recipe.id.to_s)
         check("meal_plan_recipe_ids_" + recipe3.id.to_s)
+        check("meal_plan_recipe_ids_" + recipe4.id.to_s)
         click_button('submit_meal_plan')
         expect(page).to have_selector('section.test__grocery-list')
         click_link ('test-nav-grocery_list')

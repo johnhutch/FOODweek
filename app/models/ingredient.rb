@@ -34,11 +34,19 @@ class Ingredient < ApplicationRecord
     self.unit.nil?
   end
 
+  def amountless?
+    self.amount != true
+  end
+
   def unitized_amount
-    if self.unit
-      Unit.new(self.amount + " " + self.unit)
+    if self.amount
+      if self.unit
+        Unit.new(self.amount + " " + self.unit)
+      else
+        self.amount.to_i
+      end
     else
-      self.amount.to_i
+      self.amount = 1
     end
   end
 
