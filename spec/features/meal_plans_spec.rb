@@ -10,8 +10,18 @@ RSpec.feature "Meal Plan", type: :feature do
                                      3 tbsp five-spice powder
                                      2 tbsp light muscovado sugar
                                      2 cloves garlic, finely chopped
-                                     pinch of cayenne 
+                                     pinch of cayenne pepper
                                      splash of vinegar
+                                     1 small bay leaf
+                                     splash of extra virgin olive oil
+                                     glug of soy sauce
+                                     1 chicken
+                                     1 leek
+                                     1 small cauliflower
+                                     1 shallot
+                                     a stalk of celery
+                                     pinches szechuan peppercorns
+                                     1 clove []
                                      4 cm piece of fresh ginger, peeled and finely chopped
                                      6 1/2 lbs boneless pork shoulder, rind removed|) }
   let(:mealplan1) { FactoryGirl.create(:meal_plan, user: user1) }

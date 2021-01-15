@@ -39,14 +39,14 @@ class Ingredient < ApplicationRecord
   end
 
   def unitized_amount
-    if self.amount
-      if self.unit
-        Unit.new(self.amount + " " + self.unit)
-      else
-        self.amount.to_i
-      end
-    else
+    unless self.amount
       self.amount = 1
+    end
+
+    if self.unit
+      Unit.new(self.amount + " " + self.unit)
+    else
+      self.amount.to_i
     end
   end
 
@@ -59,6 +59,9 @@ class Ingredient < ApplicationRecord
     # could probably be combined with sub(ing) with the math operator sent as a 
     # param but I don't know how to do that.
 
+    if self.amountless? || ing.amountless?
+      return false
+    end
     if self.unitless? || ing.unitless?
       if self.unitless? && ing.unitless?
         self.amount = Unit.new( self.unitized_amount + ing.unitized_amount ).scalar
@@ -74,10 +77,14 @@ class Ingredient < ApplicationRecord
   end
 
   def sub(ing)
-    # verify that ingredients are compatibly unit'd (or not unit'd) and then subtract
+    # verify that both ingredients actually have quantities, then verify that ingredients 
+    # are compatibly unit'd (or not unit'd) and then subtract.
     # could probably be combined with sum(ing) with the math operator sent as a param
     # but I don't know how to do that.
 
+    if self.amountless? || ing.amountless?
+      return false
+    end
     if self.unitless? || ing.unitless?
       if self.unitless? && ing.unitless?
         if (self.amount > ing.amount)
